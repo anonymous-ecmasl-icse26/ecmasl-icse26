@@ -1,0 +1,41 @@
+opam-version: "2.0"
+added: [
+  "doc/ppx_assert" {"D"}
+  "doc/ppx_assert/CHANGES.md" {"F:S2089T1752667666.27"}
+  "doc/ppx_assert/LICENSE.md" {"F:S1126T1752667666.27"}
+  "doc/ppx_assert/README.md" {"F:S2743T1752667666.27"}
+  "lib/ppx_assert" {"D"}
+  "lib/ppx_assert/META" {"F:S1289T1752667666.24"}
+  "lib/ppx_assert/dune-package" {"F:S2342T1752667666.24"}
+  "lib/ppx_assert/opam" {"F:S948T1752667666.24"}
+  "lib/ppx_assert/ppx.exe" {"F:S27973320T1752667666.27"}
+  "lib/ppx_assert/ppx_assert.a" {"F:S27756T1752667666.24"}
+  "lib/ppx_assert/ppx_assert.cma" {"F:S15900T1752667666.24"}
+  "lib/ppx_assert/ppx_assert.cmi" {"F:S192T1752667666.24"}
+  "lib/ppx_assert/ppx_assert.cmt" {"F:S22074T1752667666.24"}
+  "lib/ppx_assert/ppx_assert.cmti" {"F:S2039T1752667666.24"}
+  "lib/ppx_assert/ppx_assert.cmx" {"F:S4672T1752667666.24"}
+  "lib/ppx_assert/ppx_assert.cmxa" {"F:S4524T1752667666.24"}
+  "lib/ppx_assert/ppx_assert.cmxs" {"F:S43192T1752667666.27"}
+  "lib/ppx_assert/ppx_assert.ml" {"F:S2361T1752667666.24"}
+  "lib/ppx_assert/ppx_assert.mli" {"F:S0T1752667666.24"}
+  "lib/ppx_assert/runtime-lib" {"D"}
+  "lib/ppx_assert/runtime-lib/ppx_assert_lib.a" {"F:S22112T1752667666.25"}
+  "lib/ppx_assert/runtime-lib/ppx_assert_lib.cma" {"F:S15917T1752667666.25"}
+  "lib/ppx_assert/runtime-lib/ppx_assert_lib.cmi" {"F:S229T1752667666.25"}
+  "lib/ppx_assert/runtime-lib/ppx_assert_lib.cmt" {"F:S1619T1752667666.25"}
+  "lib/ppx_assert/runtime-lib/ppx_assert_lib.cmx" {"F:S133T1752667666.25"}
+  "lib/ppx_assert/runtime-lib/ppx_assert_lib.cmxa" {"F:S4790T1752667666.25"}
+  "lib/ppx_assert/runtime-lib/ppx_assert_lib.cmxs" {"F:S44608T1752667666.27"}
+  "lib/ppx_assert/runtime-lib/ppx_assert_lib.ml" {"F:S107T1752667666.25"}
+  "lib/ppx_assert/runtime-lib/ppx_assert_lib__Runtime.cmi"
+    {"F:S5401T1752667666.25"}
+  "lib/ppx_assert/runtime-lib/ppx_assert_lib__Runtime.cmt"
+    {"F:S22942T1752667666.25"}
+  "lib/ppx_assert/runtime-lib/ppx_assert_lib__Runtime.cmti"
+    {"F:S13985T1752667666.25"}
+  "lib/ppx_assert/runtime-lib/ppx_assert_lib__Runtime.cmx"
+    {"F:S5561T1752667666.25"}
+  "lib/ppx_assert/runtime-lib/runtime.ml" {"F:S3018T1752667666.25"}
+  "lib/ppx_assert/runtime-lib/runtime.mli" {"F:S1175T1752667666.25"}
+]

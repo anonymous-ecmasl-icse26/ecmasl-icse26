@@ -1,0 +1,19 @@
+opam-version: "2.0"
+added: [
+  "doc/prelude" {"D"}
+  "doc/prelude/CHANGES.md" {"F:S449T1752667627.44"}
+  "doc/prelude/LICENSE.md" {"F:S34354T1752667627.44"}
+  "doc/prelude/README.md" {"F:S1109T1752667627.44"}
+  "lib/prelude" {"D"}
+  "lib/prelude/META" {"F:S154T1752667627.44"}
+  "lib/prelude/dune-package" {"F:S623T1752667627.44"}
+  "lib/prelude/opam" {"F:S934T1752667627.44"}
+  "lib/prelude/prelude.a" {"F:S75348T1752667627.44"}
+  "lib/prelude/prelude.cma" {"F:S87951T1752667627.44"}
+  "lib/prelude/prelude.cmi" {"F:S45676T1752667627.44"}
+  "lib/prelude/prelude.cmt" {"F:S183830T1752667627.44"}
+  "lib/prelude/prelude.cmx" {"F:S55885T1752667627.44"}
+  "lib/prelude/prelude.cmxa" {"F:S1356T1752667627.44"}
+  "lib/prelude/prelude.cmxs" {"F:S62904T1752667627.44"}
+  "lib/prelude/prelude.ml" {"F:S10158T1752667627.44"}
+]

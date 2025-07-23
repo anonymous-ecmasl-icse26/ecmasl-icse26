@@ -1,0 +1,514 @@
+(lang dune 3.19)
+(name smtml)
+(sections (lib .) (libexec .) (bin ../../bin) (doc ../../doc/smtml))
+(files
+ (lib
+  (.private/smtml__Lexer.cmi
+   .private/smtml__Lexer.cmt
+   .private/smtml__Parser.cmi
+   .private/smtml__Parser.cmt
+   .private/smtml__Parser.cmti
+   META
+   altergo_mappings.ml
+   altergo_mappings.mli
+   ast.ml
+   ast.mli
+   binder.ml
+   binder.mli
+   bitvector.ml
+   bitvector.mli
+   bitwuzla_mappings.ml
+   bitwuzla_mappings.mli
+   cache.ml
+   cache.mli
+   cache_intf.ml
+   colibri2_mappings.ml
+   colibri2_mappings.mli
+   compile.ml
+   compile.mli
+   constructors_intf.ml
+   cvc5_mappings.ml
+   cvc5_mappings.mli
+   dolmenexpr_to_expr.ml
+   dolmenexpr_to_expr.mli
+   dune-package
+   eval.ml
+   eval.mli
+   expr.ml
+   expr.mli
+   interpret.ml
+   interpret.mli
+   interpret_intf.ml
+   lexer.ml
+   log.ml
+   logic.ml
+   logic.mli
+   mappings.ml
+   mappings_intf.ml
+   model.ml
+   model.mli
+   num.ml
+   num.mli
+   op_intf.ml
+   opam
+   optimizer.ml
+   optimizer.mli
+   optimizer_intf.ml
+   params.ml
+   params.mli
+   parse.ml
+   parse.mli
+   parser.ml
+   parser.mli
+   prelude/smtml_prelude.a
+   prelude/smtml_prelude.cma
+   prelude/smtml_prelude.cmi
+   prelude/smtml_prelude.cmt
+   prelude/smtml_prelude.cmx
+   prelude/smtml_prelude.cmxa
+   prelude/smtml_prelude.ml
+   rewrite.ml
+   smtlib.ml
+   smtml.a
+   smtml.cma
+   smtml.cmi
+   smtml.cmt
+   smtml.cmx
+   smtml.cmxa
+   smtml.ml
+   smtml__Altergo_mappings.cmi
+   smtml__Altergo_mappings.cmt
+   smtml__Altergo_mappings.cmti
+   smtml__Altergo_mappings.cmx
+   smtml__Ast.cmi
+   smtml__Ast.cmt
+   smtml__Ast.cmti
+   smtml__Ast.cmx
+   smtml__Binder.cmi
+   smtml__Binder.cmt
+   smtml__Binder.cmti
+   smtml__Binder.cmx
+   smtml__Bitvector.cmi
+   smtml__Bitvector.cmt
+   smtml__Bitvector.cmti
+   smtml__Bitvector.cmx
+   smtml__Bitwuzla_mappings.cmi
+   smtml__Bitwuzla_mappings.cmt
+   smtml__Bitwuzla_mappings.cmti
+   smtml__Bitwuzla_mappings.cmx
+   smtml__Cache.cmi
+   smtml__Cache.cmt
+   smtml__Cache.cmti
+   smtml__Cache.cmx
+   smtml__Cache_intf.cmi
+   smtml__Cache_intf.cmt
+   smtml__Cache_intf.cmx
+   smtml__Colibri2_mappings.cmi
+   smtml__Colibri2_mappings.cmt
+   smtml__Colibri2_mappings.cmti
+   smtml__Colibri2_mappings.cmx
+   smtml__Compile.cmi
+   smtml__Compile.cmt
+   smtml__Compile.cmti
+   smtml__Compile.cmx
+   smtml__Constructors_intf.cmi
+   smtml__Constructors_intf.cmt
+   smtml__Constructors_intf.cmx
+   smtml__Cvc5_mappings.cmi
+   smtml__Cvc5_mappings.cmt
+   smtml__Cvc5_mappings.cmti
+   smtml__Cvc5_mappings.cmx
+   smtml__Dolmenexpr_to_expr.cmi
+   smtml__Dolmenexpr_to_expr.cmt
+   smtml__Dolmenexpr_to_expr.cmti
+   smtml__Dolmenexpr_to_expr.cmx
+   smtml__Eval.cmi
+   smtml__Eval.cmt
+   smtml__Eval.cmti
+   smtml__Eval.cmx
+   smtml__Expr.cmi
+   smtml__Expr.cmt
+   smtml__Expr.cmti
+   smtml__Expr.cmx
+   smtml__Interpret.cmi
+   smtml__Interpret.cmt
+   smtml__Interpret.cmti
+   smtml__Interpret.cmx
+   smtml__Interpret_intf.cmi
+   smtml__Interpret_intf.cmt
+   smtml__Interpret_intf.cmx
+   smtml__Lexer.cmx
+   smtml__Log.cmi
+   smtml__Log.cmt
+   smtml__Log.cmx
+   smtml__Logic.cmi
+   smtml__Logic.cmt
+   smtml__Logic.cmti
+   smtml__Logic.cmx
+   smtml__Mappings.cmi
+   smtml__Mappings.cmt
+   smtml__Mappings.cmx
+   smtml__Mappings_intf.cmi
+   smtml__Mappings_intf.cmt
+   smtml__Mappings_intf.cmx
+   smtml__Model.cmi
+   smtml__Model.cmt
+   smtml__Model.cmti
+   smtml__Model.cmx
+   smtml__Num.cmi
+   smtml__Num.cmt
+   smtml__Num.cmti
+   smtml__Num.cmx
+   smtml__Op_intf.cmi
+   smtml__Op_intf.cmt
+   smtml__Op_intf.cmx
+   smtml__Optimizer.cmi
+   smtml__Optimizer.cmt
+   smtml__Optimizer.cmti
+   smtml__Optimizer.cmx
+   smtml__Optimizer_intf.cmi
+   smtml__Optimizer_intf.cmt
+   smtml__Optimizer_intf.cmx
+   smtml__Params.cmi
+   smtml__Params.cmt
+   smtml__Params.cmti
+   smtml__Params.cmx
+   smtml__Parse.cmi
+   smtml__Parse.cmt
+   smtml__Parse.cmti
+   smtml__Parse.cmx
+   smtml__Parser.cmx
+   smtml__Rewrite.cmi
+   smtml__Rewrite.cmt
+   smtml__Rewrite.cmx
+   smtml__Smtlib.cmi
+   smtml__Smtlib.cmt
+   smtml__Smtlib.cmx
+   smtml__Solver.cmi
+   smtml__Solver.cmt
+   smtml__Solver.cmti
+   smtml__Solver.cmx
+   smtml__Solver_dispatcher.cmi
+   smtml__Solver_dispatcher.cmt
+   smtml__Solver_dispatcher.cmti
+   smtml__Solver_dispatcher.cmx
+   smtml__Solver_intf.cmi
+   smtml__Solver_intf.cmt
+   smtml__Solver_intf.cmx
+   smtml__Solver_mode.cmi
+   smtml__Solver_mode.cmt
+   smtml__Solver_mode.cmti
+   smtml__Solver_mode.cmx
+   smtml__Solver_type.cmi
+   smtml__Solver_type.cmt
+   smtml__Solver_type.cmti
+   smtml__Solver_type.cmx
+   smtml__Statistics.cmi
+   smtml__Statistics.cmt
+   smtml__Statistics.cmti
+   smtml__Statistics.cmx
+   smtml__Symbol.cmi
+   smtml__Symbol.cmt
+   smtml__Symbol.cmti
+   smtml__Symbol.cmx
+   smtml__Ty.cmi
+   smtml__Ty.cmt
+   smtml__Ty.cmti
+   smtml__Ty.cmx
+   smtml__Utils.cmi
+   smtml__Utils.cmt
+   smtml__Utils.cmx
+   smtml__Value.cmi
+   smtml__Value.cmt
+   smtml__Value.cmti
+   smtml__Value.cmx
+   smtml__Z3_mappings.cmi
+   smtml__Z3_mappings.cmt
+   smtml__Z3_mappings.cmti
+   smtml__Z3_mappings.cmx
+   solver.ml
+   solver.mli
+   solver_dispatcher.ml
+   solver_dispatcher.mli
+   solver_intf.ml
+   solver_mode.ml
+   solver_mode.mli
+   solver_type.ml
+   solver_type.mli
+   statistics.ml
+   statistics.mli
+   symbol.ml
+   symbol.mli
+   ty.ml
+   ty.mli
+   utils.ml
+   value.ml
+   value.mli
+   z3_mappings.ml
+   z3_mappings.mli))
+ (libexec (prelude/smtml_prelude.cmxs smtml.cmxs))
+ (bin (smtml))
+ (doc
+  (CHANGES.md LICENSE README.md odoc-pages/examples.mld odoc-pages/index.mld)))
+(library
+ (name smtml)
+ (kind normal)
+ (archives (byte smtml.cma) (native smtml.cmxa))
+ (plugins (byte smtml.cma) (native smtml.cmxs))
+ (native_archives smtml.a)
+ (requires
+  bos
+  cmdliner
+  dolmen
+  dolmen_type
+  hc
+  fpath
+  menhirLib
+  ocaml_intrinsics
+  patricia-tree
+  scfg
+  smtml.prelude
+  yojson
+  zarith)
+ (main_module_name Smtml)
+ (modes byte native)
+ (obj_dir (private_dir .private))
+ (modules
+  (wrapped
+   (group
+    (alias
+     (obj_name smtml)
+     (visibility public)
+     (kind alias)
+     (source (path Smtml) (impl (path smtml.ml-gen))))
+    (name Smtml)
+    (modules
+     (module
+      (obj_name smtml__Altergo_mappings)
+      (visibility public)
+      (source
+       (path Altergo_mappings)
+       (intf (path altergo_mappings.mli))
+       (impl (path altergo_mappings.ml))))
+     (module
+      (obj_name smtml__Ast)
+      (visibility public)
+      (source (path Ast) (intf (path ast.mli)) (impl (path ast.ml))))
+     (module
+      (obj_name smtml__Binder)
+      (visibility public)
+      (source (path Binder) (intf (path binder.mli)) (impl (path binder.ml))))
+     (module
+      (obj_name smtml__Bitvector)
+      (visibility public)
+      (source
+       (path Bitvector)
+       (intf (path bitvector.mli))
+       (impl (path bitvector.ml))))
+     (module
+      (obj_name smtml__Bitwuzla_mappings)
+      (visibility public)
+      (source
+       (path Bitwuzla_mappings)
+       (intf (path bitwuzla_mappings.mli))
+       (impl (path bitwuzla_mappings.ml))))
+     (module
+      (obj_name smtml__Cache)
+      (visibility public)
+      (source (path Cache) (intf (path cache.mli)) (impl (path cache.ml))))
+     (module
+      (obj_name smtml__Cache_intf)
+      (visibility public)
+      (source (path Cache_intf) (impl (path cache_intf.ml))))
+     (module
+      (obj_name smtml__Colibri2_mappings)
+      (visibility public)
+      (source
+       (path Colibri2_mappings)
+       (intf (path colibri2_mappings.mli))
+       (impl (path colibri2_mappings.ml))))
+     (module
+      (obj_name smtml__Compile)
+      (visibility public)
+      (source
+       (path Compile)
+       (intf (path compile.mli))
+       (impl (path compile.ml))))
+     (module
+      (obj_name smtml__Constructors_intf)
+      (visibility public)
+      (source (path Constructors_intf) (impl (path constructors_intf.ml))))
+     (module
+      (obj_name smtml__Cvc5_mappings)
+      (visibility public)
+      (source
+       (path Cvc5_mappings)
+       (intf (path cvc5_mappings.mli))
+       (impl (path cvc5_mappings.ml))))
+     (module
+      (obj_name smtml__Dolmenexpr_to_expr)
+      (visibility public)
+      (source
+       (path Dolmenexpr_to_expr)
+       (intf (path dolmenexpr_to_expr.mli))
+       (impl (path dolmenexpr_to_expr.ml))))
+     (module
+      (obj_name smtml__Eval)
+      (visibility public)
+      (source (path Eval) (intf (path eval.mli)) (impl (path eval.ml))))
+     (module
+      (obj_name smtml__Expr)
+      (visibility public)
+      (source (path Expr) (intf (path expr.mli)) (impl (path expr.ml))))
+     (module
+      (obj_name smtml__Interpret)
+      (visibility public)
+      (source
+       (path Interpret)
+       (intf (path interpret.mli))
+       (impl (path interpret.ml))))
+     (module
+      (obj_name smtml__Interpret_intf)
+      (visibility public)
+      (source (path Interpret_intf) (impl (path interpret_intf.ml))))
+     (module
+      (obj_name smtml__Lexer)
+      (visibility private)
+      (source (path Lexer) (impl (path lexer.ml))))
+     (module
+      (obj_name smtml__Log)
+      (visibility public)
+      (source (path Log) (impl (path log.ml))))
+     (module
+      (obj_name smtml__Logic)
+      (visibility public)
+      (source (path Logic) (intf (path logic.mli)) (impl (path logic.ml))))
+     (module
+      (obj_name smtml__Mappings)
+      (visibility public)
+      (source (path Mappings) (impl (path mappings.ml))))
+     (module
+      (obj_name smtml__Mappings_intf)
+      (visibility public)
+      (source (path Mappings_intf) (impl (path mappings_intf.ml))))
+     (module
+      (obj_name smtml__Model)
+      (visibility public)
+      (source (path Model) (intf (path model.mli)) (impl (path model.ml))))
+     (module
+      (obj_name smtml__Num)
+      (visibility public)
+      (source (path Num) (intf (path num.mli)) (impl (path num.ml))))
+     (module
+      (obj_name smtml__Op_intf)
+      (visibility public)
+      (source (path Op_intf) (impl (path op_intf.ml))))
+     (module
+      (obj_name smtml__Optimizer)
+      (visibility public)
+      (source
+       (path Optimizer)
+       (intf (path optimizer.mli))
+       (impl (path optimizer.ml))))
+     (module
+      (obj_name smtml__Optimizer_intf)
+      (visibility public)
+      (source (path Optimizer_intf) (impl (path optimizer_intf.ml))))
+     (module
+      (obj_name smtml__Params)
+      (visibility public)
+      (source (path Params) (intf (path params.mli)) (impl (path params.ml))))
+     (module
+      (obj_name smtml__Parse)
+      (visibility public)
+      (source (path Parse) (intf (path parse.mli)) (impl (path parse.ml))))
+     (module
+      (obj_name smtml__Parser)
+      (visibility private)
+      (source (path Parser) (intf (path parser.mli)) (impl (path parser.ml))))
+     (module
+      (obj_name smtml__Rewrite)
+      (visibility public)
+      (source (path Rewrite) (impl (path rewrite.ml))))
+     (module
+      (obj_name smtml__Smtlib)
+      (visibility public)
+      (source (path Smtlib) (impl (path smtlib.ml))))
+     (module
+      (obj_name smtml__Solver)
+      (visibility public)
+      (source (path Solver) (intf (path solver.mli)) (impl (path solver.ml))))
+     (module
+      (obj_name smtml__Solver_dispatcher)
+      (visibility public)
+      (source
+       (path Solver_dispatcher)
+       (intf (path solver_dispatcher.mli))
+       (impl (path solver_dispatcher.ml))))
+     (module
+      (obj_name smtml__Solver_intf)
+      (visibility public)
+      (source (path Solver_intf) (impl (path solver_intf.ml))))
+     (module
+      (obj_name smtml__Solver_mode)
+      (visibility public)
+      (source
+       (path Solver_mode)
+       (intf (path solver_mode.mli))
+       (impl (path solver_mode.ml))))
+     (module
+      (obj_name smtml__Solver_type)
+      (visibility public)
+      (source
+       (path Solver_type)
+       (intf (path solver_type.mli))
+       (impl (path solver_type.ml))))
+     (module
+      (obj_name smtml__Statistics)
+      (visibility public)
+      (source
+       (path Statistics)
+       (intf (path statistics.mli))
+       (impl (path statistics.ml))))
+     (module
+      (obj_name smtml__Symbol)
+      (visibility public)
+      (source (path Symbol) (intf (path symbol.mli)) (impl (path symbol.ml))))
+     (module
+      (obj_name smtml__Ty)
+      (visibility public)
+      (source (path Ty) (intf (path ty.mli)) (impl (path ty.ml))))
+     (module
+      (obj_name smtml__Utils)
+      (visibility public)
+      (source (path Utils) (impl (path utils.ml))))
+     (module
+      (obj_name smtml__Value)
+      (visibility public)
+      (source (path Value) (intf (path value.mli)) (impl (path value.ml))))
+     (module
+      (obj_name smtml__Z3_mappings)
+      (visibility public)
+      (source
+       (path Z3_mappings)
+       (intf (path z3_mappings.mli))
+       (impl (path z3_mappings.ml))))))
+   (wrapped true))))
+(library
+ (name smtml.prelude)
+ (kind normal)
+ (archives
+  (byte prelude/smtml_prelude.cma)
+  (native prelude/smtml_prelude.cmxa))
+ (plugins
+  (byte prelude/smtml_prelude.cma)
+  (native prelude/smtml_prelude.cmxs))
+ (native_archives prelude/smtml_prelude.a)
+ (requires prelude)
+ (main_module_name Smtml_prelude)
+ (modes byte native)
+ (modules
+  (singleton
+   (obj_name smtml_prelude)
+   (visibility public)
+   (source (path Smtml_prelude) (impl (path prelude/smtml_prelude.ml))))))

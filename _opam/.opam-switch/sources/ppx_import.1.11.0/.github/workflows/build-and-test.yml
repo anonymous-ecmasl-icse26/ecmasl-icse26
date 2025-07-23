@@ -1,0 +1,55 @@
+name: Build and Test
+
+on:
+  push:
+    branches: [ master, v1.x ]
+  pull_request:
+    branches: [ master, v1.x ]
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          # - macos-latest
+          # - windows-latest
+        ocaml-compiler:
+          - 4.05.x
+          - 4.06.x
+          - 4.07.x
+          - 4.08.x
+          - 4.09.x
+          - 4.10.x
+          - 4.11.x
+          - 4.12.x
+          - 4.13.x
+          - 4.14.x
+          - 5.0.x
+          - 5.1.x
+          - 5.2.x
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Use OCaml ${{ matrix.ocaml-compiler }}
+        uses: ocaml/setup-ocaml@v2
+        with:
+          ocaml-compiler: ${{ matrix.ocaml-compiler }}
+          dune-cache: ${{ matrix.os != 'macos-latest' }}
+          opam-repositories: |
+            default: https://github.com/ocaml/opam-repository.git
+            beta: https://github.com/ocaml/ocaml-beta-repository.git
+
+      - name: Install opam packages
+        run: opam install . --deps-only --yes --with-test
+
+      - name: Run build
+        run: opam exec -- make build
+
+      - name: Run tests
+        run: opam exec -- make test

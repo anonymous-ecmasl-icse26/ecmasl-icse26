@@ -1,0 +1,4 @@
+/* Dumping random utilities I create here. In the future, try to get rid of these */
+function isSymbolicString(o) {
+  return extern is_symbolic(ToString(o));
+}

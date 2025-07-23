@@ -1,0 +1,89 @@
+/* Copyright (C) 2022-2025 formalsec programmers
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+function Scope(thisBinding, globalObject) {
+  scope := {
+    store: {},
+    parent: null,
+    thisBinding: thisBinding,
+    globalObject: globalObject
+  };
+  return scope;
+}
+
+
+function _initScopeVdecls(scope, vdecls) {
+  foreach(vdecl : vdecls)
+    scope.store[vdecl] := 'undefined;
+  return;
+}
+
+function _initScopeFdecls(scope, fdecls) {
+  foreach(fdecl : fdecls) {
+    match fdecl with
+    | { type: "FunctionDeclaration", id: id, params: params, body: code } ->
+        match id with
+        | { type: "Identifier", name: name } -> scope.store[name] := FunctionObject(name, params, code, scope);
+        | default -> raiseError ("Unsuported function identifier", id);
+    | default -> raiseError ("Unsuported function declaration", fdecl);
+  }
+  return;
+}
+
+function initScope(scope, vdecls, fdecls) {
+  _initScopeVdecls(scope, vdecls);
+  _initScopeFdecls(scope, fdecls); 
+  return;
+}
+
+
+function getThisBinding(scope) {
+  return scope.thisBinding;
+}
+
+function resolveName(scope, name) {
+  if (name in_obj scope.store) {
+    return scope.store[name];
+  } else {
+    parent := scope.parent;
+    if (parent == null) {
+      globalObject := scope.globalObject;
+      return {globalObject.resolveProperty}(globalObject, name);
+    } else {
+      return resolveName(parent, name);
+    }
+  }
+}
+
+function updateScope(currScope, scope, name, val) {
+  if (name in_obj scope.store) {
+    scope.store[name] := val;
+  } else {
+    parent := scope.parent;
+    if (parent == null) {
+      currScope.store[name] := val;
+    } else {
+      updateScope(currScope, parent, name, val);
+    }
+  } 
+  return;
+}
+
+function extendScope(scope, thisBinding) {
+  newScope := Scope(thisBinding, scope.globalObject);
+  newScope.parent := scope;
+  return newScope;
+}

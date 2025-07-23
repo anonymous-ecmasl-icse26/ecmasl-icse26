@@ -1,0 +1,29 @@
+opam-version: "2.0"
+added: [
+  "doc/jsonrpc" {"D"}
+  "doc/jsonrpc/CHANGES.md" {"F:S21289T1752671392.39"}
+  "doc/jsonrpc/LICENSE.md" {"F:S818T1752671392.39"}
+  "doc/jsonrpc/README.md" {"F:S16097T1752671392.39"}
+  "lib/jsonrpc" {"D"}
+  "lib/jsonrpc/META" {"F:S173T1752671392.39"}
+  "lib/jsonrpc/dune-package" {"F:S1247T1752671392.39"}
+  "lib/jsonrpc/import.ml" {"F:S1239T1752671392.39"}
+  "lib/jsonrpc/jsonrpc.a" {"F:S56894T1752671392.39"}
+  "lib/jsonrpc/jsonrpc.cma" {"F:S30728T1752671392.39"}
+  "lib/jsonrpc/jsonrpc.cmi" {"F:S3032T1752671392.39"}
+  "lib/jsonrpc/jsonrpc.cmt" {"F:S40891T1752671392.39"}
+  "lib/jsonrpc/jsonrpc.cmti" {"F:S13977T1752671392.39"}
+  "lib/jsonrpc/jsonrpc.cmx" {"F:S3334T1752671392.39"}
+  "lib/jsonrpc/jsonrpc.cmxa" {"F:S1393T1752671392.39"}
+  "lib/jsonrpc/jsonrpc.cmxs" {"F:S57808T1752671392.39"}
+  "lib/jsonrpc/jsonrpc.ml" {"F:S8950T1752671392.39"}
+  "lib/jsonrpc/jsonrpc.mli" {"F:S2571T1752671392.39"}
+  "lib/jsonrpc/jsonrpc__.cmi" {"F:S205T1752671392.39"}
+  "lib/jsonrpc/jsonrpc__.cmt" {"F:S1573T1752671392.39"}
+  "lib/jsonrpc/jsonrpc__.cmx" {"F:S120T1752671392.39"}
+  "lib/jsonrpc/jsonrpc__.ml" {"F:S90T1752671392.39"}
+  "lib/jsonrpc/jsonrpc__Import.cmi" {"F:S1375T1752671392.39"}
+  "lib/jsonrpc/jsonrpc__Import.cmt" {"F:S9298T1752671392.39"}
+  "lib/jsonrpc/jsonrpc__Import.cmx" {"F:S843T1752671392.39"}
+  "lib/jsonrpc/opam" {"F:S1076T1752671392.39"}
+]

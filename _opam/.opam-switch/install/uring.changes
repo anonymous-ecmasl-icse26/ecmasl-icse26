@@ -1,0 +1,45 @@
+opam-version: "2.0"
+added: [
+  "doc/uring" {"D"}
+  "doc/uring/CHANGES.md" {"F:S3752T1752667639.36"}
+  "doc/uring/LICENSE.md" {"F:S781T1752667639.36"}
+  "doc/uring/README.md" {"F:S4379T1752667639.36"}
+  "lib/stublibs/dlluring.so" {"F:S25768T1752667639.36"}
+  "lib/stublibs/dlluring_stubs.so" {"F:S133520T1752667639.36"}
+  "lib/uring" {"D"}
+  "lib/uring/META" {"F:S186T1752667639.36"}
+  "lib/uring/config.ml" {"F:S3358T1752667639.36"}
+  "lib/uring/dune-package" {"F:S1978T1752667639.36"}
+  "lib/uring/heap.ml" {"F:S5313T1752667639.36"}
+  "lib/uring/heap.mli" {"F:S1966T1752667639.36"}
+  "lib/uring/liburing.a" {"F:S23142T1752667639.36"}
+  "lib/uring/liburing_stubs.a" {"F:S236726T1752667639.36"}
+  "lib/uring/opam" {"F:S1415T1752667639.36"}
+  "lib/uring/region.ml" {"F:S1211T1752667639.36"}
+  "lib/uring/region.mli" {"F:S2451T1752667639.36"}
+  "lib/uring/uring.a" {"F:S166978T1752667639.36"}
+  "lib/uring/uring.cma" {"F:S88203T1752667639.36"}
+  "lib/uring/uring.cmi" {"F:S8394T1752667639.36"}
+  "lib/uring/uring.cmt" {"F:S117756T1752667639.36"}
+  "lib/uring/uring.cmti" {"F:S58438T1752667639.36"}
+  "lib/uring/uring.cmx" {"F:S15939T1752667639.36"}
+  "lib/uring/uring.cmxa" {"F:S3574T1752667639.36"}
+  "lib/uring/uring.cmxs" {"F:S291840T1752667639.36"}
+  "lib/uring/uring.ml" {"F:S25479T1752667639.36"}
+  "lib/uring/uring.mli" {"F:S27583T1752667639.36"}
+  "lib/uring/uring__.cmi" {"F:S311T1752667639.36"}
+  "lib/uring/uring__.cmt" {"F:S2071T1752667639.36"}
+  "lib/uring/uring__.cmx" {"F:S148T1752667639.36"}
+  "lib/uring/uring__.ml" {"F:S204T1752667639.36"}
+  "lib/uring/uring__Config.cmi" {"F:S2962T1752667639.36"}
+  "lib/uring/uring__Config.cmt" {"F:S19860T1752667639.36"}
+  "lib/uring/uring__Config.cmx" {"F:S1044T1752667639.36"}
+  "lib/uring/uring__Heap.cmi" {"F:S759T1752667639.36"}
+  "lib/uring/uring__Heap.cmt" {"F:S21011T1752667639.36"}
+  "lib/uring/uring__Heap.cmti" {"F:S5263T1752667639.36"}
+  "lib/uring/uring__Heap.cmx" {"F:S1645T1752667639.36"}
+  "lib/uring/uring__Region.cmi" {"F:S1151T1752667639.36"}
+  "lib/uring/uring__Region.cmt" {"F:S10884T1752667639.36"}
+  "lib/uring/uring__Region.cmti" {"F:S6007T1752667639.36"}
+  "lib/uring/uring__Region.cmx" {"F:S1698T1752667639.36"}
+]

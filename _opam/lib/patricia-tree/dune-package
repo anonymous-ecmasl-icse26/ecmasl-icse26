@@ -1,0 +1,113 @@
+(lang dune 3.19)
+(name patricia-tree)
+(version v0.11.0)
+(sections
+ (lib .)
+ (libexec .)
+ (doc ../../doc/patricia-tree)
+ (stublibs ../stublibs))
+(files
+ (lib
+  (META
+   PatriciaTree.a
+   PatriciaTree.cma
+   PatriciaTree.cmxa
+   PatriciaTree.ml
+   PatriciaTree.mli
+   dune-package
+   functors.ml
+   functors.mli
+   ints.ml
+   ints.mli
+   key_value.ml
+   key_value.mli
+   libPatriciaTree_stubs.a
+   nodes.ml
+   nodes.mli
+   opam
+   patriciaTree.cmi
+   patriciaTree.cmt
+   patriciaTree.cmti
+   patriciaTree.cmx
+   patriciaTree__.cmi
+   patriciaTree__.cmt
+   patriciaTree__.cmx
+   patriciaTree__.ml
+   patriciaTree__Functors.cmi
+   patriciaTree__Functors.cmt
+   patriciaTree__Functors.cmti
+   patriciaTree__Functors.cmx
+   patriciaTree__Ints.cmi
+   patriciaTree__Ints.cmt
+   patriciaTree__Ints.cmti
+   patriciaTree__Ints.cmx
+   patriciaTree__Key_value.cmi
+   patriciaTree__Key_value.cmt
+   patriciaTree__Key_value.cmti
+   patriciaTree__Key_value.cmx
+   patriciaTree__Nodes.cmi
+   patriciaTree__Nodes.cmt
+   patriciaTree__Nodes.cmti
+   patriciaTree__Nodes.cmx
+   patriciaTree__Signatures.cmi
+   patriciaTree__Signatures.cmt
+   patriciaTree__Signatures.cmx
+   signatures.ml))
+ (libexec (PatriciaTree.cmxs))
+ (doc (CHANGELOG.md LICENSE README.md odoc-pages/index.mld))
+ (stublibs (dllPatriciaTree_stubs.so)))
+(library
+ (name patricia-tree)
+ (kind normal)
+ (archives (byte PatriciaTree.cma) (native PatriciaTree.cmxa))
+ (plugins (byte PatriciaTree.cma) (native PatriciaTree.cmxs))
+ (foreign_objects int_builtins.o)
+ (foreign_archives (archives (for all) (files libPatriciaTree_stubs.a)))
+ (foreign_dll_files ../stublibs/dllPatriciaTree_stubs.so)
+ (native_archives PatriciaTree.a)
+ (main_module_name PatriciaTree)
+ (modes byte native)
+ (modules
+  (wrapped
+   (group
+    (alias
+     (obj_name patriciaTree__)
+     (visibility public)
+     (kind alias)
+     (source (path PatriciaTree__) (impl (path patriciaTree__.ml-gen))))
+    (name PatriciaTree)
+    (modules
+     (module
+      (obj_name patriciaTree__Functors)
+      (visibility public)
+      (source
+       (path Functors)
+       (intf (path functors.mli))
+       (impl (path functors.ml))))
+     (module
+      (obj_name patriciaTree__Ints)
+      (visibility public)
+      (source (path Ints) (intf (path ints.mli)) (impl (path ints.ml))))
+     (module
+      (obj_name patriciaTree__Key_value)
+      (visibility public)
+      (source
+       (path Key_value)
+       (intf (path key_value.mli))
+       (impl (path key_value.ml))))
+     (module
+      (obj_name patriciaTree__Nodes)
+      (visibility public)
+      (source (path Nodes) (intf (path nodes.mli)) (impl (path nodes.ml))))
+     (module
+      (obj_name patriciaTree)
+      (visibility public)
+      (source
+       (path PatriciaTree)
+       (intf (path PatriciaTree.mli))
+       (impl (path PatriciaTree.ml))))
+     (module
+      (obj_name patriciaTree__Signatures)
+      (visibility public)
+      (source (path Signatures) (impl (path signatures.ml))))))
+   (wrapped true))))

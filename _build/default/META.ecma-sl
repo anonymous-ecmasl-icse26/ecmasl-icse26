@@ -1,0 +1,67 @@
+description = ""
+requires =
+"dune-private-libs.dune-section
+ dune-site
+ ecma-sl.base
+ ecma-sl.js2ecmasl
+ ecma-sl.semantics
+ ecma-sl.syntax
+ smtml"
+archive(byte) = "ecma_sl.cma"
+archive(native) = "ecma_sl.cmxa"
+plugin(byte) = "ecma_sl.cma"
+plugin(native) = "ecma_sl.cmxs"
+package "base" (
+  directory = "base"
+  description = ""
+  requires = "fmt prelude unix"
+  archive(byte) = "eslBase.cma"
+  archive(native) = "eslBase.cmxa"
+  plugin(byte) = "eslBase.cma"
+  plugin(native) = "eslBase.cmxs"
+)
+package "js2ecmasl" (
+  directory = "js2ecmasl"
+  description = ""
+  requires = "bos prelude"
+  archive(byte) = "eslJSParser.cma"
+  archive(native) = "eslJSParser.cmxa"
+  plugin(byte) = "eslJSParser.cma"
+  plugin(native) = "eslJSParser.cmxs"
+)
+package "semantics" (
+  directory = "semantics"
+  description = ""
+  requires =
+  "curses
+   ecma-sl.base
+   ecma-sl.js2ecmasl
+   ecma-sl.syntax
+   menhirLib
+   ppx_deriving.runtime
+   prelude
+   str
+   yojson"
+  archive(byte) = "eslSemantics.cma"
+  archive(native) = "eslSemantics.cmxa"
+  plugin(byte) = "eslSemantics.cma"
+  plugin(native) = "eslSemantics.cmxs"
+)
+package "symbolic" (
+  directory = "symbolic"
+  description = ""
+  requires = "ecma-sl"
+  archive(byte) = "ecma_sl_symbolic.cma"
+  archive(native) = "ecma_sl_symbolic.cmxa"
+  plugin(byte) = "ecma_sl_symbolic.cma"
+  plugin(native) = "ecma_sl_symbolic.cmxs"
+)
+package "syntax" (
+  directory = "syntax"
+  description = ""
+  requires = "ecma-sl.base fmt smtml"
+  archive(byte) = "eslSyntax.cma"
+  archive(native) = "eslSyntax.cmxa"
+  plugin(byte) = "eslSyntax.cma"
+  plugin(native) = "eslSyntax.cmxs"
+)

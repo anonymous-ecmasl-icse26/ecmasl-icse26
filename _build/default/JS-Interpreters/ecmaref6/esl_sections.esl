@@ -1,0 +1,114 @@
+/* Copyright (C) 2022-2025 formalsec programmers
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+import os;
+import fpath;
+import stack;
+import queue;
+import stdlib;
+
+import "section 6/section_6.1.esl";
+import "section 6/section_6.2.esl";
+
+import "section 7/section_7.1.esl";
+import "section 7/section_7.2.esl";
+import "section 7/section_7.3.esl";
+import "section 7/section_7.4.esl";
+
+import "section 8/section_8.1.esl";
+import "section 8/section_8.2.esl";
+import "section 8/section_8.3.esl";
+import "section 8/section_8.4.esl";
+import "section 8/section_8.5.esl";
+import "section 8/section_8.6.esl";
+
+import "section 9/section_9.1.esl";
+import "section 9/section_9.2.esl";
+import "section 9/section_9.2_aux.esl";
+import "section 9/section_9.3.esl";
+import "section 9/section_9.4.esl";
+import "section 9/section_9.5.esl";
+
+import "section 10/section_10.1.esl";
+import "section 10/section_10.2.esl";
+
+import "section 11/section_11.8.esl";
+
+import "section 12/section_12.1.esl";
+import "section 12/section_12.3.esl";
+import "section 12/section_12.7.esl";
+import "section 12/section_12.8.esl";
+import "section 12/section_12.9.esl";
+import "section 12/section_12.11.esl";
+import "section 12/section_12.14.esl";
+
+import "section 13/section_13.esl";
+
+import "section 14/section_14.1.esl";
+import "section 14/section_14.3.esl";
+import "section 14/section_14.5.esl";
+import "section 14/section_14.6.esl";
+
+
+import "section 15/section_15.1.esl";
+import "section 15/section_15.10.esl";
+
+import "section 17/section_17.esl";
+
+import "section 18/section_18.esl";
+import "section 18/section_18.2.esl";
+
+import "section 19/section_19.1.esl";
+import "section 19/section_19.2.esl";
+import "section 19/section_19.3.esl";
+import "section 19/section_19.4.esl";
+import "section 19/section_19.5.esl";
+
+import "section 20/section_20.1.esl";
+import "section 20/section_20.2.esl";
+import "section 20/section_20.3.esl";
+
+import "section 21/section_21.1.esl";
+import "section 21/section_21.2.esl";
+
+import "section 22/section_22.1.esl";
+import "section 22/section_22.2.esl";
+
+import "section 23/section_23.1.esl";
+import "section 23/section_23.2.esl";
+import "section 23/section_23.3.esl";
+import "section 23/section_23.4.esl";
+
+import "section 24/section_24.1.esl";
+import "section 24/section_24.2.esl";
+import "section 24/section_24.3.esl";
+
+import "section 25/section_25.1.esl";
+import "section 25/section_25.4.esl";
+
+import "section 26/section_26.1.esl";
+import "section 26/section_26.2.esl";
+
+import "utils.esl";
+
+import "bindings/taint_tracking.esl";
+import "bindings/ffi_console.esl";
+import "bindings/ffi_test262.esl";
+
+import "internal_representations/objects.esl";
+import "internal_representations/descriptors.esl";
+
+import "advices/advices.esl";

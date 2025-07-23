@@ -1,0 +1,42 @@
+/* Copyright (C) 2022-2025 formalsec programmers
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+function InternalFunction(name) {
+	object := {internal: true, functionName: name };
+	return object;
+}
+
+function esl_symbolic_number(args) {
+	name := l_nth(args, 0);
+	return se_mk_symbolic("float", name);
+}
+
+function esl_symbolic_string(args) {
+	name := l_nth(args, 0);
+	return se_mk_symbolic("string", name);
+}
+
+function esl_symbolic_assert(args) {
+	cond := l_nth(args, 0);
+  assert (cond);
+  return 0;
+}
+
+function esl_symbolic_assume(args) {
+	cond := l_nth(args, 0);
+  se_assume(cond);
+  return 0;
+}

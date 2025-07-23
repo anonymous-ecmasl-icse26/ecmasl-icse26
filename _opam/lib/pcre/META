@@ -1,0 +1,7 @@
+version = "8.0.4"
+description = ""
+requires = ""
+archive(byte) = "pcre.cma"
+archive(native) = "pcre.cmxa"
+plugin(byte) = "pcre.cma"
+plugin(native) = "pcre.cmxs"

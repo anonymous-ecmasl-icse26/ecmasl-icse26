@@ -1,0 +1,7 @@
+version = "1.0.0"
+description = ""
+requires = ""
+archive(byte) = "rusage.cma"
+archive(native) = "rusage.cmxa"
+plugin(byte) = "rusage.cma"
+plugin(native) = "rusage.cmxs"

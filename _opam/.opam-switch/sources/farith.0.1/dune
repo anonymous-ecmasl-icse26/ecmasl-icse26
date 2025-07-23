@@ -1,0 +1,10 @@
+(library
+ (name farith)
+ (public_name farith)
+ (libraries zarith base)
+ (preprocess
+  (pps ppx_deriving.std ppx_hash))
+ (flags "-w" "-33"))
+
+(copy_files# extracted/*.ml*)
+(copy_files# extract/farith_Big.ml)

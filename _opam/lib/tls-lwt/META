@@ -1,0 +1,8 @@
+version = "2.0.1"
+description = ""
+requires =
+"lwt lwt.unix mirage-crypto-rng.unix ptime ptime.clock ptime.clock.os tls"
+archive(byte) = "tls_lwt.cma"
+archive(native) = "tls_lwt.cmxa"
+plugin(byte) = "tls_lwt.cma"
+plugin(native) = "tls_lwt.cmxs"

@@ -1,0 +1,44 @@
+function main() {
+  ___internal_esl_global := {};
+  __v0 := "test_integer"(___internal_esl_global);
+  if ((hd __v0)) {
+    return __v0
+  } else {
+    __v0 := (hd (tl __v0))
+  };
+  assert __v0;
+  __v1 := "test_float"(___internal_esl_global);
+  if ((hd __v1)) {
+    return __v1
+  } else {
+    __v1 := (hd (tl __v1))
+  };
+  assert __v1;
+  __v2 := "test_string"(___internal_esl_global);
+  if ((hd __v2)) {
+    return __v2
+  } else {
+    __v2 := (hd (tl __v2))
+  };
+  assert __v2;
+  __v3 := "test_undefined"(___internal_esl_global);
+  if ((hd __v3)) {
+    return __v3
+  } else {
+    __v3 := (hd (tl __v3))
+  };
+  assert __v3;
+  return [false, 0]
+};
+function test_float(___internal_esl_global) {
+  return [false, (0.0 != 0.10000000000000001)]
+};
+function test_integer(___internal_esl_global) {
+  return [false, (0 != 1)]
+};
+function test_undefined(___internal_esl_global) {
+  return [false, (1 != 'undefined)]
+};
+function test_string(___internal_esl_global) {
+  return [false, ("0" != "1")]
+}

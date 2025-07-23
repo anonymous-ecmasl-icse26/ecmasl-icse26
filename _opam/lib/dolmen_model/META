@@ -1,0 +1,8 @@
+version = "0.10"
+description = ""
+requires =
+"dolmen dolmen.intf dolmen.std dolmen_loop farith ppx_deriving.runtime zarith"
+archive(byte) = "dolmen_model.cma"
+archive(native) = "dolmen_model.cmxa"
+plugin(byte) = "dolmen_model.cma"
+plugin(native) = "dolmen_model.cmxs"

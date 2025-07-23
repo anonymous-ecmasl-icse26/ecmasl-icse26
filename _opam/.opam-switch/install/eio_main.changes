@@ -1,0 +1,37 @@
+opam-version: "2.0"
+added: [
+  "doc/eio_main" {"D"}
+  "doc/eio_main/CHANGES.md" {"F:S32954T1752667643.1"}
+  "doc/eio_main/LICENSE.md" {"F:S3303T1752667643.1"}
+  "doc/eio_main/README.md" {"F:S65411T1752667643.1"}
+  "lib/eio_main" {"D"}
+  "lib/eio_main/META" {"F:S194T1752667643.1"}
+  "lib/eio_main/dune-package" {"F:S1897T1752667643.1"}
+  "lib/eio_main/eio_main.a" {"F:S26708T1752667643.1"}
+  "lib/eio_main/eio_main.cma" {"F:S14599T1752667643.1"}
+  "lib/eio_main/eio_main.cmi" {"F:S1939T1752667643.1"}
+  "lib/eio_main/eio_main.cmt" {"F:S6943T1752667643.1"}
+  "lib/eio_main/eio_main.cmti" {"F:S5711T1752667643.1"}
+  "lib/eio_main/eio_main.cmx" {"F:S2381T1752667643.1"}
+  "lib/eio_main/eio_main.cmxa" {"F:S6455T1752667643.1"}
+  "lib/eio_main/eio_main.cmxs" {"F:S34744T1752667643.1"}
+  "lib/eio_main/eio_main.ml" {"F:S538T1752667643.1"}
+  "lib/eio_main/eio_main.mli" {"F:S1037T1752667643.1"}
+  "lib/eio_main/eio_main__.cmi" {"F:S465T1752667643.1"}
+  "lib/eio_main/eio_main__.cmt" {"F:S2439T1752667643.1"}
+  "lib/eio_main/eio_main__.cmx" {"F:S208T1752667643.1"}
+  "lib/eio_main/eio_main__.ml" {"F:S370T1752667643.1"}
+  "lib/eio_main/eio_main__Linux_backend.cmi" {"F:S2102T1752667643.1"}
+  "lib/eio_main/eio_main__Linux_backend.cmt" {"F:S6162T1752667643.1"}
+  "lib/eio_main/eio_main__Linux_backend.cmx" {"F:S1964T1752667643.1"}
+  "lib/eio_main/eio_main__Posix_backend.cmi" {"F:S2061T1752667643.1"}
+  "lib/eio_main/eio_main__Posix_backend.cmt" {"F:S5703T1752667643.1"}
+  "lib/eio_main/eio_main__Posix_backend.cmx" {"F:S1964T1752667643.1"}
+  "lib/eio_main/eio_main__Windows_backend.cmi" {"F:S404T1752667643.1"}
+  "lib/eio_main/eio_main__Windows_backend.cmt" {"F:S2412T1752667643.1"}
+  "lib/eio_main/eio_main__Windows_backend.cmx" {"F:S556T1752667643.1"}
+  "lib/eio_main/linux_backend.ml" {"F:S133T1752667643.1"}
+  "lib/eio_main/opam" {"F:S1094T1752667643.1"}
+  "lib/eio_main/posix_backend.ml" {"F:S125T1752667643.1"}
+  "lib/eio_main/windows_backend.ml" {"F:S132T1752667643.1"}
+]

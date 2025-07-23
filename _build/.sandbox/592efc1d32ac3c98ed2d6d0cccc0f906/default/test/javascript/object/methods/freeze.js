@@ -1,0 +1,1 @@
+../../../../../../../default/test/javascript/object/methods/freeze.js

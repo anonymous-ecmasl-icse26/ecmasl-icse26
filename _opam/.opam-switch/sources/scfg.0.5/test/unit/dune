@@ -1,0 +1,5 @@
+(test
+ (name main)
+ (modules main)
+ (libraries fpath prelude scfg)
+ (deps query.scfg test_chan.scfg))

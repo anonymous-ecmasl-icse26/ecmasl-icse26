@@ -1,0 +1,23 @@
+function f(x) {
+    upg_var("x", "H");
+    return x;
+}
+
+function eval(x) {
+    return 0;
+}
+
+function main() {
+    y := 0;
+    z := f(y);
+    print "Variable z has level " + get_var_level("z");
+    set_sink("eval");
+    eval(y);
+    eval(z);
+    o := {};
+    o.p := 1;
+    upg_prop(o, "p", "H");
+    print "Property p has level " + get_prop_level(o, "p");
+    eval(o.p);
+    return 0;
+}

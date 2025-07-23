@@ -1,0 +1,97 @@
+(lang dune 3.19)
+(name scfg)
+(version v1.3.0-115-g1a0e6f4)
+(sections
+ (lib /home/arckenimuz/dev/ECMA-SL/_opam/lib/scfg)
+ (libexec /home/arckenimuz/dev/ECMA-SL/_opam/lib/scfg)
+ (bin /home/arckenimuz/dev/ECMA-SL/_opam/bin)
+ (doc /home/arckenimuz/dev/ECMA-SL/_opam/doc/scfg))
+(files
+ (lib
+  (.private/scfg__Lexer.cmi
+   .private/scfg__Lexer.cmt
+   .private/scfg__Menhir_parser.cmi
+   .private/scfg__Menhir_parser.cmt
+   .private/scfg__Menhir_parser.cmti
+   META
+   dune-package
+   lexer.ml
+   menhir_parser.ml
+   menhir_parser.mli
+   opam
+   parse.ml
+   pp.ml
+   query.ml
+   scfg.a
+   scfg.cma
+   scfg.cmi
+   scfg.cmt
+   scfg.cmx
+   scfg.cmxa
+   scfg.ml
+   scfg__Lexer.cmx
+   scfg__Menhir_parser.cmx
+   scfg__Parse.cmi
+   scfg__Parse.cmt
+   scfg__Parse.cmx
+   scfg__Pp.cmi
+   scfg__Pp.cmt
+   scfg__Pp.cmx
+   scfg__Query.cmi
+   scfg__Query.cmt
+   scfg__Query.cmx
+   scfg__Types.cmi
+   scfg__Types.cmt
+   scfg__Types.cmx
+   types.ml))
+ (libexec (scfg.cmxs))
+ (bin (scfg))
+ (doc (CHANGES.md LICENSE.md README.md odoc-pages/index.mld)))
+(library
+ (name scfg)
+ (kind normal)
+ (archives (byte scfg.cma) (native scfg.cmxa))
+ (plugins (byte scfg.cma) (native scfg.cmxs))
+ (native_archives scfg.a)
+ (requires bos fmt fpath menhirLib prelude sedlex)
+ (main_module_name Scfg)
+ (modes byte native)
+ (obj_dir (private_dir .private))
+ (modules
+  (wrapped
+   (group
+    (alias
+     (obj_name scfg)
+     (visibility public)
+     (kind alias)
+     (source (path Scfg) (impl (path scfg.ml-gen))))
+    (name Scfg)
+    (modules
+     (module
+      (obj_name scfg__Lexer)
+      (visibility private)
+      (source (path Lexer) (impl (path lexer.ml))))
+     (module
+      (obj_name scfg__Menhir_parser)
+      (visibility private)
+      (source
+       (path Menhir_parser)
+       (intf (path menhir_parser.mli))
+       (impl (path menhir_parser.ml))))
+     (module
+      (obj_name scfg__Parse)
+      (visibility public)
+      (source (path Parse) (impl (path parse.ml))))
+     (module
+      (obj_name scfg__Pp)
+      (visibility public)
+      (source (path Pp) (impl (path pp.ml))))
+     (module
+      (obj_name scfg__Query)
+      (visibility public)
+      (source (path Query) (impl (path query.ml))))
+     (module
+      (obj_name scfg__Types)
+      (visibility public)
+      (source (path Types) (impl (path types.ml))))))
+   (wrapped true))))

@@ -1,0 +1,269 @@
+opam-version: "2.0"
+added: [
+  "bin/ocaml-mdx" {"F:S19296032T1752667649.98"}
+  "bin/ocaml-mdx-test" {"F:S28962974T1752667650.03"}
+  "doc/mdx" {"D"}
+  "doc/mdx/CHANGES.md" {"F:S14357T1752667650.06"}
+  "doc/mdx/LICENSE.md" {"F:S772T1752667650.06"}
+  "doc/mdx/README.md" {"F:S11297T1752667650.06"}
+  "lib/mdx" {"D"}
+  "lib/mdx/META" {"F:S1169T1752667650.03"}
+  "lib/mdx/__private__" {"D"}
+  "lib/mdx/__private__/odoc_parser" {"D"}
+  "lib/mdx/__private__/odoc_parser/.public_cmi" {"D"}
+  "lib/mdx/__private__/odoc_parser/.public_cmi/odoc_parser.cmi"
+    {"F:S1284T1752667650.03"}
+  "lib/mdx/__private__/odoc_parser/.public_cmi/odoc_parser.cmt"
+    {"F:S17385T1752667650.03"}
+  "lib/mdx/__private__/odoc_parser/.public_cmi/odoc_parser.cmti"
+    {"F:S6044T1752667650.03"}
+  "lib/mdx/__private__/odoc_parser/.public_cmi/odoc_parser__.cmi"
+    {"F:S737T1752667650.03"}
+  "lib/mdx/__private__/odoc_parser/.public_cmi/odoc_parser__.cmt"
+    {"F:S3587T1752667650.03"}
+  "lib/mdx/__private__/odoc_parser/.public_cmi/odoc_parser__Ast.cmi"
+    {"F:S2416T1752667650.03"}
+  "lib/mdx/__private__/odoc_parser/.public_cmi/odoc_parser__Ast.cmt"
+    {"F:S12699T1752667650.03"}
+  "lib/mdx/__private__/odoc_parser/.public_cmi/odoc_parser__Compat.cmi"
+    {"F:S4189T1752667650.03"}
+  "lib/mdx/__private__/odoc_parser/.public_cmi/odoc_parser__Compat.cmt"
+    {"F:S14151T1752667650.03"}
+  "lib/mdx/__private__/odoc_parser/.public_cmi/odoc_parser__Compat.cmti"
+    {"F:S14693T1752667650.03"}
+  "lib/mdx/__private__/odoc_parser/.public_cmi/odoc_parser__Lexer.cmi"
+    {"F:S1050T1752667650.03"}
+  "lib/mdx/__private__/odoc_parser/.public_cmi/odoc_parser__Lexer.cmt"
+    {"F:S125726T1752667650.03"}
+  "lib/mdx/__private__/odoc_parser/.public_cmi/odoc_parser__Lexer.cmti"
+    {"F:S3669T1752667650.03"}
+  "lib/mdx/__private__/odoc_parser/.public_cmi/odoc_parser__Loc.cmi"
+    {"F:S975T1752667650.03"}
+  "lib/mdx/__private__/odoc_parser/.public_cmi/odoc_parser__Loc.cmt"
+    {"F:S7155T1752667650.03"}
+  "lib/mdx/__private__/odoc_parser/.public_cmi/odoc_parser__Loc.cmti"
+    {"F:S5850T1752667650.03"}
+  "lib/mdx/__private__/odoc_parser/.public_cmi/odoc_parser__Parse_error.cmi"
+    {"F:S1844T1752667650.03"}
+  "lib/mdx/__private__/odoc_parser/.public_cmi/odoc_parser__Parse_error.cmt"
+    {"F:S22183T1752667650.03"}
+  "lib/mdx/__private__/odoc_parser/.public_cmi/odoc_parser__Syntax.cmi"
+    {"F:S891T1752667650.03"}
+  "lib/mdx/__private__/odoc_parser/.public_cmi/odoc_parser__Syntax.cmt"
+    {"F:S225003T1752667650.03"}
+  "lib/mdx/__private__/odoc_parser/.public_cmi/odoc_parser__Syntax.cmti"
+    {"F:S3083T1752667650.03"}
+  "lib/mdx/__private__/odoc_parser/.public_cmi/odoc_parser__Token.cmi"
+    {"F:S2764T1752667650.03"}
+  "lib/mdx/__private__/odoc_parser/.public_cmi/odoc_parser__Token.cmt"
+    {"F:S28845T1752667650.03"}
+  "lib/mdx/__private__/odoc_parser/.public_cmi/odoc_parser__Warning.cmi"
+    {"F:S1097T1752667650.03"}
+  "lib/mdx/__private__/odoc_parser/.public_cmi/odoc_parser__Warning.cmt"
+    {"F:S11029T1752667650.03"}
+  "lib/mdx/__private__/odoc_parser/ast.ml" {"F:S3875T1752667650.03"}
+  "lib/mdx/__private__/odoc_parser/compat.ml" {"F:S656T1752667650.03"}
+  "lib/mdx/__private__/odoc_parser/compat.mli" {"F:S632T1752667650.03"}
+  "lib/mdx/__private__/odoc_parser/lexer.ml" {"F:S255219T1752667650.03"}
+  "lib/mdx/__private__/odoc_parser/lexer.mli" {"F:S235T1752667650.04"}
+  "lib/mdx/__private__/odoc_parser/loc.ml" {"F:S1018T1752667650.04"}
+  "lib/mdx/__private__/odoc_parser/loc.mli" {"F:S1604T1752667650.04"}
+  "lib/mdx/__private__/odoc_parser/odoc_parser.a" {"F:S415678T1752667650.04"}
+  "lib/mdx/__private__/odoc_parser/odoc_parser.cma"
+    {"F:S270990T1752667650.04"}
+  "lib/mdx/__private__/odoc_parser/odoc_parser.cmx" {"F:S1529T1752667650.04"}
+  "lib/mdx/__private__/odoc_parser/odoc_parser.cmxa"
+    {"F:S6427T1752667650.04"}
+  "lib/mdx/__private__/odoc_parser/odoc_parser.cmxs"
+    {"F:S371688T1752667650.06"}
+  "lib/mdx/__private__/odoc_parser/odoc_parser.ml" {"F:S5123T1752667650.04"}
+  "lib/mdx/__private__/odoc_parser/odoc_parser.mli" {"F:S1814T1752667650.04"}
+  "lib/mdx/__private__/odoc_parser/odoc_parser__.cmx"
+    {"F:S313T1752667650.04"}
+  "lib/mdx/__private__/odoc_parser/odoc_parser__.ml" {"F:S686T1752667650.04"}
+  "lib/mdx/__private__/odoc_parser/odoc_parser__Ast.cmx"
+    {"F:S251T1752667650.04"}
+  "lib/mdx/__private__/odoc_parser/odoc_parser__Compat.cmx"
+    {"F:S13747T1752667650.04"}
+  "lib/mdx/__private__/odoc_parser/odoc_parser__Lexer.cmx"
+    {"F:S54121T1752667650.04"}
+  "lib/mdx/__private__/odoc_parser/odoc_parser__Loc.cmx"
+    {"F:S1478T1752667650.04"}
+  "lib/mdx/__private__/odoc_parser/odoc_parser__Parse_error.cmx"
+    {"F:S2831T1752667650.04"}
+  "lib/mdx/__private__/odoc_parser/odoc_parser__Syntax.cmx"
+    {"F:S3842T1752667650.04"}
+  "lib/mdx/__private__/odoc_parser/odoc_parser__Token.cmx"
+    {"F:S628T1752667650.04"}
+  "lib/mdx/__private__/odoc_parser/odoc_parser__Warning.cmx"
+    {"F:S1024T1752667650.04"}
+  "lib/mdx/__private__/odoc_parser/parse_error.ml" {"F:S3283T1752667650.04"}
+  "lib/mdx/__private__/odoc_parser/syntax.ml" {"F:S58901T1752667650.04"}
+  "lib/mdx/__private__/odoc_parser/syntax.mli" {"F:S137T1752667650.04"}
+  "lib/mdx/__private__/odoc_parser/token.ml" {"F:S7492T1752667650.04"}
+  "lib/mdx/__private__/odoc_parser/warning.ml" {"F:S1008T1752667650.04"}
+  "lib/mdx/block.ml" {"F:S17542T1752667650.04"}
+  "lib/mdx/block.mli" {"F:S5221T1752667650.04"}
+  "lib/mdx/compat.ml" {"F:S929T1752667650.04"}
+  "lib/mdx/cram.ml" {"F:S6686T1752667650.04"}
+  "lib/mdx/cram.mli" {"F:S2151T1752667650.04"}
+  "lib/mdx/dep.ml" {"F:S1398T1752667650.04"}
+  "lib/mdx/dep.mli" {"F:S946T1752667650.04"}
+  "lib/mdx/deprecated.ml" {"F:S1136T1752667650.04"}
+  "lib/mdx/deprecated.mli" {"F:S912T1752667650.04"}
+  "lib/mdx/document.ml" {"F:S1861T1752667650.04"}
+  "lib/mdx/document.mli" {"F:S1495T1752667650.04"}
+  "lib/mdx/dune-package" {"F:S13807T1752667650.04"}
+  "lib/mdx/label.ml" {"F:S7573T1752667650.04"}
+  "lib/mdx/label.mli" {"F:S1839T1752667650.04"}
+  "lib/mdx/lexer_cram.ml" {"F:S17106T1752667650.04"}
+  "lib/mdx/lexer_mdx.ml" {"F:S34710T1752667650.04"}
+  "lib/mdx/lexer_mdx.mli" {"F:S239T1752667650.04"}
+  "lib/mdx/lexer_top.ml" {"F:S14173T1752667650.04"}
+  "lib/mdx/library.ml" {"F:S2106T1752667650.04"}
+  "lib/mdx/library.mli" {"F:S1590T1752667650.04"}
+  "lib/mdx/mdx.a" {"F:S604516T1752667650.04"}
+  "lib/mdx/mdx.cma" {"F:S288086T1752667650.04"}
+  "lib/mdx/mdx.cmi" {"F:S3303T1752667650.04"}
+  "lib/mdx/mdx.cmt" {"F:S28558T1752667650.04"}
+  "lib/mdx/mdx.cmti" {"F:S13184T1752667650.04"}
+  "lib/mdx/mdx.cmx" {"F:S5211T1752667650.04"}
+  "lib/mdx/mdx.cmxa" {"F:S28790T1752667650.04"}
+  "lib/mdx/mdx.cmxs" {"F:S515840T1752667650.06"}
+  "lib/mdx/mdx.ml" {"F:S4030T1752667650.04"}
+  "lib/mdx/mdx.mli" {"F:S3321T1752667650.04"}
+  "lib/mdx/mdx__.cmi" {"F:S1234T1752667650.04"}
+  "lib/mdx/mdx__.cmt" {"F:S6361T1752667650.04"}
+  "lib/mdx/mdx__.cmx" {"F:S463T1752667650.04"}
+  "lib/mdx/mdx__.ml" {"F:S1422T1752667650.04"}
+  "lib/mdx/mdx__Block.cmi" {"F:S4043T1752667650.04"}
+  "lib/mdx/mdx__Block.cmt" {"F:S97894T1752667650.04"}
+  "lib/mdx/mdx__Block.cmti" {"F:S19368T1752667650.04"}
+  "lib/mdx/mdx__Block.cmx" {"F:S7555T1752667650.04"}
+  "lib/mdx/mdx__Compat.cmi" {"F:S1593T1752667650.04"}
+  "lib/mdx/mdx__Compat.cmt" {"F:S5311T1752667650.04"}
+  "lib/mdx/mdx__Compat.cmx" {"F:S1782T1752667650.04"}
+  "lib/mdx/mdx__Cram.cmi" {"F:S1475T1752667650.04"}
+  "lib/mdx/mdx__Cram.cmt" {"F:S43461T1752667650.04"}
+  "lib/mdx/mdx__Cram.cmti" {"F:S7382T1752667650.04"}
+  "lib/mdx/mdx__Cram.cmx" {"F:S3797T1752667650.04"}
+  "lib/mdx/mdx__Dep.cmi" {"F:S1592T1752667650.05"}
+  "lib/mdx/mdx__Dep.cmt" {"F:S7429T1752667650.05"}
+  "lib/mdx/mdx__Dep.cmti" {"F:S5334T1752667650.05"}
+  "lib/mdx/mdx__Dep.cmx" {"F:S1626T1752667650.05"}
+  "lib/mdx/mdx__Deprecated.cmi" {"F:S384T1752667650.05"}
+  "lib/mdx/mdx__Deprecated.cmt" {"F:S5244T1752667650.05"}
+  "lib/mdx/mdx__Deprecated.cmti" {"F:S2756T1752667650.05"}
+  "lib/mdx/mdx__Deprecated.cmx" {"F:S487T1752667650.05"}
+  "lib/mdx/mdx__Document.cmi" {"F:S1699T1752667650.05"}
+  "lib/mdx/mdx__Document.cmt" {"F:S14055T1752667650.05"}
+  "lib/mdx/mdx__Document.cmti" {"F:S6625T1752667650.05"}
+  "lib/mdx/mdx__Document.cmx" {"F:S2008T1752667650.05"}
+  "lib/mdx/mdx__Label.cmi" {"F:S1989T1752667650.05"}
+  "lib/mdx/mdx__Label.cmt" {"F:S39005T1752667650.05"}
+  "lib/mdx/mdx__Label.cmti" {"F:S8364T1752667650.05"}
+  "lib/mdx/mdx__Label.cmx" {"F:S2636T1752667650.05"}
+  "lib/mdx/mdx__Lexer_cram.cmi" {"F:S1232T1752667650.05"}
+  "lib/mdx/mdx__Lexer_cram.cmt" {"F:S18603T1752667650.05"}
+  "lib/mdx/mdx__Lexer_cram.cmx" {"F:S4583T1752667650.05"}
+  "lib/mdx/mdx__Lexer_mdx.cmi" {"F:S1549T1752667650.05"}
+  "lib/mdx/mdx__Lexer_mdx.cmt" {"F:S40263T1752667650.05"}
+  "lib/mdx/mdx__Lexer_mdx.cmti" {"F:S4792T1752667650.05"}
+  "lib/mdx/mdx__Lexer_mdx.cmx" {"F:S8686T1752667650.05"}
+  "lib/mdx/mdx__Lexer_top.cmi" {"F:S1403T1752667650.05"}
+  "lib/mdx/mdx__Lexer_top.cmt" {"F:S17015T1752667650.05"}
+  "lib/mdx/mdx__Lexer_top.cmx" {"F:S4213T1752667650.05"}
+  "lib/mdx/mdx__Library.cmi" {"F:S3005T1752667650.05"}
+  "lib/mdx/mdx__Library.cmt" {"F:S17469T1752667650.05"}
+  "lib/mdx/mdx__Library.cmti" {"F:S11257T1752667650.05"}
+  "lib/mdx/mdx__Library.cmx" {"F:S4074T1752667650.05"}
+  "lib/mdx/mdx__Misc.cmi" {"F:S797T1752667650.05"}
+  "lib/mdx/mdx__Misc.cmt" {"F:S9318T1752667650.05"}
+  "lib/mdx/mdx__Misc.cmti" {"F:S3894T1752667650.05"}
+  "lib/mdx/mdx__Misc.cmx" {"F:S906T1752667650.05"}
+  "lib/mdx/mdx__Mli_parser.cmi" {"F:S1511T1752667650.05"}
+  "lib/mdx/mdx__Mli_parser.cmt" {"F:S40039T1752667650.05"}
+  "lib/mdx/mdx__Mli_parser.cmti" {"F:S4661T1752667650.05"}
+  "lib/mdx/mdx__Mli_parser.cmx" {"F:S3416T1752667650.05"}
+  "lib/mdx/mdx__Ocaml_env.cmi" {"F:S2800T1752667650.05"}
+  "lib/mdx/mdx__Ocaml_env.cmt" {"F:S8603T1752667650.05"}
+  "lib/mdx/mdx__Ocaml_env.cmti" {"F:S7692T1752667650.05"}
+  "lib/mdx/mdx__Ocaml_env.cmx" {"F:S3661T1752667650.05"}
+  "lib/mdx/mdx__Output.cmi" {"F:S1058T1752667650.05"}
+  "lib/mdx/mdx__Output.cmt" {"F:S19597T1752667650.05"}
+  "lib/mdx/mdx__Output.cmti" {"F:S5191T1752667650.05"}
+  "lib/mdx/mdx__Output.cmx" {"F:S1267T1752667650.05"}
+  "lib/mdx/mdx__Part.cmi" {"F:S956T1752667650.05"}
+  "lib/mdx/mdx__Part.cmt" {"F:S41622T1752667650.05"}
+  "lib/mdx/mdx__Part.cmti" {"F:S5792T1752667650.05"}
+  "lib/mdx/mdx__Part.cmx" {"F:S3207T1752667650.05"}
+  "lib/mdx/mdx__Pp.cmi" {"F:S820T1752667650.05"}
+  "lib/mdx/mdx__Pp.cmt" {"F:S4512T1752667650.05"}
+  "lib/mdx/mdx__Pp.cmti" {"F:S3611T1752667650.06"}
+  "lib/mdx/mdx__Pp.cmx" {"F:S818T1752667650.06"}
+  "lib/mdx/mdx__Prelude.cmi" {"F:S983T1752667650.06"}
+  "lib/mdx/mdx__Prelude.cmt" {"F:S7067T1752667650.06"}
+  "lib/mdx/mdx__Prelude.cmti" {"F:S4296T1752667650.06"}
+  "lib/mdx/mdx__Prelude.cmx" {"F:S972T1752667650.06"}
+  "lib/mdx/mdx__Stable_printer.cmi" {"F:S847T1752667650.06"}
+  "lib/mdx/mdx__Stable_printer.cmt" {"F:S11457T1752667650.06"}
+  "lib/mdx/mdx__Stable_printer.cmti" {"F:S3347T1752667650.06"}
+  "lib/mdx/mdx__Stable_printer.cmx" {"F:S824T1752667650.06"}
+  "lib/mdx/mdx__Syntax.cmi" {"F:S832T1752667650.06"}
+  "lib/mdx/mdx__Syntax.cmt" {"F:S4861T1752667650.06"}
+  "lib/mdx/mdx__Syntax.cmti" {"F:S3423T1752667650.06"}
+  "lib/mdx/mdx__Syntax.cmx" {"F:S1000T1752667650.06"}
+  "lib/mdx/mdx__Toplevel.cmi" {"F:S1546T1752667650.06"}
+  "lib/mdx/mdx__Toplevel.cmt" {"F:S35315T1752667650.06"}
+  "lib/mdx/mdx__Toplevel.cmti" {"F:S6646T1752667650.06"}
+  "lib/mdx/mdx__Toplevel.cmx" {"F:S3572T1752667650.06"}
+  "lib/mdx/mdx__Util.cmi" {"F:S2157T1752667650.06"}
+  "lib/mdx/mdx__Util.cmt" {"F:S29679T1752667650.06"}
+  "lib/mdx/mdx__Util.cmti" {"F:S11391T1752667650.06"}
+  "lib/mdx/mdx__Util.cmx" {"F:S2851T1752667650.06"}
+  "lib/mdx/misc.ml" {"F:S1625T1752667650.06"}
+  "lib/mdx/misc.mli" {"F:S977T1752667650.06"}
+  "lib/mdx/mli_parser.ml" {"F:S9378T1752667650.06"}
+  "lib/mdx/mli_parser.mli" {"F:S305T1752667650.06"}
+  "lib/mdx/ocaml_env.ml" {"F:S376T1752667650.06"}
+  "lib/mdx/ocaml_env.mli" {"F:S177T1752667650.06"}
+  "lib/mdx/opam" {"F:S1476T1752667650.06"}
+  "lib/mdx/output.ml" {"F:S3030T1752667650.06"}
+  "lib/mdx/output.mli" {"F:S1523T1752667650.06"}
+  "lib/mdx/part.ml" {"F:S8355T1752667650.06"}
+  "lib/mdx/part.mli" {"F:S1930T1752667650.06"}
+  "lib/mdx/pp.ml" {"F:S934T1752667650.06"}
+  "lib/mdx/pp.mli" {"F:S856T1752667650.06"}
+  "lib/mdx/prelude.ml" {"F:S1262T1752667650.06"}
+  "lib/mdx/prelude.mli" {"F:S1213T1752667650.06"}
+  "lib/mdx/stable_printer.ml" {"F:S1613T1752667650.06"}
+  "lib/mdx/stable_printer.mli" {"F:S359T1752667650.06"}
+  "lib/mdx/syntax.ml" {"F:S534T1752667650.06"}
+  "lib/mdx/syntax.mli" {"F:S175T1752667650.06"}
+  "lib/mdx/test" {"D"}
+  "lib/mdx/test/mdx_test.cma" {"F:S48805T1752667650.06"}
+  "lib/mdx/test/mdx_test.cmi" {"F:S2631T1752667650.06"}
+  "lib/mdx/test/mdx_test.cmt" {"F:S91977T1752667650.06"}
+  "lib/mdx/test/mdx_test.cmti" {"F:S7657T1752667650.06"}
+  "lib/mdx/test/mdx_test.ml" {"F:S15566T1752667650.06"}
+  "lib/mdx/test/mdx_test.mli" {"F:S740T1752667650.06"}
+  "lib/mdx/top" {"D"}
+  "lib/mdx/top/compat_top.ml" {"F:S8088T1752667650.06"}
+  "lib/mdx/top/compat_top.mli" {"F:S2509T1752667650.06"}
+  "lib/mdx/top/mdx_top.cma" {"F:S78321T1752667650.06"}
+  "lib/mdx/top/mdx_top.cmi" {"F:S2295T1752667650.06"}
+  "lib/mdx/top/mdx_top.cmt" {"F:S126034T1752667650.06"}
+  "lib/mdx/top/mdx_top.cmti" {"F:S7538T1752667650.06"}
+  "lib/mdx/top/mdx_top.ml" {"F:S23139T1752667650.06"}
+  "lib/mdx/top/mdx_top.mli" {"F:S1489T1752667650.06"}
+  "lib/mdx/top/mdx_top__.cmi" {"F:S329T1752667650.06"}
+  "lib/mdx/top/mdx_top__.cmt" {"F:S1918T1752667650.06"}
+  "lib/mdx/top/mdx_top__.ml" {"F:S174T1752667650.06"}
+  "lib/mdx/top/mdx_top__Compat_top.cmi" {"F:S3306T1752667650.06"}
+  "lib/mdx/top/mdx_top__Compat_top.cmt" {"F:S25036T1752667650.06"}
+  "lib/mdx/top/mdx_top__Compat_top.cmti" {"F:S12597T1752667650.06"}
+  "lib/mdx/toplevel.ml" {"F:S4986T1752667650.06"}
+  "lib/mdx/toplevel.mli" {"F:S1708T1752667650.06"}
+  "lib/mdx/util.ml" {"F:S4267T1752667650.06"}
+  "lib/mdx/util.mli" {"F:S2872T1752667650.06"}
+]

@@ -1,0 +1,62 @@
+(lang dune 3.19)
+(name ppx_import)
+(version 1.11.0)
+(sections (lib .) (libexec .) (doc ../../doc/ppx_import))
+(files
+ (lib
+  (META
+   compat.ml
+   dune-package
+   opam
+   ppx_import.a
+   ppx_import.cma
+   ppx_import.cmi
+   ppx_import.cmt
+   ppx_import.cmx
+   ppx_import.cmxa
+   ppx_import.ml
+   ppx_import__.cmi
+   ppx_import__.cmt
+   ppx_import__.cmx
+   ppx_import__.ml
+   ppx_import__Compat.cmi
+   ppx_import__Compat.cmt
+   ppx_import__Compat.cmx
+   ppx_import__Ppx_types_migrate.cmi
+   ppx_import__Ppx_types_migrate.cmt
+   ppx_import__Ppx_types_migrate.cmx
+   ppx_types_migrate.ml))
+ (libexec (ppx.exe ppx_import.cmxs))
+ (doc (CHANGES.md LICENSE.md README.dev.md README.md)))
+(library
+ (name ppx_import)
+ (kind ppx_rewriter)
+ (archives (byte ppx_import.cma) (native ppx_import.cmxa))
+ (plugins (byte ppx_import.cma) (native ppx_import.cmxs))
+ (native_archives ppx_import.a)
+ (requires ppxlib.ast ppxlib)
+ (main_module_name Ppx_import)
+ (modes byte native)
+ (modules
+  (wrapped
+   (group
+    (alias
+     (obj_name ppx_import__)
+     (visibility public)
+     (kind alias)
+     (source (path Ppx_import__) (impl (path ppx_import__.ml-gen))))
+    (name Ppx_import)
+    (modules
+     (module
+      (obj_name ppx_import__Compat)
+      (visibility public)
+      (source (path Compat) (impl (path compat.ml))))
+     (module
+      (obj_name ppx_import)
+      (visibility public)
+      (source (path Ppx_import) (impl (path ppx_import.ml))))
+     (module
+      (obj_name ppx_import__Ppx_types_migrate)
+      (visibility public)
+      (source (path Ppx_types_migrate) (impl (path ppx_types_migrate.ml))))))
+   (wrapped true))))

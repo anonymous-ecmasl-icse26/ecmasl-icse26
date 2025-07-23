@@ -1,0 +1,7 @@
+of-float 1p1023 = +1p1023 (normal)
+of-float 1p1024 = +∞ (infinity)
+of-float 1p-1022 = +1p-1022 (normal)
+of-float 1p-1023 = +1p-1023 (sub-normal)
+of-float 1p-1048 = +1p-1048 (sub-normal)
+of-float 1p-1074 = +1p-1074 (sub-normal)
+of-float 1p-1075 = +0 (zero)

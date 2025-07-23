@@ -1,0 +1,47 @@
+(lang dune 2.9)
+
+(implicit_transitive_deps false)
+(cram enable)
+
+(name scfg)
+
+(license ISC)
+
+(authors "Léo Andrès <contact@ndrs.fr>")
+
+(maintainers "Léo Andrès <contact@ndrs.fr>")
+
+(source
+ (uri git+https://git.zapashcanon.fr/zapashcanon/scfg.git))
+
+(homepage https://git.zapashcanon.fr/zapashcanon/scfg)
+
+(bug_reports https://git.zapashcanon.fr/zapashcanon/scfg/issues)
+
+(documentation https://doc.zapashcanon.fr/scfg)
+
+(generate_opam_files true)
+
+(package
+ (name scfg)
+ (synopsis
+  "OCaml library and executable to work with the scfg configuration file format")
+ (description
+  "scfg is an OCaml library and executable to work with the scfg configuration file format. It provides a parser, a pretty printer and a module to perform queries.")
+ (tags
+  (scfg configuration format simple config parser printer))
+ (depends
+  (bos
+   (>= 0.2.1))
+  cmdliner
+  fmt
+  fpath
+  (menhir
+   (>= 20211230))
+  (ocaml
+   (>= 4.13))
+  (prelude
+   (>= 0.5))
+  sedlex))
+
+(using menhir 2.1)

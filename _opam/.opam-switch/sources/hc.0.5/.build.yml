@@ -1,0 +1,83 @@
+image: debian/unstable
+packages:
+  - opam
+  - ocaml
+  - curl
+sources:
+  - https://git.zapashcanon.fr/zapashcanon/hc
+environment:
+  name: hc
+  deploy: fs@zapashcanon.fr
+  sshopts: "-o StrictHostKeyChecking=no -q"
+  coverage_dst: /var/www/coverage.zapashcanon.fr
+  doc_dst: /var/www/doc.zapashcanon.fr
+  archive_dst: /var/www/fs.zapashcanon.fr/archive
+secrets:
+  - ec1f49cd-38dc-41d9-89f4-c3b6ecd7bcad # ssh deploy key
+  - b5b0e36c-fe52-43c4-9103-0aa918ad175c # github token
+  - c9e55d80-7b6a-4ad4-81bd-921d2c3247b8 # dune release profile
+  - ff8575b8-7192-4e0c-9905-6d04142a4ec1 # git config
+tasks:
+  - setup: |
+      opam init -y
+      opam update -y
+      opam install -y dune bisect_ppx odoc ocamlformat
+  - lint-format: |
+      cd $name
+      eval "$(opam env)"
+      ocamlformat -p ocamlformat --enable-outside-detected-project --check $(find . -name '*.ml')
+  - build: |
+      cd $name
+      eval "$(opam env)"
+      dune build @all
+  - test: |
+      cd $name
+      eval "$(opam env)"
+      dune runtest
+  - deploy-doc: |
+      cd $name
+      eval "$(opam env)"
+      dune build @doc
+      ssh $sshopts $deploy "mkdir -p $doc_dst/$name/"
+      scp $sshopts -r _build/default/_doc/_html/* $deploy:$doc_dst/$name/
+  - deploy-coverage: |
+      cd $name
+      eval "$(opam env)"
+      dune clean
+      BISECT_ENABLE=YES dune runtest --no-buffer --force > /dev/null
+      bisect-ppx-report -html _coverage/ "$(find . -name 'bisect*.out')"
+      ssh $sshopts $deploy "mkdir -p $coverage_dst/$name/"
+      scp $sshopts -r _coverage/* $deploy:$coverage_dst/$name/
+  - archive: |
+      cd $name
+      eval "$(opam env)"
+      dune clean
+      archive_name=${name}-dev.tar.xz
+      git archive -o $archive_name HEAD
+      ssh $sshopts $deploy "mkdir -p $archive_dst/$name/"
+      scp $sshopts $archive_name $deploy:$archive_dst/$name/
+      rm $archive_name
+  - release: |
+      cd $name
+      eval "$(opam env)"
+      git describe --exact-match || exit 0
+      opam install -y dune-release
+      tag=$(git describe --exact-match)
+      dune-release distrib || true
+      archive_name=${name}-${tag}.tbz
+      ls _build/${archive_name}
+      scp $sshopts _build/${archive_name} $deploy:$archive_dst/$name/
+      url="https://fs.zapashcanon.fr/archive/${name}/${archive_name}"
+      echo $url > _build/${name}-${tag}.url
+      dune-release opam pkg
+      opam_file=_build/${name}.${tag}/opam
+      line_num="$(grep -n -e 'src:' $opam_file | cut -d: -f1)"
+      sed -i -e "${line_num}s|^.*|  src: \"${url}\"|" $opam_file
+      line_num=$(($line_num + 1))
+      sed -i -e "${line_num}d" $opam_file
+      sed -i -e "${line_num}d" $opam_file
+      cd ..
+      echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+      git clone https://github.com/Cameleo/opam-repository.git
+      cd $name
+      dune-release opam submit --no-auto-open -y

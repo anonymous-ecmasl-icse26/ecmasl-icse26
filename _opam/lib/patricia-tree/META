@@ -1,0 +1,7 @@
+version = "v0.11.0"
+description = ""
+requires = ""
+archive(byte) = "PatriciaTree.cma"
+archive(native) = "PatriciaTree.cmxa"
+plugin(byte) = "PatriciaTree.cma"
+plugin(native) = "PatriciaTree.cmxs"

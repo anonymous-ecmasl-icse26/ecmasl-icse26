@@ -1,0 +1,10 @@
+(cram
+ (deps
+  %{bin:scfg}
+  bug1.scfg
+  bug2.scfg
+  bug3.scfg
+  lex_error.scfg
+  parse_start_with_newline.scfg
+  (glob_files parse_error*.scfg)
+  test1.scfg))

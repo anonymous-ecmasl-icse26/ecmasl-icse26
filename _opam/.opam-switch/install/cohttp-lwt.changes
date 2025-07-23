@@ -1,0 +1,71 @@
+opam-version: "2.0"
+added: [
+  "doc/cohttp-lwt" {"D"}
+  "doc/cohttp-lwt/CHANGES.md" {"F:S43020T1752667671.44"}
+  "doc/cohttp-lwt/LICENSE.md" {"F:S832T1752667671.44"}
+  "doc/cohttp-lwt/README.md" {"F:S18660T1752667671.44"}
+  "lib/cohttp-lwt" {"D"}
+  "lib/cohttp-lwt/META" {"F:S327T1752667671.44"}
+  "lib/cohttp-lwt/body.ml" {"F:S3267T1752667671.44"}
+  "lib/cohttp-lwt/body.mli" {"F:S1382T1752667671.44"}
+  "lib/cohttp-lwt/bytebuffer.ml" {"F:S279T1752667671.44"}
+  "lib/cohttp-lwt/client.ml" {"F:S2333T1752667671.44"}
+  "lib/cohttp-lwt/client.mli" {"F:S503T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt.a" {"F:S313838T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt.cma" {"F:S178066T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt.cmi" {"F:S5683T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt.cmt" {"F:S18952T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt.cmx" {"F:S3093T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt.cmxa" {"F:S21988T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt.cmxs" {"F:S280896T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt.ml" {"F:S1479T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__.cmi" {"F:S791T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__.cmt" {"F:S3811T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__.cmx" {"F:S339T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__.ml" {"F:S783T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__Body.cmi" {"F:S2806T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__Body.cmt" {"F:S24537T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__Body.cmti" {"F:S9707T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__Body.cmx" {"F:S3289T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__Bytebuffer.cmi" {"F:S1332T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__Bytebuffer.cmt" {"F:S16828T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__Bytebuffer.cmx" {"F:S1991T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__Client.cmi" {"F:S3347T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__Client.cmt" {"F:S28210T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__Client.cmti" {"F:S8571T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__Client.cmx" {"F:S2930T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__Connection.cmi" {"F:S4602T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__Connection.cmt" {"F:S63080T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__Connection.cmx" {"F:S4260T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__Connection_cache.cmi" {"F:S3024T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__Connection_cache.cmt"
+    {"F:S83394T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__Connection_cache.cmti"
+    {"F:S10546T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__Connection_cache.cmx" {"F:S4543T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__Make.cmi" {"F:S5717T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__Make.cmt" {"F:S22420T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__Make.cmx" {"F:S7006T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__S.cmi" {"F:S6829T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__S.cmt" {"F:S30639T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__S.cmx" {"F:S1958T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__Server.cmi" {"F:S4270T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__Server.cmt" {"F:S44646T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__Server.cmti" {"F:S10320T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__Server.cmx" {"F:S3661T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__String_io.cmi" {"F:S2427T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__String_io.cmt" {"F:S6964T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__String_io.cmti" {"F:S7283T1752667671.44"}
+  "lib/cohttp-lwt/cohttp_lwt__String_io.cmx" {"F:S2926T1752667671.44"}
+  "lib/cohttp-lwt/connection.ml" {"F:S12272T1752667671.44"}
+  "lib/cohttp-lwt/connection_cache.ml" {"F:S15606T1752667671.44"}
+  "lib/cohttp-lwt/connection_cache.mli" {"F:S4114T1752667671.44"}
+  "lib/cohttp-lwt/dune-package" {"F:S3696T1752667671.44"}
+  "lib/cohttp-lwt/make.ml" {"F:S313T1752667671.44"}
+  "lib/cohttp-lwt/opam" {"F:S1572T1752667671.44"}
+  "lib/cohttp-lwt/s.ml" {"F:S9520T1752667671.44"}
+  "lib/cohttp-lwt/server.ml" {"F:S6073T1752667671.44"}
+  "lib/cohttp-lwt/server.mli" {"F:S342T1752667671.44"}
+  "lib/cohttp-lwt/string_io.ml" {"F:S1279T1752667671.44"}
+  "lib/cohttp-lwt/string_io.mli" {"F:S1275T1752667671.44"}
+]

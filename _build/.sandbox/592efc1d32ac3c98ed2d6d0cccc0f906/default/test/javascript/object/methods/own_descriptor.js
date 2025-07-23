@@ -1,0 +1,1 @@
+../../../../../../../default/test/javascript/object/methods/own_descriptor.js

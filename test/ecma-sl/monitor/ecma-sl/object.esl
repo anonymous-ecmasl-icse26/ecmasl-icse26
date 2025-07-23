@@ -1,0 +1,22 @@
+function main() {
+    y := { a: 0, b: 1 };
+    print "Property a has level " + get_prop_level(y, "a");
+    print "Property b has level " + get_prop_level(y, "b");
+
+    upg_prop(y, "a", "H");
+    print "Property a has level " + get_prop_level(y, "a");
+
+    x := 0;
+    upg_var("x", "H");
+    x := "a" in_obj y;
+    print "Variable x has level " + get_var_level("x");
+    x := y.a;
+    print "Variable x has level " + get_var_level("x");
+    x := y.b;
+    print "Variable x has level " + get_var_level("x");
+
+    upg_var("x", "H");
+    y.b := x;
+    print "Property b has level " + get_prop_level(y, "b");
+    return 0;
+}

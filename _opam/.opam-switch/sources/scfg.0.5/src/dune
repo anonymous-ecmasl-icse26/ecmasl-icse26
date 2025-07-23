@@ -1,0 +1,22 @@
+(library
+ (public_name scfg)
+ (modules lexer menhir_parser parse pp query types)
+ (private_modules lexer menhir_parser)
+ (preprocess
+  (pps sedlex.ppx))
+ (libraries bos fmt fpath menhirLib prelude sedlex)
+ (flags
+  (:standard -open Prelude))
+ (instrumentation
+  (backend bisect_ppx)))
+
+(executable
+ (public_name scfg)
+ (modules scfg)
+ (flags
+  (:standard -open Prelude))
+ (libraries cmdliner fmt fpath prelude scfg))
+
+(menhir
+ (flags --table)
+ (modules menhir_parser))

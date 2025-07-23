@@ -1,0 +1,51 @@
+# dune runtest
+# OCAMLPARAM: unset
+# Shared cache: enabled-except-user-rules
+# Shared cache location: /home/arckenimuz/.cache/dune/db
+# Workspace root: /home/arckenimuz/dev/ECMA-SL
+# Auto-detected concurrency: 20
+# Dune context:
+#  { name = "default"
+#  ; kind = "default"
+#  ; profile = Dev
+#  ; merlin = true
+#  ; fdo_target_exe = None
+#  ; build_dir = In_build_dir "default"
+#  ; instrument_with = []
+#  }
+$ /home/arckenimuz/dev/ECMA-SL/_opam/bin/ocamlc.opt -config > /tmp/dune_fc2d32_output
+$ (cd _build/.sandbox/c7f068bba748491a06b3a5e597cf213d/default/test/unit/typing && /usr/bin/sh /tmp/dune_cram_1b94eb_.test_typecheck.t/main.sh)
+$ (cd _build/.sandbox/bcff94cb1c906027bebab1ff099aea21/default/test/ecma-sl && /usr/bin/sh /tmp/dune_cram_4af3d2_.test_imports.t/main.sh)
+$ (cd _build/.sandbox/f083751680a7c640d4c9f09ab470aabf/default/test/ecma-sl && /usr/bin/sh /tmp/dune_cram_786541_.test_parser.t/main.sh)
+$ (cd _build/default && ./mdx_gen.bc.exe CONTRIBUTING.md) > _build/default/.mdx/CONTRIBUTING.md.corrected
+$ (cd _build/default && ./mdx_gen.bc.exe CHANGES.md) > _build/default/.mdx/CHANGES.md.corrected
+$ (cd _build/.sandbox/36421f499b88ffc0fc607ba7a6184b4e/default/test/ecma-sl && /usr/bin/sh /tmp/dune_cram_bbabaa_.test_stdlib.t/main.sh)
+$ (cd _build/.sandbox/eb84c7dbcadc51214a883a7400268ac4/default/test/ecmaref && /usr/bin/sh /tmp/dune_cram_4b2727_.test_compile.t/main.sh)
+$ (cd _build/default && ./mdx_gen.bc.exe README.md) > _build/default/.mdx/README.md.corrected
+$ /usr/bin/git --no-pager diff --no-index --color=always -u _build/default/README.md _build/default/.mdx/README.md.corrected
+> diff --git a/_build/default/README.md b/_build/default/.mdx/README.md.corrected
+> index 332f984e..4e7a4308 100644
+> --- a/_build/default/README.md
+> +++ b/_build/default/.mdx/README.md.corrected
+> @@ -155,15 +155,15 @@ $ ecma-sl test --harness=test/javascript/harness.js test/javascript/simple/strin
+>  ---------------------------------------------------------------
+>   ECMA-SL Test Summary:
+>  
+> -test/javascript/simple/string.js ............ SUCCESS ...
+> +test/javascript/simple/string.js ............ SUCCESS [0.355s]
+>  
+>  ---------------------------------------------------------------
+>  
+>  Test Summary:
+>  
+>  
+> -Tests Successful: 1 / 1 (100.00%) | Time elapsed: ...
+> -Failures: 0, Anomalies: 0, Skipped: 0
+> +Tests Successful: 1 / 1 (100.00%) | Time elapsed: 0m 1s 233ms
+> +Failures: 0, Anomalies: 0, Skipped: 0, Timeout: 0
+>  ```
+>  
+>  <br>
+[1]
+$ (cd _build/.sandbox/c237fc1538b67c42d57143a9ca1c86ec/default/test/ecma-sl && /usr/bin/sh /tmp/dune_cram_74cfd7_.test_monitor.t/main.sh)
+$ (cd _build/.sandbox/6981755c9db0f96627cfb73332c88b19/default/test/javascript && /usr/bin/sh /tmp/dune_cram_360680_.test_javascript.t/main.sh)

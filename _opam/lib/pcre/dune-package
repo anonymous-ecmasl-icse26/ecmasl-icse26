@@ -1,0 +1,38 @@
+(lang dune 3.19)
+(name pcre)
+(version 8.0.4)
+(sections (lib .) (libexec .) (doc ../../doc/pcre) (stublibs ../stublibs))
+(files
+ (lib
+  (META
+   dune-package
+   libpcre_stubs.a
+   opam
+   pcre.a
+   pcre.cma
+   pcre.cmi
+   pcre.cmt
+   pcre.cmti
+   pcre.cmx
+   pcre.cmxa
+   pcre.ml
+   pcre.mli))
+ (libexec (pcre.cmxs))
+ (doc (CHANGELOG.md LICENSE.md README.md))
+ (stublibs (dllpcre_stubs.so)))
+(library
+ (name pcre)
+ (kind normal)
+ (archives (byte pcre.cma) (native pcre.cmxa))
+ (plugins (byte pcre.cma) (native pcre.cmxs))
+ (foreign_objects pcre_stubs.o)
+ (foreign_archives (archives (for all) (files libpcre_stubs.a)))
+ (foreign_dll_files ../stublibs/dllpcre_stubs.so)
+ (native_archives pcre.a)
+ (main_module_name Pcre)
+ (modes byte native)
+ (modules
+  (singleton
+   (obj_name pcre)
+   (visibility public)
+   (source (path Pcre) (intf (path pcre.mli)) (impl (path pcre.ml))))))

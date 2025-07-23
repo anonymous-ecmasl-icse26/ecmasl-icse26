@@ -1,0 +1,72 @@
+/* Copyright (C) 2022-2025 formalsec programmers
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+function NormalCompletion(v) {
+  return ['Normal, v];
+}
+
+function ReturnCompletion(v) {
+  return ['Return, v];
+}
+
+function BreakCompletion(v) {
+  return ['Break, v];
+}
+
+function ContinueCompletion(v) {
+  return ['Continue, v];
+}
+
+function ThrowCompletion(v) {
+  return ['Throw, v];
+}
+
+
+function getCompletionType(c) {
+  return l_nth(c, 0);
+}
+
+function getCompletionValue(c) {
+  return l_nth(c, 1);
+}
+
+function isAbruptCompletion(c) {
+  return getCompletionType(c) != 'Normal;
+}
+
+
+
+macro checkAbruptCompletion(c) {
+  if (isAbruptCompletion(c))
+    return c;
+  else
+    c := getCompletionValue(c);
+}
+
+macro checkLoopCompletion(c) {
+  switch(getCompletionType(c)) {
+    case 'Break:    return NormalCompletion('empty);
+    case 'Return:   return c;
+    case 'Throw:    return c;
+  }
+}
+
+macro checkReturnCompletion(c, retVal) {
+  switch (getCompletionType(c)) {
+    case 'Throw:  return c;
+    default:     return NormalCompletion(retVal);
+  }
+}

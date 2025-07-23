@@ -1,0 +1,18 @@
+(lang dune 3.0)
+
+(generate_opam_files true)
+(using coq 0.3)
+
+(name farith)
+
+(package
+ (version 0.1)
+ (name farith)
+ (synopsis "Floating point numbers library extracted from the Flocq Coq Library")
+ (maintainers "François Bobot")
+ (authors "François Bobot" "Loïc Correnson" "Arthur Correnson")
+ (homepage "https://git.frama-c.com/pub/farith")
+ (bug_reports "https://git.frama-c.com/pub/farith/issues")
+ (source (uri "git+https://git.frama-c.com/pub/farith.git"))
+ (depends zarith base ppx_deriving ppx_hash)
+)

@@ -1,0 +1,1 @@
+../../../../../../default/test/javascript/simple/object.js

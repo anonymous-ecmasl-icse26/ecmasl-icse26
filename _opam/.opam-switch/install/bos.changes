@@ -1,0 +1,44 @@
+opam-version: "2.0"
+added: [
+  "doc/bos" {"D"}
+  "doc/bos/CHANGES.md" {"F:S3309T1752667651.24"}
+  "doc/bos/LICENSE.md" {"F:S737T1752667651.24"}
+  "doc/bos/README.md" {"F:S1289T1752667651.24"}
+  "lib/bos" {"D"}
+  "lib/bos/META" {"F:S773T1752667651.23"}
+  "lib/bos/bos.a" {"F:S658562T1752667651.24"}
+  "lib/bos/bos.cma" {"F:S307639T1752667651.24"}
+  "lib/bos/bos.cmi" {"F:S11811T1752667651.24"}
+  "lib/bos/bos.cmti" {"F:S85324T1752667651.24"}
+  "lib/bos/bos.cmx" {"F:S16369T1752667651.24"}
+  "lib/bos/bos.cmxa" {"F:S16372T1752667651.24"}
+  "lib/bos/bos.cmxs" {"F:S544176T1752667651.24"}
+  "lib/bos/bos.mli" {"F:S56734T1752667651.24"}
+  "lib/bos/bos_base.cmx" {"F:S538T1752667651.24"}
+  "lib/bos/bos_cmd.cmx" {"F:S3346T1752667651.24"}
+  "lib/bos/bos_log.cmx" {"F:S1625T1752667651.24"}
+  "lib/bos/bos_os_arg.cmx" {"F:S7109T1752667651.24"}
+  "lib/bos/bos_os_cmd.cmx" {"F:S12189T1752667651.24"}
+  "lib/bos/bos_os_dir.cmx" {"F:S3796T1752667651.24"}
+  "lib/bos/bos_os_env.cmx" {"F:S2031T1752667651.24"}
+  "lib/bos/bos_os_file.cmx" {"F:S4318T1752667651.24"}
+  "lib/bos/bos_os_path.cmx" {"F:S4416T1752667651.24"}
+  "lib/bos/bos_os_tmp.cmx" {"F:S1375T1752667651.24"}
+  "lib/bos/bos_os_u.cmx" {"F:S1467T1752667651.24"}
+  "lib/bos/bos_pat.cmx" {"F:S2187T1752667651.24"}
+  "lib/bos/bos_setup.a" {"F:S10006T1752667651.24"}
+  "lib/bos/bos_setup.cma" {"F:S7374T1752667651.24"}
+  "lib/bos/bos_setup.cmi" {"F:S17988T1752667651.24"}
+  "lib/bos/bos_setup.cmti" {"F:S67353T1752667651.24"}
+  "lib/bos/bos_setup.cmx" {"F:S31191T1752667651.24"}
+  "lib/bos/bos_setup.cmxa" {"F:S1221T1752667651.24"}
+  "lib/bos/bos_setup.cmxs" {"F:S19312T1752667651.24"}
+  "lib/bos/bos_setup.mli" {"F:S3197T1752667651.24"}
+  "lib/bos/bos_top.a" {"F:S4070T1752667651.24"}
+  "lib/bos/bos_top.cma" {"F:S2619T1752667651.24"}
+  "lib/bos/bos_top.cmx" {"F:S1522T1752667651.24"}
+  "lib/bos/bos_top.cmxa" {"F:S1528T1752667651.24"}
+  "lib/bos/bos_top.cmxs" {"F:S18824T1752667651.24"}
+  "lib/bos/bos_top_init.ml" {"F:S1264T1752667651.24"}
+  "lib/bos/opam" {"F:S1665T1752667651.23"}
+]

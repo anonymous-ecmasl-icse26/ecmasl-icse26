@@ -1,0 +1,12 @@
+version = "0.1"
+description = ""
+requires =
+"base
+ ppx_compare.runtime-lib
+ ppx_deriving.runtime
+ ppx_hash.runtime-lib
+ zarith"
+archive(byte) = "farith.cma"
+archive(native) = "farith.cmxa"
+plugin(byte) = "farith.cma"
+plugin(native) = "farith.cmxs"

@@ -1,0 +1,181 @@
+opam-version: "2.0"
+added: [
+  "doc/ppx_sexp_conv" {"D"}
+  "doc/ppx_sexp_conv/CHANGES.md" {"F:S2102T1752667663.44"}
+  "doc/ppx_sexp_conv/LICENSE.md" {"F:S1126T1752667663.44"}
+  "doc/ppx_sexp_conv/README.org" {"F:S17791T1752667663.44"}
+  "lib/ppx_sexp_conv" {"D"}
+  "lib/ppx_sexp_conv/META" {"F:S1489T1752667663.43"}
+  "lib/ppx_sexp_conv/dune-package" {"F:S8872T1752667663.43"}
+  "lib/ppx_sexp_conv/expander" {"D"}
+  "lib/ppx_sexp_conv/expander/attrs.ml" {"F:S5536T1752667663.43"}
+  "lib/ppx_sexp_conv/expander/attrs.mli" {"F:S2179T1752667663.43"}
+  "lib/ppx_sexp_conv/expander/conversion.ml" {"F:S5716T1752667663.43"}
+  "lib/ppx_sexp_conv/expander/conversion.mli" {"F:S1693T1752667663.43"}
+  "lib/ppx_sexp_conv/expander/expand_of_sexp.ml" {"F:S43255T1752667663.43"}
+  "lib/ppx_sexp_conv/expander/expand_of_sexp.mli" {"F:S784T1752667663.43"}
+  "lib/ppx_sexp_conv/expander/expand_sexp_of.ml" {"F:S30516T1752667663.43"}
+  "lib/ppx_sexp_conv/expander/expand_sexp_of.mli" {"F:S1053T1752667663.43"}
+  "lib/ppx_sexp_conv/expander/fresh_name.ml" {"F:S418T1752667663.43"}
+  "lib/ppx_sexp_conv/expander/fresh_name.mli" {"F:S586T1752667663.43"}
+  "lib/ppx_sexp_conv/expander/helpers.ml" {"F:S6969T1752667663.43"}
+  "lib/ppx_sexp_conv/expander/helpers.mli" {"F:S1996T1752667663.43"}
+  "lib/ppx_sexp_conv/expander/labeled_tuple.ml" {"F:S178T1752667663.43"}
+  "lib/ppx_sexp_conv/expander/labeled_tuple.mli" {"F:S326T1752667663.43"}
+  "lib/ppx_sexp_conv/expander/lifted.ml" {"F:S1111T1752667663.43"}
+  "lib/ppx_sexp_conv/expander/lifted.mli" {"F:S1020T1752667663.43"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander.a"
+    {"F:S914390T1752667663.43"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander.cma"
+    {"F:S503376T1752667663.43"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander.cmi"
+    {"F:S4797T1752667663.43"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander.cmt"
+    {"F:S15488T1752667663.43"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander.cmti"
+    {"F:S13964T1752667663.43"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander.cmx"
+    {"F:S21794T1752667663.43"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander.cmxa"
+    {"F:S96347T1752667663.43"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander.cmxs"
+    {"F:S890856T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander.ml"
+    {"F:S1519T1752667663.43"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander.mli"
+    {"F:S1784T1752667663.43"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__.cmi"
+    {"F:S1135T1752667663.43"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__.cmt"
+    {"F:S4558T1752667663.43"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__.cmx"
+    {"F:S595T1752667663.43"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__.ml"
+    {"F:S1347T1752667663.43"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Attrs.cmi"
+    {"F:S8565T1752667663.43"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Attrs.cmt"
+    {"F:S34642T1752667663.43"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Attrs.cmti"
+    {"F:S21770T1752667663.43"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Attrs.cmx"
+    {"F:S7795T1752667663.43"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Conversion.cmi"
+    {"F:S8362T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Conversion.cmt"
+    {"F:S39650T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Conversion.cmti"
+    {"F:S19220T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Conversion.cmx"
+    {"F:S10597T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Expand_of_sexp.cmi"
+    {"F:S7701T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Expand_of_sexp.cmt"
+    {"F:S197134T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Expand_of_sexp.cmti"
+    {"F:S16575T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Expand_of_sexp.cmx"
+    {"F:S13307T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Expand_sexp_of.cmi"
+    {"F:S7764T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Expand_sexp_of.cmt"
+    {"F:S167204T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Expand_sexp_of.cmti"
+    {"F:S17153T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Expand_sexp_of.cmx"
+    {"F:S12312T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Fresh_name.cmi"
+    {"F:S7529T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Fresh_name.cmt"
+    {"F:S10420T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Fresh_name.cmti"
+    {"F:S16005T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Fresh_name.cmx"
+    {"F:S8562T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Helpers.cmi"
+    {"F:S7916T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Helpers.cmt"
+    {"F:S86838T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Helpers.cmti"
+    {"F:S18392T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Helpers.cmx"
+    {"F:S9211T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Labeled_tuple.cmi"
+    {"F:S6843T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Labeled_tuple.cmt"
+    {"F:S7982T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Labeled_tuple.cmti"
+    {"F:S13888T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Labeled_tuple.cmx"
+    {"F:S7165T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Lifted.cmi"
+    {"F:S8243T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Lifted.cmt"
+    {"F:S18918T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Lifted.cmti"
+    {"F:S18446T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Lifted.cmx"
+    {"F:S8466T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Ppx_sexp_conv_grammar.cmi"
+    {"F:S7626T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Ppx_sexp_conv_grammar.cmt"
+    {"F:S145612T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Ppx_sexp_conv_grammar.cmti"
+    {"F:S15979T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Ppx_sexp_conv_grammar.cmx"
+    {"F:S20346T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Record_field_attrs.cmi"
+    {"F:S8207T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Record_field_attrs.cmt"
+    {"F:S42170T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Record_field_attrs.cmti"
+    {"F:S18276T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Record_field_attrs.cmx"
+    {"F:S8301T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Renaming.cmi"
+    {"F:S7858T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Renaming.cmt"
+    {"F:S41753T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Renaming.cmti"
+    {"F:S17080T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_expander__Renaming.cmx"
+    {"F:S8368T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_grammar.ml"
+    {"F:S25396T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/ppx_sexp_conv_grammar.mli"
+    {"F:S503T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/record_field_attrs.ml"
+    {"F:S3750T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/record_field_attrs.mli"
+    {"F:S827T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/renaming.ml" {"F:S3543T1752667663.44"}
+  "lib/ppx_sexp_conv/expander/renaming.mli" {"F:S1956T1752667663.44"}
+  "lib/ppx_sexp_conv/opam" {"F:S864T1752667663.44"}
+  "lib/ppx_sexp_conv/ppx_sexp_conv.a" {"F:S27140T1752667663.44"}
+  "lib/ppx_sexp_conv/ppx_sexp_conv.cma" {"F:S18680T1752667663.44"}
+  "lib/ppx_sexp_conv/ppx_sexp_conv.cmi" {"F:S3828T1752667663.44"}
+  "lib/ppx_sexp_conv/ppx_sexp_conv.cmt" {"F:S30246T1752667663.44"}
+  "lib/ppx_sexp_conv/ppx_sexp_conv.cmti" {"F:S8589T1752667663.44"}
+  "lib/ppx_sexp_conv/ppx_sexp_conv.cmx" {"F:S8671T1752667663.44"}
+  "lib/ppx_sexp_conv/ppx_sexp_conv.cmxa" {"F:S7676T1752667663.44"}
+  "lib/ppx_sexp_conv/ppx_sexp_conv.cmxs" {"F:S42320T1752667663.44"}
+  "lib/ppx_sexp_conv/ppx_sexp_conv.ml" {"F:S4273T1752667663.44"}
+  "lib/ppx_sexp_conv/ppx_sexp_conv.mli" {"F:S172T1752667663.44"}
+  "lib/ppx_sexp_conv/runtime-lib" {"D"}
+  "lib/ppx_sexp_conv/runtime-lib/ppx_sexp_conv_lib.a"
+    {"F:S6272T1752667663.44"}
+  "lib/ppx_sexp_conv/runtime-lib/ppx_sexp_conv_lib.cma"
+    {"F:S3744T1752667663.44"}
+  "lib/ppx_sexp_conv/runtime-lib/ppx_sexp_conv_lib.cmi"
+    {"F:S1936T1752667663.44"}
+  "lib/ppx_sexp_conv/runtime-lib/ppx_sexp_conv_lib.cmt"
+    {"F:S6441T1752667663.44"}
+  "lib/ppx_sexp_conv/runtime-lib/ppx_sexp_conv_lib.cmx"
+    {"F:S3042T1752667663.44"}
+  "lib/ppx_sexp_conv/runtime-lib/ppx_sexp_conv_lib.cmxa"
+    {"F:S730T1752667663.44"}
+  "lib/ppx_sexp_conv/runtime-lib/ppx_sexp_conv_lib.cmxs"
+    {"F:S18160T1752667663.44"}
+  "lib/ppx_sexp_conv/runtime-lib/ppx_sexp_conv_lib.ml"
+    {"F:S258T1752667663.44"}
+]

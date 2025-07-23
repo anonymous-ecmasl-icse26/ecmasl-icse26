@@ -1,0 +1,21 @@
+opam-version: "2.0"
+added: [
+  "doc/rusage" {"D"}
+  "doc/rusage/CHANGES.md" {"F:S41T1752667627.18"}
+  "doc/rusage/LICENSE" {"F:S1075T1752667627.18"}
+  "doc/rusage/README.md" {"F:S664T1752667627.18"}
+  "lib/rusage" {"D"}
+  "lib/rusage/META" {"F:S168T1752667627.16"}
+  "lib/rusage/dune-package" {"F:S874T1752667627.16"}
+  "lib/rusage/librusage_stubs.a" {"F:S22248T1752667627.16"}
+  "lib/rusage/opam" {"F:S688T1752667627.16"}
+  "lib/rusage/rusage.a" {"F:S1998T1752667627.16"}
+  "lib/rusage/rusage.cma" {"F:S3297T1752667627.16"}
+  "lib/rusage/rusage.cmi" {"F:S842T1752667627.16"}
+  "lib/rusage/rusage.cmt" {"F:S6432T1752667627.16"}
+  "lib/rusage/rusage.cmx" {"F:S170T1752667627.16"}
+  "lib/rusage/rusage.cmxa" {"F:S192T1752667627.16"}
+  "lib/rusage/rusage.cmxs" {"F:S26168T1752667627.16"}
+  "lib/rusage/rusage.ml" {"F:S3592T1752667627.16"}
+  "lib/stublibs/dllrusage_stubs.so" {"F:S24968T1752667627.16"}
+]

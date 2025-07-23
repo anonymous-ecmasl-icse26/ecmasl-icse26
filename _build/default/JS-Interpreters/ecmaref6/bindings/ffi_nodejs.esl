@@ -1,0 +1,450 @@
+function createNodeObject(moduleName) {
+  objectPrototype := |Intrinsics|["ObjectPrototype"];
+  nodeObject := ObjectCreate(objectPrototype, null);
+  nodeObject.__isNodeModule := true;
+  nodeObject.__isDangerousNodeAPI := false;
+  nodeObject.__nodeModuleName := moduleName;
+  nodeObject.__nodeModulePath := "";
+  return nodeObject;
+}
+
+function extendNodeObject(nodeObject, path) {
+  newPath := s_concat([nodeObject.__nodeModulePath, ".", path]);
+  newNodeObject := createNodeObject(nodeObject.__nodeModuleName);
+  newNodeObject.__nodeModulePath := newPath;
+  return newDataPropertyDescriptor(newNodeObject);
+}
+
+function evaluateNodeObject(nodeObject) {
+  return 'undefined;
+}
+
+
+function callNodeFunction(scope, this, nodeObject, args) {
+  res := extern node_function(nodeObject.__nodeModuleName, nodeObject.__nodeModulePath, args, nodeObject.__isDangerousNodeAPI);
+  return NormalCompletion(res);
+}
+
+function __esl_node_child_process_spawn(globalObject, thisValue, newTarget, strict, params) {
+  command := l_nth(params, 0);
+  args := l_nth(params, 1).JSProperties;
+
+  params' := command;
+  foreach (i: obj_fields args) {
+    if (args[i].Enumerable)
+      params' := params' + " " + args[i].Value;
+  }
+
+  /* Necessary for taint tracking */
+  return spawn(globalObject, thisValue, newTarget, strict, [params']);
+}
+
+function spawn(globalObject, thisValue, newTarget, strict, params) {
+  return __esl_node_child_process_exec(globalObject, thisValue, newTarget, strict, params);
+}
+
+function __esl_node_child_process_execSync(globalObject, thisValue, newTarget, strict, params) {
+  return __esl_node_child_process_exec(globalObject, thisValue, newTarget, strict, params);
+}
+
+function __dummy_func(globalObject, thisValue, newTarget, strict, params) {
+  return null;
+}
+
+function __esl_node_child_process_exec(globalObject, thisValue, newTarget, strict, params) {
+  objectPrototype := |Intrinsics|["ObjectPrototype"];
+  paramsLen := l_len(params);
+  command := l_nth(params, 0);
+  res := extern node_child_process_exec(command);  
+  
+  if (paramsLen > 1 &&& isFunctionObject(l_nth(params, 1)))
+    callback := l_nth(params, 1);
+  else if (paramsLen > 2 &&& isFunctionObject(l_nth(params, 2)))
+    callback := l_nth(params, 2);
+  else 
+    callback := null;
+
+  error := l_nth(res, 0);
+  stdout := l_nth(res, 1);
+  stderr := l_nth(res, 2);
+
+  if (error != 0) {
+    error' := ObjectCreate(objectPrototype, null);
+    CreateDataProperty(error', "code", int_to_float(error));
+  } else {
+    error' := int_to_float(error);
+  }
+
+  if (callback != null) {
+    callbackArgs := [ error', stdout, stderr ];
+    return Call(null, null, callback, thisValue, callbackArgs);
+  } else {
+    dummy_func := CreateBuiltInFunctionObject(["str"], "__dummy_func", globalObject, strict, null);
+
+    stdout_new := ObjectCreate(objectPrototype, null);
+    CreateDataProperty(stdout_new, "on", dummy_func);
+    stderr_new := ObjectCreate(objectPrototype, null);
+    CreateDataProperty(stderr_new, "on", dummy_func);
+
+    res' := ObjectCreate(objectPrototype, null);
+    CreateDataProperty(res', "on", dummy_func);
+    CreateDataProperty(res', "stdout", stdout_new);
+    CreateDataProperty(res', "stderr", stderr_new);
+
+    return res';
+  }
+}
+
+function makeChildProcessObject(globalObject, objectPrototype, strict) {
+  realm := { globalEnv : globalObject };
+  childProcess := createNodeObject("child_process");
+
+  exec := CreateBuiltInFunctionObject(["cmd"], "__esl_node_child_process_exec", realm, strict, null);
+  createBuiltInProperty(exec, "prototype", objectPrototype);
+  createBuiltInProperty(childProcess, "exec", exec);
+
+  execSync := CreateBuiltInFunctionObject(["cmd"], "__esl_node_child_process_execSync", realm, strict, null);
+  createBuiltInProperty(execSync, "prototype", objectPrototype);
+  createBuiltInProperty(childProcess, "execSync", execSync);
+
+  spawn := CreateBuiltInFunctionObject(["cmd"], "__esl_node_child_process_spawn", realm, strict, null);
+  createBuiltInProperty(spawn, "prototype", objectPrototype);
+  createBuiltInProperty(childProcess, "spawn", spawn);
+
+  return childProcess;
+}
+
+
+
+
+
+function makeProcessObject(globalObject, objectPrototype, strict) {
+  realm := { globalEnv : globalObject };
+  process := createNodeObject("process");
+
+  createBuiltInProperty(process, "execPath", "node");
+  createBuiltInProperty(process, "platform", 'undefined);
+
+  return process;
+}
+
+
+
+
+
+function loadNodejsModule(globalObject, objectPrototype, strict, moduleName) {
+  switch (moduleName) {
+    /* case "assert": */
+    /* case "buffer": */
+    case "child_process":
+      return makeChildProcessObject(globalObject, objectPrototype, strict);
+    case "mz/child_process":
+      return makeChildProcessObject(globalObject, objectPrototype, strict);
+    case "process":
+      return makeProcessObject(globalObject, objectPrototype, strict);
+    /* case "cluster": */
+    /* case "crypto": */
+    /* case "diagnostics_channel": */
+    /* case "dns": */
+    /* case "events": */
+    /* case "fs": */
+    /* case "fs/promises": */
+    /* case "http": */
+    /* case "http2": */
+    /* case "https": */
+    /* case "os": */
+    /* case "path": */
+    /* case "querystring": */
+    /* case "readline": */
+    /* case "repl": */
+    /* case "stream": */
+    /* case "string_decoder": */
+    /* case "test": */
+    /* case "timers": */
+    /* case "tls": */
+    /* case "tty": */
+    /* case "dgram": */
+    /* case "url": */
+    /* case "util": */
+    /* case "vm": */
+    /* case "worker_threads": */
+    /* case "zlib": */
+    default:
+      return createNodeObject(moduleName);
+  }
+}
+
+function push_globals() {
+  let saved_globals = {
+    global: |global|,
+    /* Intrinsics: |Intrinsics|, */
+    ctxStack : |ctxStack|,
+    /* __CUR__SYMB__ : |__CUR__SYMB__|, */
+    /* GlobalSymbolRegistry : |GlobalSymbolRegistry|, */
+    /* ElementTable : |ElementTable|, */
+    ScriptJobQueue : |ScriptJobQueue|,
+    PromiseJobQueue : |PromiseJobQueue|,
+    __dirname : |__dirname|,
+    __filename : |__filename|
+    /* realm : |realm| */
+  };
+  |global| := 'undefined;
+  |realm|["globalThis"] := 'undefined;
+  /* |Intrinsics| := {}; */
+  |ctxStack| := stack_make();
+  /* |__CUR__SYMB__| := 0; */
+  /* |GlobalSymbolRegistry| := {}; */
+  /* |ElementTable| := {}; */
+  |ScriptJobQueue| := queue_make();
+  |PromiseJobQueue| := queue_make();
+  /* |realm| := {}; */
+  stack_push(|globals_stack|,  saved_globals);
+  return;
+}
+
+function pop_globals() {
+  let saved_globals = stack_pop(|globals_stack|);
+  |global| := saved_globals.global;
+  |realm|["globalThis"] := saved_globals.global;
+  /* |Intrinsics| := saved_globals.Intrinsics; */
+  |ctxStack| := saved_globals.ctxStack;
+  /* |__CUR__SYMB__| := saved_globals.__CUR__SYMB__; */
+  /* |GlobalSymbolRegistry| := saved_globals.GlobalSymbolRegistry; */
+  /* |ElementTable| := saved_globals.ElementTable; */
+  |ScriptJobQueue| := saved_globals.ScriptJobQueue;
+  |PromiseJobQueue| := saved_globals.PromiseJobQueue;
+  |__dirname| := saved_globals.__dirname;
+  |__filename| := saved_globals.__filename;
+  /* |realm| := saved_globals.realm; */
+  return;
+}
+
+function load_js_module(fpath) {
+  let file_content = with_open_in(fpath, "input_all");
+  let file_content_gen = extern parseJS(file_content);
+  let file_content_ast = {file_content_gen}();
+  push_globals();
+  /* Set the new `__filename` and `__dirname` as the required file */
+  |__dirname| := fpath_to_string(dirname(fpath));
+  |__filename| := fpath_to_string(fpath);
+  let result = NodeJSInitialization(file_content_ast, true);
+  /* TODO: handle `result` error  */
+  let global = |realm|["globalThis"];
+  let module = GetValue(newPropertyReference(global, "module", false));
+  let exports = OrdinaryGetOwnProperty(module, "exports");
+  pop_globals();
+  return exports.Value;
+}
+
+function load_as_file(fpath) {
+  /* 1. If X is a file, load X as its file extension format. STOP */
+  if (file_exists(fpath)) {
+    if (has_ext(fpath, ".js")) {
+      return load_js_module(fpath);
+    }
+    throw "TODO: load '" + fpath_to_string(fpath) + "' as its file extension";
+  }
+
+  /* 2. If X.js is a file, */
+  let fpath' = set_ext(fpath, ".js");
+  if (file_exists(fpath')) {
+    return load_js_module(fpath');
+  }
+
+  /* 3. If X.json is a file, load X.json to a JavaScript Object. STOP */
+  let fpath' = set_ext(fpath, ".json");
+  if (file_exists(fpath')) {
+    throw "TODO: '" + fpath_to_string(fpath') + "' to a JavaScript Object";
+  }
+
+  /* 4. If X.node is a file, load X.node as binary addon. STOP */
+  throw "TODO: load X.node as binary addon.";
+}
+
+function __esl_node_require(globalObject, this, NewTarget, strict, params) {
+  moduleName := hd params;
+  objectPrototype := |Intrinsics|["ObjectPrototype"];
+
+  if (s_is_prefix("/", moduleName) || s_is_prefix("./", moduleName) || s_is_prefix("../", moduleName)) {
+    let y = fpath_of_string(|__dirname|);
+    let moduleName = fpath_of_string(moduleName);
+    let full_path = fpath_append(y, moduleName);
+    /*    a. LOAD_AS_FILE(Y + X) */
+    return load_as_file(full_path);
+    /*    b. LOAD_AS_DIRECTORY(Y + X) */
+    /*    c. THROW "not found" */
+  }
+  
+  return loadNodejsModule(globalObject, objectPrototype, strict, moduleName);
+}
+
+
+
+
+
+function createExportsObject(objectPrototype) {
+  exports := ObjectCreate(objectPrototype, null);
+  return exports;
+}
+
+function createModuleObject(objectPrototype, exports) {
+  module := ObjectCreate(objectPrototype, null);
+  createBuiltInProperty(module, "exports", exports);
+  return module;
+}
+
+function createRequireFunction(realm, strict, objectPrototype) {
+  require := CreateBuiltInFunctionObject(["path"], "__esl_node_require", realm, strict, null);
+  createBuiltInProperty(require, "prototype", objectPrototype);
+  return require;
+}
+
+function initNodejsObject(realm, strict) {
+  globalObject := realm.globalThis;
+  objectPrototype := realm.intrinsics.ObjectPrototype;
+
+  /* module.exports */
+  exports := createExportsObject(objectPrototype);
+  createBuiltInProperty(globalObject, "exports", exports);
+
+  /* module */
+  module := createModuleObject(objectPrototype, exports);
+  createBuiltInProperty(globalObject, "module", module);
+
+  /* require() */
+  require := createRequireFunction(realm, strict, objectPrototype);
+  createBuiltInProperty(globalObject, "require", require);
+
+  /* process */
+  process := makeProcessObject(globalObject, objectPrototype, strict);
+  createBuiltInProperty(globalObject, "process", process);
+
+  return;
+}
+
+function make_process_object(globalObject, objectPrototype, strict) {
+  let realm = { globalEnv : globalObject };
+  let newTarget = |Intrinsics|["Array"];
+  let process = NewECMAScriptObject();
+  setAllInternalMethodsOfOrdinaryObject(process); 
+  setInternalProperty(process, "prototype", objectPrototype);
+
+  /* Properties: */
+  let arch = "arch";
+  createBuiltInProperty(process, "arch", arch);
+  createBuiltInProperty(process, "execPath", "node");
+
+  let platform = "win32";
+  createBuiltInProperty(process, "platform", platform);
+
+  /* Should be a symbolic lazy object, but now it just keeps env empty */
+  let env = NewECMAScriptObject();
+  /* setAllInternalMethodsOfOrdinaryObject(env); */
+  setInternalProperty(env, "prototype", objectPrototype);
+  createBuiltInProperty(process, "env", env);
+
+  let items =
+    [ "argv0"
+    , "argv1"
+    , "argv2"
+    , "argv3"
+    , "argv4"
+    ];
+  let argv = ArrayConstructor('null, 'undefined, newTarget, strict, items, newTarget);
+  createBuiltInProperty(process, "argv", argv);
+
+  /* Functions: */
+  let cwd = CreateBuiltInFunctionObject([], "__esl_node_process_cwd", realm, strict, null);
+  createBuiltInProperty(cwd, "prototype", objectPrototype);
+  createBuiltInProperty(process, "cwd", cwd);
+
+  return process;
+}
+
+function makeNodeObject(global, realm, strict) {
+  let objProto = realm.intrinsics.ObjectPrototype;
+  createBuiltInProperty(global, "__dirname", |__dirname|);
+  createBuiltInProperty(global, "__filename", |__filename|);
+
+  let require = CreateBuiltInFunctionObject(["path"], "__esl_node_require", realm, strict, null);
+  createBuiltInProperty(global, "require", require);
+  createBuiltInProperty(require, "prototype", objProto);
+
+  let module = NewECMAScriptObject();
+  setAllInternalMethodsOfOrdinaryObject(module);
+  setInternalProperty(module, "Prototype", objProto);
+  createBuiltInProperty(global, "module", module);
+
+  let exports = NewECMAScriptObject();
+  setAllInternalMethodsOfOrdinaryObject(exports);
+  setInternalProperty(module, "Prototype", objProto);
+  createBuiltInProperty(module, "exports", exports);
+  createBuiltInProperty(global, "exports", exports);
+
+  let process = make_process_object(global, objProto, strict);
+  createBuiltInProperty(global, "process", process);
+
+  createBuiltInProperty(global, "global", global);
+  return;
+}
+
+function initNodeRealm(realm) {
+  /* If this implementation requires use of an exotic object to serve as realm’s global object, let global be such an object created in an implementation defined manner. Otherwise, let global be undefined indicating that an ordinary object should be created as the global object. */
+  let global = 'undefined;
+  /* Perform SetRealmGlobalObject(realm, global). */
+  SetRealmGlobalObject(realm, global);
+  /* Let globalObj be SetDefaultGlobalBindings(realm). */
+  let globalObj = SetDefaultGlobalBindings(realm);
+  /* ReturnIfAbrupt(globalObj). */
+  @ReturnIfAbrupt(globalObj);
+  /* Create any implementation defined global object properties on globalObj. */
+  makeNodeObject(globalObj, realm, false);
+  /* Return NormalCompletion(undefined). */
+  return NormalCompletion('undefined);
+}
+
+
+function NodeJSInitialization(sourceText, partial) {
+  realm := 'undefined;
+  /* If partial execution is not enabled, create instrinsics */
+  if (!partial) {
+    realm := CreateRealm();
+    |realm| := realm;
+  /* Otherwise, reuse exisiting global instrinsics */
+  } else {
+    realm := |realm|;
+  }
+  
+  /* Let newContext be a new execution context. */
+  newContext := createExecutionContext();
+  /* Set the Function of newContext to null. */
+  newContext.Function := 'null;
+  /* Set the Realm of newContext to realm. */
+  newContext.Realm := realm;
+  /* Push newContext onto the execution context stack; newContext is now the running execution context. */
+  pushExecStack(newContext);
+  /* Let status be InitializeHostDefinedRealm(realm). 
+  status := InitializeHostDefinedRealm(realm);
+  initNodejsObject(realm, false);
+  */
+  let status = initNodeRealm(realm);
+
+  /* If _status_ is an abrupt completion, then */
+  if (isAnAbruptCompletion(status)) {
+    /* Assert: The first realm could not be created. */
+    assert (realm == null);
+    /* Terminate ECMAScript execution. */
+    /* FIXME: should have the same return type as below */
+    return;
+  }
+  /* In an implementation dependent manner, obtain the ECMAScript source texts (see clause 10) for zero or more ECMAScript scripts and/or ECMAScript modules. For each such sourceText do, */
+  /* If sourceText is the source code of a script, then */
+  /* Perform EnqueueJob("ScriptJobs", ScriptEvaluationJob, « sourceText »). */
+  /* EnqueueJob("ScriptJobs", "ScriptEvaluationJob", [sourceText]); */
+  EnqueueJob("ScriptJobs", "TopLevelModuleEvaluationJob", [ sourceText ]);
+  
+  /* Else sourceText is the source code of a module, */
+  /* Perform EnqueueJob("ScriptJobs", TopLevelModuleEvaluationJob, « sourceText »). */
+  /* NextJob NormalCompletion(undefined). */
+  return NextJob(NormalCompletion('undefined));
+}

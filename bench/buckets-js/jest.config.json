@@ -1,0 +1,15 @@
+{
+    "rootDir": "./",
+    "collectCoverage": true,
+    "coverageReporters": [
+        "json-summary",
+        "text",
+        "html"
+    ],
+    "testPathIgnorePatterns": [],
+    "coverageDirectory": "coverage/coverage-report",
+    "collectCoverageFrom": [
+        "src/lib/*.js"
+    ],
+    "testEnvironment": "node"
+}

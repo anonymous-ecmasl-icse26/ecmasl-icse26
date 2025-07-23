@@ -1,0 +1,34 @@
+name: build
+run-name: build
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: zapashcanon/gitea-ocaml-ci:latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: depext
+        run: |
+          opam install . --depext-only --with-test --with-doc --with-dev-setup -y
+      - name: setup
+        run: |
+          opam install . --deps-only --with-test --with-doc --with-dev-setup -y
+      - name: build
+        run: |
+          opam exec -- dune build @install
+      - name: test
+        run: |
+          opam exec -- dune runtest
+      - name: lint-doc
+        run: |
+          ODOC_WARN_ERROR=true opam exec -- dune build @doc 2> output.txt
+          $(exit $(wc -l output.txt | cut -d " " -f1))
+      - name: lint-fmt
+        run: |
+          opam exec -- dune build @fmt || (echo "\n⚠️ please run \`dune fmt\` and try again" && exit 1)
+      - name: lint-fresh-opam-file
+        run: |
+          git diff --exit-code *.opam || (echo "⚠️ please run \`dune build\`, commit the changes to the opam file, and then try again" && exit 1)

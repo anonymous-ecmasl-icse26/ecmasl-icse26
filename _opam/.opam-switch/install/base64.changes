@@ -1,0 +1,40 @@
+opam-version: "2.0"
+added: [
+  "doc/base64" {"D"}
+  "doc/base64/CHANGES.md" {"F:S3974T1752667625.06"}
+  "doc/base64/LICENSE.md" {"F:S800T1752667625.06"}
+  "doc/base64/README.md" {"F:S714T1752667625.06"}
+  "lib/base64" {"D"}
+  "lib/base64/META" {"F:S429T1752667625.05"}
+  "lib/base64/base64.a" {"F:S43848T1752667625.05"}
+  "lib/base64/base64.cma" {"F:S27881T1752667625.05"}
+  "lib/base64/base64.cmi" {"F:S1111T1752667625.05"}
+  "lib/base64/base64.cmt" {"F:S52342T1752667625.05"}
+  "lib/base64/base64.cmti" {"F:S8261T1752667625.05"}
+  "lib/base64/base64.cmx" {"F:S3485T1752667625.05"}
+  "lib/base64/base64.cmxa" {"F:S1119T1752667625.05"}
+  "lib/base64/base64.cmxs" {"F:S54072T1752667625.06"}
+  "lib/base64/base64.ml" {"F:S10627T1752667625.05"}
+  "lib/base64/base64.mli" {"F:S4426T1752667625.05"}
+  "lib/base64/base64__.cmi" {"F:S197T1752667625.05"}
+  "lib/base64/base64__.cmt" {"F:S1596T1752667625.05"}
+  "lib/base64/base64__.cmx" {"F:S118T1752667625.05"}
+  "lib/base64/base64__.ml" {"F:S88T1752667625.05"}
+  "lib/base64/base64__Unsafe.cmi" {"F:S415T1752667625.06"}
+  "lib/base64/base64__Unsafe.cmt" {"F:S1965T1752667625.06"}
+  "lib/base64/base64__Unsafe.cmx" {"F:S207T1752667625.06"}
+  "lib/base64/dune-package" {"F:S2012T1752667625.06"}
+  "lib/base64/opam" {"F:S969T1752667625.06"}
+  "lib/base64/rfc2045" {"D"}
+  "lib/base64/rfc2045/base64_rfc2045.a" {"F:S55534T1752667625.06"}
+  "lib/base64/rfc2045/base64_rfc2045.cma" {"F:S32686T1752667625.06"}
+  "lib/base64/rfc2045/base64_rfc2045.cmi" {"F:S1330T1752667625.06"}
+  "lib/base64/rfc2045/base64_rfc2045.cmt" {"F:S74674T1752667625.06"}
+  "lib/base64/rfc2045/base64_rfc2045.cmti" {"F:S8721T1752667625.06"}
+  "lib/base64/rfc2045/base64_rfc2045.cmx" {"F:S5575T1752667625.06"}
+  "lib/base64/rfc2045/base64_rfc2045.cmxa" {"F:S668T1752667625.06"}
+  "lib/base64/rfc2045/base64_rfc2045.cmxs" {"F:S62016T1752667625.06"}
+  "lib/base64/rfc2045/base64_rfc2045.ml" {"F:S15264T1752667625.06"}
+  "lib/base64/rfc2045/base64_rfc2045.mli" {"F:S4725T1752667625.06"}
+  "lib/base64/unsafe.ml" {"F:S94T1752667625.06"}
+]

@@ -1,0 +1,72 @@
+/* Copyright (C) 2022-2025 formalsec programmers
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+/* Auxiliary functions */
+function NewECMAScriptObject() {
+  return {
+    JSProperties: {},
+    Class: "Object",
+    Extensible: true,
+    Prototype: 'null
+  };
+}
+
+function NewECMAScriptObjectFull(prototype, class, extensible) {
+  object := NewECMAScriptObject();
+  setInternalProperty(object, "Prototype", prototype);
+  setInternalProperty(object, "Class", class);
+  setInternalProperty(object, "Extensible", extensible);
+  return object;
+}
+
+/* Returns a list containing the names of each own property of object. */
+function getOwnProperties(object) {
+  return l_sort(obj_fields object.JSProperties);
+}
+
+/* Returns a list containing the names of each enumerable own property of object. */
+function getOwnEnumerableProperties(object) {
+  ownProperties := getOwnProperties(object);
+  ownEnumerableProperties := [];
+  lownProperties := l_len(ownProperties);
+  i := 0;
+  while (i < lownProperties) {
+    pname := l_nth(ownProperties, i);
+    propDesc := object.JSProperties[pname];
+    if (isEnumerablePropertyDescriptor(propDesc))
+      ownEnumerableProperties := l_add(ownEnumerableProperties, pname);
+    i := i + 1;
+  }
+  return ownEnumerableProperties;
+}
+
+function getInternalProperty(object, pname) {
+  return object[pname];
+}
+
+function getJSProperty(object, pname) {
+  return object.JSProperties[pname];
+}
+
+function setInternalProperty(object, pname, pvalue) {
+  object[pname] := pvalue;
+  return;
+}
+
+function setJSProperty(object, pname, pvalue) {
+  object.JSProperties[pname] := pvalue;
+  return;
+}

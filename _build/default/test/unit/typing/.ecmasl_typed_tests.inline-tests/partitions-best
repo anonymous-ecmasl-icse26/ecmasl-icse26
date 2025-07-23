@@ -1,0 +1,5 @@
+test_congruency.ml
+test_expr.ml
+test_operator.ml
+test_subtyping.ml
+test_syntax.ml

@@ -1,0 +1,23 @@
+{0 scfg}
+
+{{:https://git.zapashcanon.fr/zapashcanon/scfg} scfg} is an {{:https://ocaml.org} OCaml} library/executable to work with the {{:https://git.sr.ht/~emersion/scfg} scfg configuration file format}.
+
+{1:api API}
+
+
+{!modules:
+Scfg.Parse
+Scfg.Pp
+Scfg.Query
+Scfg.Types
+}
+
+
+{1:private_api Private API}
+
+You shouldn't have to use any of these modules, they're used internally only.
+
+{!modules:
+Scfg.Lexer
+Scfg.Menhir_parser
+}

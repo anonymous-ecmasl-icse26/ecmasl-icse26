@@ -1,0 +1,58 @@
+opam-version: "2.0"
+added: [
+  "doc/patricia-tree" {"D"}
+  "doc/patricia-tree/CHANGELOG.md" {"F:S2774T1752667629.45"}
+  "doc/patricia-tree/LICENSE" {"F:S24382T1752667629.45"}
+  "doc/patricia-tree/README.md" {"F:S18708T1752667629.45"}
+  "doc/patricia-tree/odoc-pages" {"D"}
+  "doc/patricia-tree/odoc-pages/index.mld" {"F:S23922T1752667629.45"}
+  "lib/patricia-tree" {"D"}
+  "lib/patricia-tree/META" {"F:S194T1752667629.44"}
+  "lib/patricia-tree/PatriciaTree.a" {"F:S355532T1752667629.44"}
+  "lib/patricia-tree/PatriciaTree.cma" {"F:S382711T1752667629.44"}
+  "lib/patricia-tree/PatriciaTree.cmxa" {"F:S4175T1752667629.44"}
+  "lib/patricia-tree/PatriciaTree.cmxs" {"F:S315128T1752667629.45"}
+  "lib/patricia-tree/PatriciaTree.ml" {"F:S1625T1752667629.44"}
+  "lib/patricia-tree/PatriciaTree.mli" {"F:S6396T1752667629.44"}
+  "lib/patricia-tree/dune-package" {"F:S2978T1752667629.44"}
+  "lib/patricia-tree/functors.ml" {"F:S62861T1752667629.44"}
+  "lib/patricia-tree/functors.mli" {"F:S10089T1752667629.44"}
+  "lib/patricia-tree/ints.ml" {"F:S2343T1752667629.44"}
+  "lib/patricia-tree/ints.mli" {"F:S3336T1752667629.44"}
+  "lib/patricia-tree/key_value.ml" {"F:S3300T1752667629.44"}
+  "lib/patricia-tree/key_value.mli" {"F:S3757T1752667629.44"}
+  "lib/patricia-tree/libPatriciaTree_stubs.a" {"F:S5380T1752667629.44"}
+  "lib/patricia-tree/nodes.ml" {"F:S12982T1752667629.44"}
+  "lib/patricia-tree/nodes.mli" {"F:S4537T1752667629.44"}
+  "lib/patricia-tree/opam" {"F:S1035T1752667629.44"}
+  "lib/patricia-tree/patriciaTree.cmi" {"F:S120465T1752667629.44"}
+  "lib/patricia-tree/patriciaTree.cmt" {"F:S6774T1752667629.44"}
+  "lib/patricia-tree/patriciaTree.cmti" {"F:S358883T1752667629.44"}
+  "lib/patricia-tree/patriciaTree.cmx" {"F:S27905T1752667629.44"}
+  "lib/patricia-tree/patriciaTree__.cmi" {"F:S476T1752667629.44"}
+  "lib/patricia-tree/patriciaTree__.cmt" {"F:S2616T1752667629.44"}
+  "lib/patricia-tree/patriciaTree__.cmx" {"F:S232T1752667629.44"}
+  "lib/patricia-tree/patriciaTree__.ml" {"F:S422T1752667629.44"}
+  "lib/patricia-tree/patriciaTree__Functors.cmi" {"F:S71168T1752667629.44"}
+  "lib/patricia-tree/patriciaTree__Functors.cmt" {"F:S619093T1752667629.44"}
+  "lib/patricia-tree/patriciaTree__Functors.cmti" {"F:S184180T1752667629.45"}
+  "lib/patricia-tree/patriciaTree__Functors.cmx" {"F:S21999T1752667629.45"}
+  "lib/patricia-tree/patriciaTree__Ints.cmi" {"F:S646T1752667629.45"}
+  "lib/patricia-tree/patriciaTree__Ints.cmt" {"F:S5166T1752667629.45"}
+  "lib/patricia-tree/patriciaTree__Ints.cmti" {"F:S4934T1752667629.45"}
+  "lib/patricia-tree/patriciaTree__Ints.cmx" {"F:S1065T1752667629.45"}
+  "lib/patricia-tree/patriciaTree__Key_value.cmi" {"F:S1583T1752667629.45"}
+  "lib/patricia-tree/patriciaTree__Key_value.cmt" {"F:S12027T1752667629.45"}
+  "lib/patricia-tree/patriciaTree__Key_value.cmti" {"F:S7917T1752667629.45"}
+  "lib/patricia-tree/patriciaTree__Key_value.cmx" {"F:S2473T1752667629.45"}
+  "lib/patricia-tree/patriciaTree__Nodes.cmi" {"F:S3949T1752667629.45"}
+  "lib/patricia-tree/patriciaTree__Nodes.cmt" {"F:S78163T1752667629.45"}
+  "lib/patricia-tree/patriciaTree__Nodes.cmti" {"F:S15470T1752667629.45"}
+  "lib/patricia-tree/patriciaTree__Nodes.cmx" {"F:S5631T1752667629.45"}
+  "lib/patricia-tree/patriciaTree__Signatures.cmi" {"F:S41957T1752667629.45"}
+  "lib/patricia-tree/patriciaTree__Signatures.cmt"
+    {"F:S170575T1752667629.45"}
+  "lib/patricia-tree/patriciaTree__Signatures.cmx" {"F:S468T1752667629.45"}
+  "lib/patricia-tree/signatures.ml" {"F:S85520T1752667629.45"}
+  "lib/stublibs/dllPatriciaTree_stubs.so" {"F:S17160T1752667629.45"}
+]

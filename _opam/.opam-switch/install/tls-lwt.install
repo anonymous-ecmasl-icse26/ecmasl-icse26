@@ -1,0 +1,27 @@
+opam-version: "2.0"
+lib: [
+  "_build/install/default/lib/tls-lwt/META"
+  "_build/install/default/lib/tls-lwt/dune-package"
+  "_build/install/default/lib/tls-lwt/opam"
+  "_build/install/default/lib/tls-lwt/tls_lwt.a"
+  "_build/install/default/lib/tls-lwt/tls_lwt.cma"
+  "_build/install/default/lib/tls-lwt/tls_lwt.cmi"
+  "_build/install/default/lib/tls-lwt/tls_lwt.cmt"
+  "_build/install/default/lib/tls-lwt/tls_lwt.cmti"
+  "_build/install/default/lib/tls-lwt/tls_lwt.cmx"
+  "_build/install/default/lib/tls-lwt/tls_lwt.cmxa"
+  "_build/install/default/lib/tls-lwt/tls_lwt.ml"
+  "_build/install/default/lib/tls-lwt/tls_lwt.mli"
+  "_build/install/default/lib/tls-lwt/x509_lwt.cmi"
+  "_build/install/default/lib/tls-lwt/x509_lwt.cmt"
+  "_build/install/default/lib/tls-lwt/x509_lwt.cmti"
+  "_build/install/default/lib/tls-lwt/x509_lwt.cmx"
+  "_build/install/default/lib/tls-lwt/x509_lwt.ml"
+  "_build/install/default/lib/tls-lwt/x509_lwt.mli"
+]
+doc: [
+  "_build/install/default/doc/tls-lwt/CHANGES.md"
+  "_build/install/default/doc/tls-lwt/LICENSE.md"
+  "_build/install/default/doc/tls-lwt/README.md"
+]
+libexec: "_build/install/default/lib/tls-lwt/tls_lwt.cmxs"

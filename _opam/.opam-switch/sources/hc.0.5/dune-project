@@ -1,0 +1,31 @@
+(lang dune 3.0)
+
+(name hc)
+
+(license ISC)
+
+(authors "Léo Andrès <contact@ndrs.fr>")
+
+(maintainers "Léo Andrès <contact@ndrs.fr>")
+
+(source
+ (uri git+https://git.zapashcanon.fr/zapashcanon/hc.git))
+
+(bug_reports https://git.zapashcanon.fr/zapashcanon/hc/issues)
+
+(homepage https://git.zapashcanon.fr/zapashcanon/hc)
+
+(documentation https://doc.zapashcanon.fr/hc/)
+
+(generate_opam_files true)
+
+(explicit_js_mode)
+
+(package
+ (name hc)
+ (synopsis "Hashconsing library")
+ (description
+   "hc is an OCaml library for hashconsing. It provides easy ways to use hashconsing, in a type-safe and modular way and the ability to get forgetful memoïzation.")
+ (depends
+  (ocaml
+   (>= 4.14))))

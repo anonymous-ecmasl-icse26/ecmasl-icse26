@@ -1,0 +1,43 @@
+opam-version: "2.0"
+added: [
+  "doc/uri" {"D"}
+  "doc/uri/CHANGES.md" {"F:S11283T1752667640.96"}
+  "doc/uri/LICENSE.md" {"F:S803T1752667640.96"}
+  "doc/uri/README.md" {"F:S1871T1752667640.96"}
+  "lib/uri" {"D"}
+  "lib/uri/META" {"F:S720T1752667640.87"}
+  "lib/uri/dune-package" {"F:S2481T1752667640.87"}
+  "lib/uri/opam" {"F:S951T1752667640.87"}
+  "lib/uri/services" {"D"}
+  "lib/uri/services/uri_services.a" {"F:S65892T1752667640.87"}
+  "lib/uri/services/uri_services.cma" {"F:S11880T1752667640.87"}
+  "lib/uri/services/uri_services.cmi" {"F:S1091T1752667640.87"}
+  "lib/uri/services/uri_services.cmt" {"F:S30700T1752667640.87"}
+  "lib/uri/services/uri_services.cmti" {"F:S5700T1752667640.87"}
+  "lib/uri/services/uri_services.cmx" {"F:S9017T1752667640.87"}
+  "lib/uri/services/uri_services.cmxa" {"F:S747T1752667640.87"}
+  "lib/uri/services/uri_services.cmxs" {"F:S83592T1752667640.93"}
+  "lib/uri/services/uri_services.ml" {"F:S8393T1752667640.87"}
+  "lib/uri/services/uri_services.mli" {"F:S2385T1752667640.87"}
+  "lib/uri/services_full" {"D"}
+  "lib/uri/services_full/uri_services_full.a" {"F:S3946584T1752667640.92"}
+  "lib/uri/services_full/uri_services_full.cma" {"F:S405043T1752667640.92"}
+  "lib/uri/services_full/uri_services_full.cmi" {"F:S1103T1752667640.92"}
+  "lib/uri/services_full/uri_services_full.cmt" {"F:S1279193T1752667640.93"}
+  "lib/uri/services_full/uri_services_full.cmti" {"F:S5642T1752667640.93"}
+  "lib/uri/services_full/uri_services_full.cmx" {"F:S619213T1752667640.93"}
+  "lib/uri/services_full/uri_services_full.cmxa" {"F:S752T1752667640.93"}
+  "lib/uri/services_full/uri_services_full.cmxs" {"F:S4363440T1752667640.95"}
+  "lib/uri/services_full/uri_services_full.ml" {"F:S574623T1752667640.93"}
+  "lib/uri/services_full/uri_services_full.mli" {"F:S2210T1752667640.93"}
+  "lib/uri/uri.a" {"F:S214096T1752667640.93"}
+  "lib/uri/uri.cma" {"F:S105358T1752667640.93"}
+  "lib/uri/uri.cmi" {"F:S3699T1752667640.93"}
+  "lib/uri/uri.cmt" {"F:S188172T1752667640.93"}
+  "lib/uri/uri.cmti" {"F:S23831T1752667640.93"}
+  "lib/uri/uri.cmx" {"F:S10758T1752667640.93"}
+  "lib/uri/uri.cmxa" {"F:S1433T1752667640.93"}
+  "lib/uri/uri.cmxs" {"F:S175760T1752667640.96"}
+  "lib/uri/uri.ml" {"F:S39221T1752667640.93"}
+  "lib/uri/uri.mli" {"F:S11003T1752667640.93"}
+]

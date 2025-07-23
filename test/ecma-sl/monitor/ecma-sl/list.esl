@@ -1,0 +1,15 @@
+function l_nth(lst, i) {
+  return extern l_nth_external(lst, i);
+}
+
+function main() {
+    z := 1;
+    upg_var("z", "H");
+    x := [z, 2, 3];
+    y := l_nth(x, 0);
+    s := l_nth(x, 1);
+    print get_var_level("y");
+    print get_var_level("s");
+    print get_var_level("x");
+    return 0;
+}

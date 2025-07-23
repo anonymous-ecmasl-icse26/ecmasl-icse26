@@ -1,0 +1,33 @@
+(lang dune 3.0)
+
+(implicit_transitive_deps false)
+
+(name prelude)
+
+(license AGPL-3.0-or-later)
+
+(authors "Léo Andrès <contact@ndrs.fr>")
+
+(maintainers "Léo Andrès <contact@ndrs.fr>")
+
+(source
+ (uri git+https://git.zapashcanon.fr/zapashcanon/prelude.git))
+
+(homepage https://git.zapashcanon.fr/zapashcanon/prelude)
+
+(bug_reports https://git.zapashcanon.fr/zapashcanon/prelude/issues)
+
+(generate_opam_files true)
+
+(package
+ (name prelude)
+ (synopsis "OCaml library hiding stuff from the stdlib")
+ (description
+  "Prelude is an OCaml library hiding a lot of stuff from the stdlib to enforce good programming practices.")
+ (tags
+  (prelude stdlib safe exception layer hide))
+ (depends
+  (ocaml
+   (>= 4.13))
+  (ocamlformat :with-dev-setup)
+  (odoc :with-dev-setup)))

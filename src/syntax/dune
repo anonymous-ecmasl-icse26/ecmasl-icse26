@@ -1,0 +1,33 @@
+(include_subdirs unqualified)
+
+(library
+ (public_name ecma-sl.syntax)
+ (name eslSyntax)
+ (modules
+  ; share
+  id
+  loc
+  value
+  source
+  object
+  operator
+  ; core
+  prog
+  func
+  stmt
+  expr
+  ; extended
+  eProg
+  eImport
+  eFunc
+  eAdvice
+  eMacro
+  eStmt
+  ePat
+  eExpr
+  eType)
+ (flags
+  (:standard -open Smtml_prelude))
+ (libraries eslBase fmt smtml)
+ (instrumentation
+  (backend bisect_ppx)))

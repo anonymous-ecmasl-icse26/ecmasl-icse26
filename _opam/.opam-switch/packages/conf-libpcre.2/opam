@@ -1,0 +1,45 @@
+opam-version: "2.0"
+synopsis: "Virtual package relying on a libpcre system installation"
+description:
+  "This package can only install if the libpcre is installed on the system."
+maintainer: "blue-prawn"
+authors: ["Philip Hazel" "Zoltan Herczeg"]
+license: "BSD-3-Clause"
+homepage: "http://www.pcre.org/"
+bug-reports: "https://github.com/ocaml/opam-repository/issues"
+depends: [
+  "conf-pkg-config" {build}
+  ("host-arch-x86_32" {os = "win32" & os-distribution = "cygwin"} &
+   "conf-mingw-w64-pcre-i686" {os = "win32" & os-distribution = "cygwin"} |
+   "host-arch-x86_64" {os = "win32" & os-distribution = "cygwin"} &
+   "conf-mingw-w64-pcre-x86_64" {os = "win32" & os-distribution = "cygwin"})
+]
+flags: conf
+build: [
+  "pkgconf" {os = "win32" & os-distribution = "cygwin"}
+  "--personality=i686-w64-mingw32"
+    {os = "win32" & os-distribution = "cygwin" & host-arch-x86_32:installed}
+  "--personality=x86_64-w64-mingw32"
+    {os = "win32" & os-distribution = "cygwin" & host-arch-x86_64:installed}
+  "pkg-config" {os != "win32" | os-distribution != "cygwin"}
+  "--print-errors"
+  "--exists"
+  "libpcre"
+]
+depexts: [
+  ["libpcre3-dev"] {os-family = "debian"}
+  ["libpcre3-dev"] {os-family = "ubuntu"}
+  ["libpcre-devel"] {os-distribution = "mageia"}
+  ["pcre-devel"] {os-distribution = "centos"}
+  ["pcre-devel"] {os-family = "fedora"}
+  ["pcre-devel"] {os-distribution = "rhel"}
+  ["pcre-devel"] {os-distribution = "ol"}
+  ["pcre-dev"] {os-distribution = "alpine"}
+  ["pcre-devel"] {os-family = "suse" | os-family = "opensuse"}
+  ["pcre"] {os-family = "arch"}
+  ["pcre"] {os = "freebsd"}
+  ["pcre"] {os = "macos" & os-distribution = "homebrew"}
+  ["pcre"] {os = "macos" & os-distribution = "macports"}
+  ["pcre"] {os = "win32" & os-distribution = "cygwinports"}
+]
+dev-repo: "git+https://github.com/mmottl/pcre-ocaml.git"

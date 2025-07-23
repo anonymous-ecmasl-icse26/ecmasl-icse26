@@ -1,0 +1,21 @@
+opam-version: "2.0"
+added: [
+  "doc/ipaddr-sexp" {"D"}
+  "doc/ipaddr-sexp/CHANGES.md" {"F:S12603T1752667665.32"}
+  "doc/ipaddr-sexp/LICENSE.md" {"F:S833T1752667665.32"}
+  "doc/ipaddr-sexp/README.md" {"F:S2678T1752667665.32"}
+  "lib/ipaddr-sexp" {"D"}
+  "lib/ipaddr-sexp/META" {"F:S229T1752667665.32"}
+  "lib/ipaddr-sexp/dune-package" {"F:S882T1752667665.32"}
+  "lib/ipaddr-sexp/ipaddr_sexp.a" {"F:S17798T1752667665.32"}
+  "lib/ipaddr-sexp/ipaddr_sexp.cma" {"F:S6179T1752667665.32"}
+  "lib/ipaddr-sexp/ipaddr_sexp.cmi" {"F:S1816T1752667665.32"}
+  "lib/ipaddr-sexp/ipaddr_sexp.cmt" {"F:S11130T1752667665.32"}
+  "lib/ipaddr-sexp/ipaddr_sexp.cmti" {"F:S9306T1752667665.32"}
+  "lib/ipaddr-sexp/ipaddr_sexp.cmx" {"F:S2953T1752667665.32"}
+  "lib/ipaddr-sexp/ipaddr_sexp.cmxa" {"F:S689T1752667665.32"}
+  "lib/ipaddr-sexp/ipaddr_sexp.cmxs" {"F:S26392T1752667665.32"}
+  "lib/ipaddr-sexp/ipaddr_sexp.ml" {"F:S2215T1752667665.32"}
+  "lib/ipaddr-sexp/ipaddr_sexp.mli" {"F:S3057T1752667665.32"}
+  "lib/ipaddr-sexp/opam" {"F:S850T1752667665.32"}
+]

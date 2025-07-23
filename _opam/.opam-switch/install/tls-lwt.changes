@@ -1,0 +1,27 @@
+opam-version: "2.0"
+added: [
+  "doc/tls-lwt" {"D"}
+  "doc/tls-lwt/CHANGES.md" {"F:S21053T1752667660.7"}
+  "doc/tls-lwt/LICENSE.md" {"F:S1314T1752667660.7"}
+  "doc/tls-lwt/README.md" {"F:S1373T1752667660.7"}
+  "lib/tls-lwt" {"D"}
+  "lib/tls-lwt/META" {"F:S244T1752667660.7"}
+  "lib/tls-lwt/dune-package" {"F:S1063T1752667660.7"}
+  "lib/tls-lwt/opam" {"F:S1065T1752667660.7"}
+  "lib/tls-lwt/tls_lwt.a" {"F:S129806T1752667660.7"}
+  "lib/tls-lwt/tls_lwt.cma" {"F:S58962T1752667660.7"}
+  "lib/tls-lwt/tls_lwt.cmi" {"F:S3889T1752667660.7"}
+  "lib/tls-lwt/tls_lwt.cmt" {"F:S73914T1752667660.7"}
+  "lib/tls-lwt/tls_lwt.cmti" {"F:S17108T1752667660.7"}
+  "lib/tls-lwt/tls_lwt.cmx" {"F:S7271T1752667660.7"}
+  "lib/tls-lwt/tls_lwt.cmxa" {"F:S5135T1752667660.7"}
+  "lib/tls-lwt/tls_lwt.cmxs" {"F:S135560T1752667660.7"}
+  "lib/tls-lwt/tls_lwt.ml" {"F:S12035T1752667660.7"}
+  "lib/tls-lwt/tls_lwt.mli" {"F:S5839T1752667660.7"}
+  "lib/tls-lwt/x509_lwt.cmi" {"F:S2543T1752667660.7"}
+  "lib/tls-lwt/x509_lwt.cmt" {"F:S28955T1752667660.7"}
+  "lib/tls-lwt/x509_lwt.cmti" {"F:S7809T1752667660.7"}
+  "lib/tls-lwt/x509_lwt.cmx" {"F:S3193T1752667660.7"}
+  "lib/tls-lwt/x509_lwt.ml" {"F:S3477T1752667660.7"}
+  "lib/tls-lwt/x509_lwt.mli" {"F:S1134T1752667660.7"}
+]

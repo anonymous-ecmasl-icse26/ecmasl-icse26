@@ -1,0 +1,511 @@
+(lang dune 3.19)
+(name mdx)
+(version 2.5.0)
+(sections (lib .) (libexec .) (bin ../../bin) (doc ../../doc/mdx))
+(files
+ (lib
+  (META
+   __private__/odoc_parser/.public_cmi/odoc_parser.cmi
+   __private__/odoc_parser/.public_cmi/odoc_parser.cmt
+   __private__/odoc_parser/.public_cmi/odoc_parser.cmti
+   __private__/odoc_parser/.public_cmi/odoc_parser__.cmi
+   __private__/odoc_parser/.public_cmi/odoc_parser__.cmt
+   __private__/odoc_parser/.public_cmi/odoc_parser__Ast.cmi
+   __private__/odoc_parser/.public_cmi/odoc_parser__Ast.cmt
+   __private__/odoc_parser/.public_cmi/odoc_parser__Compat.cmi
+   __private__/odoc_parser/.public_cmi/odoc_parser__Compat.cmt
+   __private__/odoc_parser/.public_cmi/odoc_parser__Compat.cmti
+   __private__/odoc_parser/.public_cmi/odoc_parser__Lexer.cmi
+   __private__/odoc_parser/.public_cmi/odoc_parser__Lexer.cmt
+   __private__/odoc_parser/.public_cmi/odoc_parser__Lexer.cmti
+   __private__/odoc_parser/.public_cmi/odoc_parser__Loc.cmi
+   __private__/odoc_parser/.public_cmi/odoc_parser__Loc.cmt
+   __private__/odoc_parser/.public_cmi/odoc_parser__Loc.cmti
+   __private__/odoc_parser/.public_cmi/odoc_parser__Parse_error.cmi
+   __private__/odoc_parser/.public_cmi/odoc_parser__Parse_error.cmt
+   __private__/odoc_parser/.public_cmi/odoc_parser__Syntax.cmi
+   __private__/odoc_parser/.public_cmi/odoc_parser__Syntax.cmt
+   __private__/odoc_parser/.public_cmi/odoc_parser__Syntax.cmti
+   __private__/odoc_parser/.public_cmi/odoc_parser__Token.cmi
+   __private__/odoc_parser/.public_cmi/odoc_parser__Token.cmt
+   __private__/odoc_parser/.public_cmi/odoc_parser__Warning.cmi
+   __private__/odoc_parser/.public_cmi/odoc_parser__Warning.cmt
+   __private__/odoc_parser/ast.ml
+   __private__/odoc_parser/compat.ml
+   __private__/odoc_parser/compat.mli
+   __private__/odoc_parser/lexer.ml
+   __private__/odoc_parser/lexer.mli
+   __private__/odoc_parser/loc.ml
+   __private__/odoc_parser/loc.mli
+   __private__/odoc_parser/odoc_parser.a
+   __private__/odoc_parser/odoc_parser.cma
+   __private__/odoc_parser/odoc_parser.cmx
+   __private__/odoc_parser/odoc_parser.cmxa
+   __private__/odoc_parser/odoc_parser.ml
+   __private__/odoc_parser/odoc_parser.mli
+   __private__/odoc_parser/odoc_parser__.cmx
+   __private__/odoc_parser/odoc_parser__.ml
+   __private__/odoc_parser/odoc_parser__Ast.cmx
+   __private__/odoc_parser/odoc_parser__Compat.cmx
+   __private__/odoc_parser/odoc_parser__Lexer.cmx
+   __private__/odoc_parser/odoc_parser__Loc.cmx
+   __private__/odoc_parser/odoc_parser__Parse_error.cmx
+   __private__/odoc_parser/odoc_parser__Syntax.cmx
+   __private__/odoc_parser/odoc_parser__Token.cmx
+   __private__/odoc_parser/odoc_parser__Warning.cmx
+   __private__/odoc_parser/parse_error.ml
+   __private__/odoc_parser/syntax.ml
+   __private__/odoc_parser/syntax.mli
+   __private__/odoc_parser/token.ml
+   __private__/odoc_parser/warning.ml
+   block.ml
+   block.mli
+   compat.ml
+   cram.ml
+   cram.mli
+   dep.ml
+   dep.mli
+   deprecated.ml
+   deprecated.mli
+   document.ml
+   document.mli
+   dune-package
+   label.ml
+   label.mli
+   lexer_cram.ml
+   lexer_mdx.ml
+   lexer_mdx.mli
+   lexer_top.ml
+   library.ml
+   library.mli
+   mdx.a
+   mdx.cma
+   mdx.cmi
+   mdx.cmt
+   mdx.cmti
+   mdx.cmx
+   mdx.cmxa
+   mdx.ml
+   mdx.mli
+   mdx__.cmi
+   mdx__.cmt
+   mdx__.cmx
+   mdx__.ml
+   mdx__Block.cmi
+   mdx__Block.cmt
+   mdx__Block.cmti
+   mdx__Block.cmx
+   mdx__Compat.cmi
+   mdx__Compat.cmt
+   mdx__Compat.cmx
+   mdx__Cram.cmi
+   mdx__Cram.cmt
+   mdx__Cram.cmti
+   mdx__Cram.cmx
+   mdx__Dep.cmi
+   mdx__Dep.cmt
+   mdx__Dep.cmti
+   mdx__Dep.cmx
+   mdx__Deprecated.cmi
+   mdx__Deprecated.cmt
+   mdx__Deprecated.cmti
+   mdx__Deprecated.cmx
+   mdx__Document.cmi
+   mdx__Document.cmt
+   mdx__Document.cmti
+   mdx__Document.cmx
+   mdx__Label.cmi
+   mdx__Label.cmt
+   mdx__Label.cmti
+   mdx__Label.cmx
+   mdx__Lexer_cram.cmi
+   mdx__Lexer_cram.cmt
+   mdx__Lexer_cram.cmx
+   mdx__Lexer_mdx.cmi
+   mdx__Lexer_mdx.cmt
+   mdx__Lexer_mdx.cmti
+   mdx__Lexer_mdx.cmx
+   mdx__Lexer_top.cmi
+   mdx__Lexer_top.cmt
+   mdx__Lexer_top.cmx
+   mdx__Library.cmi
+   mdx__Library.cmt
+   mdx__Library.cmti
+   mdx__Library.cmx
+   mdx__Misc.cmi
+   mdx__Misc.cmt
+   mdx__Misc.cmti
+   mdx__Misc.cmx
+   mdx__Mli_parser.cmi
+   mdx__Mli_parser.cmt
+   mdx__Mli_parser.cmti
+   mdx__Mli_parser.cmx
+   mdx__Ocaml_env.cmi
+   mdx__Ocaml_env.cmt
+   mdx__Ocaml_env.cmti
+   mdx__Ocaml_env.cmx
+   mdx__Output.cmi
+   mdx__Output.cmt
+   mdx__Output.cmti
+   mdx__Output.cmx
+   mdx__Part.cmi
+   mdx__Part.cmt
+   mdx__Part.cmti
+   mdx__Part.cmx
+   mdx__Pp.cmi
+   mdx__Pp.cmt
+   mdx__Pp.cmti
+   mdx__Pp.cmx
+   mdx__Prelude.cmi
+   mdx__Prelude.cmt
+   mdx__Prelude.cmti
+   mdx__Prelude.cmx
+   mdx__Stable_printer.cmi
+   mdx__Stable_printer.cmt
+   mdx__Stable_printer.cmti
+   mdx__Stable_printer.cmx
+   mdx__Syntax.cmi
+   mdx__Syntax.cmt
+   mdx__Syntax.cmti
+   mdx__Syntax.cmx
+   mdx__Toplevel.cmi
+   mdx__Toplevel.cmt
+   mdx__Toplevel.cmti
+   mdx__Toplevel.cmx
+   mdx__Util.cmi
+   mdx__Util.cmt
+   mdx__Util.cmti
+   mdx__Util.cmx
+   misc.ml
+   misc.mli
+   mli_parser.ml
+   mli_parser.mli
+   ocaml_env.ml
+   ocaml_env.mli
+   opam
+   output.ml
+   output.mli
+   part.ml
+   part.mli
+   pp.ml
+   pp.mli
+   prelude.ml
+   prelude.mli
+   stable_printer.ml
+   stable_printer.mli
+   syntax.ml
+   syntax.mli
+   test/mdx_test.cma
+   test/mdx_test.cmi
+   test/mdx_test.cmt
+   test/mdx_test.cmti
+   test/mdx_test.ml
+   test/mdx_test.mli
+   top/compat_top.ml
+   top/compat_top.mli
+   top/mdx_top.cma
+   top/mdx_top.cmi
+   top/mdx_top.cmt
+   top/mdx_top.cmti
+   top/mdx_top.ml
+   top/mdx_top.mli
+   top/mdx_top__.cmi
+   top/mdx_top__.cmt
+   top/mdx_top__.ml
+   top/mdx_top__Compat_top.cmi
+   top/mdx_top__Compat_top.cmt
+   top/mdx_top__Compat_top.cmti
+   toplevel.ml
+   toplevel.mli
+   util.ml
+   util.mli))
+ (libexec (__private__/odoc_parser/odoc_parser.cmxs mdx.cmxs))
+ (bin (ocaml-mdx ocaml-mdx-test))
+ (doc (CHANGES.md LICENSE.md README.md)))
+(library
+ (name mdx)
+ (kind normal)
+ (archives (byte mdx.cma) (native mdx.cmxa))
+ (plugins (byte mdx.cma) (native mdx.cmxs))
+ (native_archives mdx.a)
+ (requires
+  astring
+  csexp
+  fmt
+  logs
+  ocaml-version
+  mdx.__private__.odoc_parser
+  re
+  str
+  compiler-libs.common
+  unix)
+ (main_module_name Mdx)
+ (modes byte native)
+ (modules
+  (wrapped
+   (group
+    (alias
+     (obj_name mdx__)
+     (visibility public)
+     (kind alias)
+     (source (path Mdx__) (impl (path mdx__.ml-gen))))
+    (name Mdx)
+    (modules
+     (module
+      (obj_name mdx__Block)
+      (visibility public)
+      (source (path Block) (intf (path block.mli)) (impl (path block.ml))))
+     (module
+      (obj_name mdx__Compat)
+      (visibility public)
+      (source (path Compat) (impl (path compat.ml))))
+     (module
+      (obj_name mdx__Cram)
+      (visibility public)
+      (source (path Cram) (intf (path cram.mli)) (impl (path cram.ml))))
+     (module
+      (obj_name mdx__Dep)
+      (visibility public)
+      (source (path Dep) (intf (path dep.mli)) (impl (path dep.ml))))
+     (module
+      (obj_name mdx__Deprecated)
+      (visibility public)
+      (source
+       (path Deprecated)
+       (intf (path deprecated.mli))
+       (impl (path deprecated.ml))))
+     (module
+      (obj_name mdx__Document)
+      (visibility public)
+      (source
+       (path Document)
+       (intf (path document.mli))
+       (impl (path document.ml))))
+     (module
+      (obj_name mdx__Label)
+      (visibility public)
+      (source (path Label) (intf (path label.mli)) (impl (path label.ml))))
+     (module
+      (obj_name mdx__Lexer_cram)
+      (visibility public)
+      (source (path Lexer_cram) (impl (path lexer_cram.ml))))
+     (module
+      (obj_name mdx__Lexer_mdx)
+      (visibility public)
+      (source
+       (path Lexer_mdx)
+       (intf (path lexer_mdx.mli))
+       (impl (path lexer_mdx.ml))))
+     (module
+      (obj_name mdx__Lexer_top)
+      (visibility public)
+      (source (path Lexer_top) (impl (path lexer_top.ml))))
+     (module
+      (obj_name mdx__Library)
+      (visibility public)
+      (source
+       (path Library)
+       (intf (path library.mli))
+       (impl (path library.ml))))
+     (module
+      (obj_name mdx)
+      (visibility public)
+      (source (path Mdx) (intf (path mdx.mli)) (impl (path mdx.ml))))
+     (module
+      (obj_name mdx__Misc)
+      (visibility public)
+      (source (path Misc) (intf (path misc.mli)) (impl (path misc.ml))))
+     (module
+      (obj_name mdx__Mli_parser)
+      (visibility public)
+      (source
+       (path Mli_parser)
+       (intf (path mli_parser.mli))
+       (impl (path mli_parser.ml))))
+     (module
+      (obj_name mdx__Ocaml_env)
+      (visibility public)
+      (source
+       (path Ocaml_env)
+       (intf (path ocaml_env.mli))
+       (impl (path ocaml_env.ml))))
+     (module
+      (obj_name mdx__Output)
+      (visibility public)
+      (source (path Output) (intf (path output.mli)) (impl (path output.ml))))
+     (module
+      (obj_name mdx__Part)
+      (visibility public)
+      (source (path Part) (intf (path part.mli)) (impl (path part.ml))))
+     (module
+      (obj_name mdx__Pp)
+      (visibility public)
+      (source (path Pp) (intf (path pp.mli)) (impl (path pp.ml))))
+     (module
+      (obj_name mdx__Prelude)
+      (visibility public)
+      (source
+       (path Prelude)
+       (intf (path prelude.mli))
+       (impl (path prelude.ml))))
+     (module
+      (obj_name mdx__Stable_printer)
+      (visibility public)
+      (source
+       (path Stable_printer)
+       (intf (path stable_printer.mli))
+       (impl (path stable_printer.ml))))
+     (module
+      (obj_name mdx__Syntax)
+      (visibility public)
+      (source (path Syntax) (intf (path syntax.mli)) (impl (path syntax.ml))))
+     (module
+      (obj_name mdx__Toplevel)
+      (visibility public)
+      (source
+       (path Toplevel)
+       (intf (path toplevel.mli))
+       (impl (path toplevel.ml))))
+     (module
+      (obj_name mdx__Util)
+      (visibility public)
+      (source (path Util) (intf (path util.mli)) (impl (path util.ml))))))
+   (wrapped true))))
+(library
+ (name mdx.test)
+ (kind normal)
+ (archives (byte test/mdx_test.cma))
+ (plugins (byte test/mdx_test.cma))
+ (requires
+  unix
+  mdx
+  mdx.top
+  compiler-libs
+  compiler-libs.toplevel
+  threads
+  findlib.top)
+ (main_module_name Mdx_test)
+ (modes byte)
+ (modules
+  (singleton
+   (obj_name mdx_test)
+   (visibility public)
+   (source
+    (path Mdx_test)
+    (intf (path test/mdx_test.mli))
+    (impl (path test/mdx_test.ml))))))
+(library
+ (name mdx.top)
+ (kind normal)
+ (archives (byte top/mdx_top.cma))
+ (plugins (byte top/mdx_top.cma))
+ (requires unix mdx compiler-libs compiler-libs.toplevel threads findlib.top)
+ (main_module_name Mdx_top)
+ (modes byte)
+ (modules
+  (wrapped
+   (group
+    (alias
+     (obj_name mdx_top__)
+     (visibility public)
+     (kind alias)
+     (source (path Mdx_top__) (impl (path top/mdx_top__.ml-gen))))
+    (name Mdx_top)
+    (modules
+     (module
+      (obj_name mdx_top__Compat_top)
+      (visibility public)
+      (source
+       (path Compat_top)
+       (intf (path top/compat_top.mli))
+       (impl (path top/compat_top.ml))))
+     (module
+      (obj_name mdx_top)
+      (visibility public)
+      (source
+       (path Mdx_top)
+       (intf (path top/mdx_top.mli))
+       (impl (path top/mdx_top.ml))))))
+   (wrapped true))))
+(library
+ (name mdx.__private__.odoc_parser)
+ (kind normal)
+ (archives
+  (byte __private__/odoc_parser/odoc_parser.cma)
+  (native __private__/odoc_parser/odoc_parser.cmxa))
+ (plugins
+  (byte __private__/odoc_parser/odoc_parser.cma)
+  (native __private__/odoc_parser/odoc_parser.cmxs))
+ (native_archives __private__/odoc_parser/odoc_parser.a)
+ (requires astring result camlp-streams)
+ (main_module_name Odoc_parser)
+ (modes byte native)
+ (obj_dir
+  (public_cmi_ocaml_dir .public_cmi)
+  (public_cmi_melange_dir melange/.public_cmi_melange))
+ (modules
+  (wrapped
+   (group
+    (alias
+     (obj_name odoc_parser__)
+     (visibility public)
+     (kind alias)
+     (source
+      (path Odoc_parser__)
+      (impl (path __private__/odoc_parser/odoc_parser__.ml-gen))))
+    (name Odoc_parser)
+    (modules
+     (module
+      (obj_name odoc_parser__Ast)
+      (visibility public)
+      (source (path Ast) (impl (path __private__/odoc_parser/ast.ml))))
+     (module
+      (obj_name odoc_parser__Compat)
+      (visibility public)
+      (source
+       (path Compat)
+       (intf (path __private__/odoc_parser/compat.mli))
+       (impl (path __private__/odoc_parser/compat.ml))))
+     (module
+      (obj_name odoc_parser__Lexer)
+      (visibility public)
+      (source
+       (path Lexer)
+       (intf (path __private__/odoc_parser/lexer.mli))
+       (impl (path __private__/odoc_parser/lexer.ml))))
+     (module
+      (obj_name odoc_parser__Loc)
+      (visibility public)
+      (source
+       (path Loc)
+       (intf (path __private__/odoc_parser/loc.mli))
+       (impl (path __private__/odoc_parser/loc.ml))))
+     (module
+      (obj_name odoc_parser)
+      (visibility public)
+      (source
+       (path Odoc_parser)
+       (intf (path __private__/odoc_parser/odoc_parser.mli))
+       (impl (path __private__/odoc_parser/odoc_parser.ml))))
+     (module
+      (obj_name odoc_parser__Parse_error)
+      (visibility public)
+      (source
+       (path Parse_error)
+       (impl (path __private__/odoc_parser/parse_error.ml))))
+     (module
+      (obj_name odoc_parser__Syntax)
+      (visibility public)
+      (source
+       (path Syntax)
+       (intf (path __private__/odoc_parser/syntax.mli))
+       (impl (path __private__/odoc_parser/syntax.ml))))
+     (module
+      (obj_name odoc_parser__Token)
+      (visibility public)
+      (source (path Token) (impl (path __private__/odoc_parser/token.ml))))
+     (module
+      (obj_name odoc_parser__Warning)
+      (visibility public)
+      (source (path Warning) (impl (path __private__/odoc_parser/warning.ml))))))
+   (wrapped true))))

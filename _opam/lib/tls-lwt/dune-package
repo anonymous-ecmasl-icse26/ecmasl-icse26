@@ -1,0 +1,54 @@
+(lang dune 3.19)
+(name tls-lwt)
+(version 2.0.1)
+(sections (lib .) (libexec .) (doc ../../doc/tls-lwt))
+(files
+ (lib
+  (META
+   dune-package
+   opam
+   tls_lwt.a
+   tls_lwt.cma
+   tls_lwt.cmi
+   tls_lwt.cmt
+   tls_lwt.cmti
+   tls_lwt.cmx
+   tls_lwt.cmxa
+   tls_lwt.ml
+   tls_lwt.mli
+   x509_lwt.cmi
+   x509_lwt.cmt
+   x509_lwt.cmti
+   x509_lwt.cmx
+   x509_lwt.ml
+   x509_lwt.mli))
+ (libexec (tls_lwt.cmxs))
+ (doc (CHANGES.md LICENSE.md README.md)))
+(library
+ (name tls-lwt)
+ (kind normal)
+ (archives (byte tls_lwt.cma) (native tls_lwt.cmxa))
+ (plugins (byte tls_lwt.cma) (native tls_lwt.cmxs))
+ (native_archives tls_lwt.a)
+ (requires
+  tls
+  lwt
+  lwt.unix
+  ptime
+  ptime.clock
+  ptime.clock.os
+  mirage-crypto-rng.unix)
+ (modes byte native)
+ (modules
+  (unwrapped
+   (module
+    (obj_name tls_lwt)
+    (visibility public)
+    (source (path Tls_lwt) (intf (path tls_lwt.mli)) (impl (path tls_lwt.ml))))
+   (module
+    (obj_name x509_lwt)
+    (visibility public)
+    (source
+     (path X509_lwt)
+     (intf (path x509_lwt.mli))
+     (impl (path x509_lwt.ml)))))))

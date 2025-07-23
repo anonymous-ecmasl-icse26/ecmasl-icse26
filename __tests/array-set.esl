@@ -1,0 +1,7 @@
+function main() {
+  i := extern flt_symbol("i");
+  extern assume (i == 0);
+  obj := {};
+  obj[i] := 0;
+  return 0;
+}

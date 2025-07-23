@@ -1,0 +1,105 @@
+opam-version: "2.0"
+added: [
+  "doc/mirage-crypto-rng" {"D"}
+  "doc/mirage-crypto-rng/CHANGES.md" {"F:S51207T1752667645.66"}
+  "doc/mirage-crypto-rng/LICENSE.md" {"F:S747T1752667645.66"}
+  "doc/mirage-crypto-rng/LICENSE.md.mirage-crypto-ec"
+    {"F:S2460T1752667645.66"}
+  "doc/mirage-crypto-rng/LICENSE.md.mirage-crypto-rng-mirage"
+    {"F:S1347T1752667645.66"}
+  "doc/mirage-crypto-rng/README.md" {"F:S1530T1752667645.66"}
+  "lib/mirage-crypto-rng" {"D"}
+  "lib/mirage-crypto-rng/.private" {"D"}
+  "lib/mirage-crypto-rng/.private/mirage_crypto_rng__Entropy.cmi"
+    {"F:S4301T1752667645.66"}
+  "lib/mirage-crypto-rng/.private/mirage_crypto_rng__Entropy.cmt"
+    {"F:S41549T1752667645.66"}
+  "lib/mirage-crypto-rng/.private/mirage_crypto_rng__Fortuna.cmi"
+    {"F:S2534T1752667645.66"}
+  "lib/mirage-crypto-rng/.private/mirage_crypto_rng__Fortuna.cmt"
+    {"F:S26815T1752667645.66"}
+  "lib/mirage-crypto-rng/.private/mirage_crypto_rng__Hmac_drbg.cmi"
+    {"F:S1620T1752667645.66"}
+  "lib/mirage-crypto-rng/.private/mirage_crypto_rng__Hmac_drbg.cmt"
+    {"F:S13776T1752667645.66"}
+  "lib/mirage-crypto-rng/.private/mirage_crypto_rng__Rng.cmi"
+    {"F:S2115T1752667645.66"}
+  "lib/mirage-crypto-rng/.private/mirage_crypto_rng__Rng.cmt"
+    {"F:S20733T1752667645.66"}
+  "lib/mirage-crypto-rng/META" {"F:S567T1752667645.66"}
+  "lib/mirage-crypto-rng/dune-package" {"F:S4988T1752667645.66"}
+  "lib/mirage-crypto-rng/entropy.ml" {"F:S7251T1752667645.66"}
+  "lib/mirage-crypto-rng/fortuna.ml" {"F:S3578T1752667645.66"}
+  "lib/mirage-crypto-rng/hmac_drbg.ml" {"F:S1671T1752667645.66"}
+  "lib/mirage-crypto-rng/mirage_crypto_rng.a" {"F:S109636T1752667645.66"}
+  "lib/mirage-crypto-rng/mirage_crypto_rng.cma" {"F:S56117T1752667645.66"}
+  "lib/mirage-crypto-rng/mirage_crypto_rng.cmi" {"F:S2994T1752667645.66"}
+  "lib/mirage-crypto-rng/mirage_crypto_rng.cmt" {"F:S5383T1752667645.66"}
+  "lib/mirage-crypto-rng/mirage_crypto_rng.cmti" {"F:S19744T1752667645.66"}
+  "lib/mirage-crypto-rng/mirage_crypto_rng.cmx" {"F:S7947T1752667645.66"}
+  "lib/mirage-crypto-rng/mirage_crypto_rng.cmxa" {"F:S5585T1752667645.66"}
+  "lib/mirage-crypto-rng/mirage_crypto_rng.cmxs" {"F:S108800T1752667645.66"}
+  "lib/mirage-crypto-rng/mirage_crypto_rng.ml" {"F:S97T1752667645.66"}
+  "lib/mirage-crypto-rng/mirage_crypto_rng.mli" {"F:S11675T1752667645.66"}
+  "lib/mirage-crypto-rng/mirage_crypto_rng__.cmi" {"F:S437T1752667645.66"}
+  "lib/mirage-crypto-rng/mirage_crypto_rng__.cmt" {"F:S2458T1752667645.66"}
+  "lib/mirage-crypto-rng/mirage_crypto_rng__.cmx" {"F:S229T1752667645.66"}
+  "lib/mirage-crypto-rng/mirage_crypto_rng__.ml" {"F:S374T1752667645.66"}
+  "lib/mirage-crypto-rng/mirage_crypto_rng__Entropy.cmx"
+    {"F:S7229T1752667645.66"}
+  "lib/mirage-crypto-rng/mirage_crypto_rng__Fortuna.cmx"
+    {"F:S2434T1752667645.66"}
+  "lib/mirage-crypto-rng/mirage_crypto_rng__Hmac_drbg.cmx"
+    {"F:S2060T1752667645.66"}
+  "lib/mirage-crypto-rng/mirage_crypto_rng__Rng.cmx"
+    {"F:S3610T1752667645.66"}
+  "lib/mirage-crypto-rng/opam" {"F:S1155T1752667645.66"}
+  "lib/mirage-crypto-rng/rng.ml" {"F:S3285T1752667645.66"}
+  "lib/mirage-crypto-rng/unix" {"D"}
+  "lib/mirage-crypto-rng/unix/getentropy.ml" {"F:S837T1752667645.66"}
+  "lib/mirage-crypto-rng/unix/libmirage_crypto_rng_unix_stubs.a"
+    {"F:S7410T1752667645.66"}
+  "lib/mirage-crypto-rng/unix/mirage_crypto_rng_unix.a"
+    {"F:S38238T1752667645.66"}
+  "lib/mirage-crypto-rng/unix/mirage_crypto_rng_unix.cma"
+    {"F:S15561T1752667645.66"}
+  "lib/mirage-crypto-rng/unix/mirage_crypto_rng_unix.cmi"
+    {"F:S1240T1752667645.66"}
+  "lib/mirage-crypto-rng/unix/mirage_crypto_rng_unix.cmt"
+    {"F:S13436T1752667645.66"}
+  "lib/mirage-crypto-rng/unix/mirage_crypto_rng_unix.cmti"
+    {"F:S5151T1752667645.66"}
+  "lib/mirage-crypto-rng/unix/mirage_crypto_rng_unix.cmx"
+    {"F:S4620T1752667645.66"}
+  "lib/mirage-crypto-rng/unix/mirage_crypto_rng_unix.cmxa"
+    {"F:S2282T1752667645.66"}
+  "lib/mirage-crypto-rng/unix/mirage_crypto_rng_unix.cmxs"
+    {"F:S48912T1752667645.66"}
+  "lib/mirage-crypto-rng/unix/mirage_crypto_rng_unix.ml"
+    {"F:S1611T1752667645.66"}
+  "lib/mirage-crypto-rng/unix/mirage_crypto_rng_unix.mli"
+    {"F:S1598T1752667645.66"}
+  "lib/mirage-crypto-rng/unix/mirage_crypto_rng_unix__.cmi"
+    {"F:S345T1752667645.66"}
+  "lib/mirage-crypto-rng/unix/mirage_crypto_rng_unix__.cmt"
+    {"F:S1998T1752667645.66"}
+  "lib/mirage-crypto-rng/unix/mirage_crypto_rng_unix__.cmx"
+    {"F:S190T1752667645.66"}
+  "lib/mirage-crypto-rng/unix/mirage_crypto_rng_unix__.ml"
+    {"F:S231T1752667645.66"}
+  "lib/mirage-crypto-rng/unix/mirage_crypto_rng_unix__Getentropy.cmi"
+    {"F:S869T1752667645.66"}
+  "lib/mirage-crypto-rng/unix/mirage_crypto_rng_unix__Getentropy.cmt"
+    {"F:S4905T1752667645.66"}
+  "lib/mirage-crypto-rng/unix/mirage_crypto_rng_unix__Getentropy.cmx"
+    {"F:S942T1752667645.66"}
+  "lib/mirage-crypto-rng/unix/mirage_crypto_rng_unix__Urandom.cmi"
+    {"F:S1006T1752667645.66"}
+  "lib/mirage-crypto-rng/unix/mirage_crypto_rng_unix__Urandom.cmt"
+    {"F:S6958T1752667645.66"}
+  "lib/mirage-crypto-rng/unix/mirage_crypto_rng_unix__Urandom.cmx"
+    {"F:S984T1752667645.66"}
+  "lib/mirage-crypto-rng/unix/urandom.ml" {"F:S731T1752667645.66"}
+  "lib/stublibs/dllmirage_crypto_rng_unix_stubs.so"
+    {"F:S18432T1752667645.66"}
+]

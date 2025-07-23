@@ -1,0 +1,46 @@
+opam-version: "2.0"
+added: [
+  "doc/kdf" {"D"}
+  "doc/kdf/CHANGES.md" {"F:S2029T1752667638.23"}
+  "doc/kdf/LICENSE.md" {"F:S1350T1752667638.23"}
+  "doc/kdf/README.md" {"F:S464T1752667638.23"}
+  "lib/kdf" {"D"}
+  "lib/kdf/META" {"F:S715T1752667638.2"}
+  "lib/kdf/dune-package" {"F:S2311T1752667638.2"}
+  "lib/kdf/hkdf" {"D"}
+  "lib/kdf/hkdf/hkdf.a" {"F:S10770T1752667638.2"}
+  "lib/kdf/hkdf/hkdf.cma" {"F:S5465T1752667638.2"}
+  "lib/kdf/hkdf/hkdf.cmi" {"F:S999T1752667638.2"}
+  "lib/kdf/hkdf/hkdf.cmt" {"F:S12656T1752667638.2"}
+  "lib/kdf/hkdf/hkdf.cmti" {"F:S4574T1752667638.2"}
+  "lib/kdf/hkdf/hkdf.cmx" {"F:S867T1752667638.2"}
+  "lib/kdf/hkdf/hkdf.cmxa" {"F:S732T1752667638.2"}
+  "lib/kdf/hkdf/hkdf.cmxs" {"F:S25480T1752667638.22"}
+  "lib/kdf/hkdf/hkdf.ml" {"F:S1244T1752667638.2"}
+  "lib/kdf/hkdf/hkdf.mli" {"F:S1164T1752667638.2"}
+  "lib/kdf/opam" {"F:S1130T1752667638.2"}
+  "lib/kdf/pbkdf" {"D"}
+  "lib/kdf/pbkdf/pbkdf.a" {"F:S14578T1752667638.21"}
+  "lib/kdf/pbkdf/pbkdf.cma" {"F:S7713T1752667638.21"}
+  "lib/kdf/pbkdf/pbkdf.cmi" {"F:S1017T1752667638.21"}
+  "lib/kdf/pbkdf/pbkdf.cmt" {"F:S17762T1752667638.21"}
+  "lib/kdf/pbkdf/pbkdf.cmti" {"F:S4712T1752667638.21"}
+  "lib/kdf/pbkdf/pbkdf.cmx" {"F:S1285T1752667638.21"}
+  "lib/kdf/pbkdf/pbkdf.cmxa" {"F:S810T1752667638.21"}
+  "lib/kdf/pbkdf/pbkdf.cmxs" {"F:S31648T1752667638.22"}
+  "lib/kdf/pbkdf/pbkdf.ml" {"F:S2571T1752667638.21"}
+  "lib/kdf/pbkdf/pbkdf.mli" {"F:S1360T1752667638.21"}
+  "lib/kdf/scrypt" {"D"}
+  "lib/kdf/scrypt/libscrypt_stubs.a" {"F:S39712T1752667638.22"}
+  "lib/kdf/scrypt/scrypt.a" {"F:S14444T1752667638.22"}
+  "lib/kdf/scrypt/scrypt.cma" {"F:S9488T1752667638.22"}
+  "lib/kdf/scrypt/scrypt.cmi" {"F:S369T1752667638.22"}
+  "lib/kdf/scrypt/scrypt.cmt" {"F:S18928T1752667638.22"}
+  "lib/kdf/scrypt/scrypt.cmti" {"F:S2535T1752667638.22"}
+  "lib/kdf/scrypt/scrypt.cmx" {"F:S1228T1752667638.22"}
+  "lib/kdf/scrypt/scrypt.cmxa" {"F:S961T1752667638.22"}
+  "lib/kdf/scrypt/scrypt.cmxs" {"F:S47920T1752667638.22"}
+  "lib/kdf/scrypt/scrypt.ml" {"F:S2561T1752667638.22"}
+  "lib/kdf/scrypt/scrypt.mli" {"F:S810T1752667638.22"}
+  "lib/stublibs/dllscrypt_stubs.so" {"F:S31472T1752667638.22"}
+]

@@ -1,0 +1,105 @@
+/* Copyright (C) 2022-2025 formalsec programmers
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+/* Auxiliary functions created for the purposes of creating instances of the Property Descriptor type. */
+function NewPropertyDescriptor() {
+  return {};
+}
+
+function newDataPropertyDescriptor(value) {
+  desc := NewPropertyDescriptor();
+  desc.Value := value;
+  desc.Writable := true;
+  desc.Enumerable := true;
+  desc.Configurable := true;
+  return desc;
+}
+
+function newDataPropertyDescriptorFull(value, writable, enumerable, configurable) {
+  desc := NewPropertyDescriptor();
+  desc.Value := value;
+  desc.Writable := writable;
+  desc.Enumerable := enumerable;
+  desc.Configurable := configurable;
+  return desc;
+}
+
+function newGetAccessorPropertyDescriptor(get) {
+  desc := NewPropertyDescriptor();
+  desc.Get := get;
+  desc.Enumerable := true;
+  desc.Configurable := true;
+  return desc;
+}
+
+function newGetAccessorPropertyDescriptorFull(get, enumerable, configurable) {
+  desc := NewPropertyDescriptor();
+  desc.Get := get;
+  desc.Enumerable := enumerable;
+  desc.Configurable := configurable;
+  return desc;
+}
+
+function newSetAccessorPropertyDescriptorFull(set, enumerable, configurable) {
+  desc := NewPropertyDescriptor();
+  desc.Set := set;
+  desc.Enumerable := enumerable;
+  desc.Configurable := configurable;
+  return desc;
+}
+
+function newSetAccessorPropertyDescriptor(set) {
+  desc := NewPropertyDescriptor();
+  desc.Set := set;
+  desc.Enumerable := true;
+  desc.Configurable := true;
+  return desc;
+}
+
+function isEnumerablePropertyDescriptor(desc) {
+  assert Type(desc) == "PropertyDescriptor";
+  return desc.Enumerable;
+}
+
+function getDescriptorValue(desc) {
+  return desc.Value;
+}
+
+function newGetAndSetAccessorPropertyDescriptorFull(get, set, enumerable, configurable) {
+  desc := NewPropertyDescriptor();
+  desc.Get := get;
+  desc.Set := set;
+  desc.Enumerable := enumerable;
+  desc.Configurable := configurable;
+  return desc;
+}
+
+function copyDescriptor(desc) {
+  newDesc := NewPropertyDescriptor();
+  if ("Value" in_obj desc)
+    newDesc.Value := desc.Value;
+  if ("Writable" in_obj desc)
+    newDesc.Writable := desc.Writable;
+  if ("Get" in_obj desc)
+    newDesc.Get := desc.Get;
+  if ("Set" in_obj desc)
+    newDesc.Set := desc.Set;
+  if ("Enumerable" in_obj desc)
+    newDesc.Enumerable := desc.Enumerable;
+  if ("Configurable" in_obj desc)
+    newDesc.Configurable := desc.Configurable;
+  return newDesc;
+}

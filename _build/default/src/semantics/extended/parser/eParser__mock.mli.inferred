@@ -1,0 +1,206 @@
+type token =
+    WITH
+  | WHILE
+  | UNTIL
+  | TYPE_VOID
+  | TYPE_UNKNOWN
+  | TYPE_UNDEFINED
+  | TYPE_SYMBOL
+  | TYPE_STRING
+  | TYPE_SIGMA
+  | TYPE_NEVER
+  | TYPE_INT
+  | TYPE_FLOAT
+  | TYPE_BOOLEAN
+  | TYPE_ANY
+  | TYPEOF
+  | TYPEDEF
+  | TIMES
+  | TILDE
+  | THROW
+  | SYMBOL of string
+  | SWITCH
+  | STRING_TO_INT
+  | STRING_TO_FLOAT
+  | STRING of string
+  | SHIFT_RIGHT_LOGICAL
+  | SHIFT_RIGHT
+  | SHIFT_LEFT
+  | SEMICOLON
+  | SCLOR
+  | SCLAND
+  | RPAREN
+  | RETURN
+  | REPEAT
+  | RBRACK
+  | RBRACE
+  | QUESTION
+  | PRINT
+  | POW
+  | PLUS
+  | PIPE
+  | PERIOD
+  | OBJECT_TO_LIST
+  | OBJECT_MEM
+  | OBJECT_FIELDS
+  | NULL
+  | NONE
+  | NE
+  | MODULO
+  | MINUS
+  | MATCH
+  | MACRO
+  | LT
+  | LPAREN
+  | LOR
+  | LIST_TAIL
+  | LIST_HEAD
+  | LET
+  | LE
+  | LBRACK
+  | LBRACE
+  | LAND
+  | LAMBDA
+  | INT_TO_STRING
+  | INT_TO_FLOAT
+  | INT of int
+  | IMPORT
+  | IF
+  | ID of string
+  | HASH
+  | GT
+  | GID of string
+  | GE
+  | FUNCTION
+  | FOREACH
+  | FLOAT_TO_STRING
+  | FLOAT_TO_INT
+  | FLOAT of float
+  | FAIL
+  | EXTERN
+  | EXCLAMATION
+  | EQ
+  | EOF
+  | ELSE
+  | DIVIDE
+  | DELETE
+  | DEFEQ0
+  | DEFEQ
+  | DEFAULT
+  | COMMA
+  | COLON
+  | CATCH
+  | CASE
+  | CARET
+  | BOOLEAN of bool
+  | BEFORE
+  | ATSIGN
+  | ASSERT
+  | ARROW
+  | AMPERSAND
+  | AFTER
+  | ADVICE
+val fresh_lambda_id_gen : unit -> string
+val menhir_begin_marker : int
+val xv_var_expr_target : EslSyntax.EExpr.t
+val xv_val_target : EslSyntax.Value.t
+val xv_val_expr_target : EslSyntax.EExpr.t
+val xv_update_stmt_target : EslSyntax.EStmt.t
+val xv_unopt_target : EslSyntax.Operator.unopt
+val xv_union_type_target : EslSyntax.EType.t list
+val xv_typing_target : EslSyntax.EType.t
+val xv_typed_id_target : EslSyntax.Id.t * EslSyntax.EType.t option
+val xv_type_target : EslSyntax.EType.t
+val xv_tuple_type_target : EslSyntax.EType.t list
+val xv_times_id_target : string EslSyntax.Source.t
+val xv_tdef_target : EslSyntax.EType.TDef.t
+val xv_switch_default_target : EslSyntax.EStmt.t
+val xv_switch_case_target : EslSyntax.EExpr.t * EslSyntax.EStmt.t
+val xv_str_id_target : EslSyntax.Id.t
+val xv_stmt_target : EslSyntax.EStmt.t
+val xv_sigma_type_target : EslSyntax.EType.t'
+val xv_separated_nonempty_list_COMMA_typed_id_target_ :
+  (EslSyntax.Id.t * EslSyntax.EType.t option) list
+val xv_separated_nonempty_list_COMMA_pattern_binding_target_ :
+  (EslSyntax.Id.t * EslSyntax.EPat.PatVal.t) list
+val xv_separated_nonempty_list_COMMA_object_type_prop_target_ :
+  (EslSyntax.Id.t * EslSyntax.EType.t * EslSyntax.EType.tfldstyle) list
+val xv_separated_nonempty_list_COMMA_id_target_ : EslSyntax.Id.t list
+val xv_separated_nonempty_list_COMMA_field_init_target_ :
+  (EslSyntax.Id.t * EslSyntax.EExpr.t) list
+val xv_separated_nonempty_list_COMMA_expr_target_ : EslSyntax.EExpr.t list
+val xv_separated_list_COMMA_typed_id_target_ :
+  (EslSyntax.Id.t * EslSyntax.EType.t option) list
+val xv_separated_list_COMMA_object_type_prop_target_ :
+  (EslSyntax.Id.t * EslSyntax.EType.t * EslSyntax.EType.tfldstyle) list
+val xv_separated_list_COMMA_id_target_ : EslSyntax.Id.t list
+val xv_separated_list_COMMA_field_init_target_ :
+  (EslSyntax.Id.t * EslSyntax.EExpr.t) list
+val xv_separated_list_COMMA_expr_target_ : EslSyntax.EExpr.t list
+val xv_selection_stmt_target : EslSyntax.EStmt.t
+val xv_rev_union_type_target_ : EslSyntax.EType.t list
+val xv_rev_tuple_type_target_ : EslSyntax.EType.t list
+val xv_prog_target : EslSyntax.EProg.t
+val xv_prog_element_target : EslSyntax.EProg.t -> unit
+val xv_pattern_value_target : EslSyntax.EPat.PatVal.t' EslSyntax.Source.t
+val xv_pattern_target : EslSyntax.EPat.t' EslSyntax.Source.t
+val xv_pattern_binding_target : EslSyntax.Id.t * EslSyntax.EPat.PatVal.t
+val xv_option_typing_target_ : EslSyntax.EType.t option
+val xv_option_switch_default_target_ : EslSyntax.EStmt.t option
+val xv_option_match_discrm_target_ : EslSyntax.Id.t option
+val xv_option_expr_target_ : EslSyntax.EExpr.t option
+val xv_option_catch_target_ : EslSyntax.Id.t option
+val xv_option_PIPE_ : unit option
+val xv_op_expr_target : EslSyntax.EExpr.t
+val xv_object_type_target : EslSyntax.EType.tobject
+val xv_object_type_prop_target :
+  EslSyntax.Id.t * EslSyntax.EType.t * EslSyntax.EType.tfldstyle
+val xv_obj_expr_target : EslSyntax.EExpr.t
+val xv_no_blocklike_expr_target : EslSyntax.EExpr.t
+val xv_match_discrm_target : EslSyntax.Id.t
+val xv_match_cases_target : (EslSyntax.EPat.t * EslSyntax.EStmt.t) list
+val xv_match_case_target : EslSyntax.EPat.t * EslSyntax.EStmt.t
+val xv_macro_target : EslSyntax.EMacro.t
+val xv_loption_separated_nonempty_list_COMMA_typed_id_target__ :
+  (EslSyntax.Id.t * EslSyntax.EType.t option) list
+val xv_loption_separated_nonempty_list_COMMA_object_type_prop_target__ :
+  (EslSyntax.Id.t * EslSyntax.EType.t * EslSyntax.EType.tfldstyle) list
+val xv_loption_separated_nonempty_list_COMMA_id_target__ :
+  EslSyntax.Id.t list
+val xv_loption_separated_nonempty_list_COMMA_field_init_target__ :
+  (EslSyntax.Id.t * EslSyntax.EExpr.t) list
+val xv_loption_separated_nonempty_list_COMMA_expr_target__ :
+  EslSyntax.EExpr.t list
+val xv_lookup_target : EslSyntax.EExpr.t
+val xv_literal_type_target : EslSyntax.EType.tliteral
+val xv_list_switch_case_target_ :
+  (EslSyntax.EExpr.t * EslSyntax.EStmt.t) list
+val xv_list_stmt_target_ : EslSyntax.EStmt.t list
+val xv_list_prog_element_target_ : (EslSyntax.EProg.t -> unit) list
+val xv_list_import_target_ : EslSyntax.EImport.t list
+val xv_iteration_stmt_target : EslSyntax.EStmt.t
+val xv_import_target : EslSyntax.EImport.t
+val xv_id_target : EslSyntax.Id.t
+val xv_guard_target : EslSyntax.EExpr.t
+val xv_gid_target : string EslSyntax.Source.t
+val xv_func_tparams_target : (EslSyntax.Id.t * EslSyntax.EType.t option) list
+val xv_func_target : EslSyntax.EFunc.t
+val xv_func_params_target : EslSyntax.Id.t list
+val xv_field_init_target : EslSyntax.Id.t * EslSyntax.EExpr.t
+val xv_expr_target : EslSyntax.EExpr.t
+val xv_expr_stmt_target : EslSyntax.EStmt.t
+val xv_exec_stmt_target : EslSyntax.EStmt.t
+val xv_entry_type_target : EslSyntax.EType.t
+val xv_entry_stmt_target : EslSyntax.EStmt.t
+val xv_entry_prog_target : EslSyntax.EProg.t
+val xv_entry_func_target : EslSyntax.EFunc.t
+val xv_entry_expr_target : EslSyntax.EExpr.t
+val xv_ctx_vars_target : EslSyntax.Id.t list
+val xv_catch_target : EslSyntax.Id.t
+val xv_call_expr_target : EslSyntax.EExpr.t
+val xv_call_args_target : EslSyntax.EExpr.t list
+val xv_block_stmt_target : EslSyntax.EStmt.t
+val xv_binopt_target : EslSyntax.Operator.binopt
+val xv_aux_stmt_target : EslSyntax.EStmt.t
+val xv_advice_target : EslSyntax.EAdvice.t
+val menhir_end_marker : int

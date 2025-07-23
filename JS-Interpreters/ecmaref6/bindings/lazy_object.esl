@@ -1,0 +1,93 @@
+/* Copyright (C) 2022-2025 formalsec programmers
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+/* TODO:Move to summaries file? */
+function __concatStringList(globalObject, this, NewTarget, strict, params) {
+  n_params := [];
+  foreach (param : params) {
+    n_param := ToPrimitive(param, 'String);
+    n_params := l_prepend(n_param, n_params);
+  }
+  n_params := l_reverse(n_params);
+  return s_concat(n_params);
+}
+
+function newFunctionObject(target, realm) {
+  return CreateBuiltInFunctionObject([], target, realm, false, null);
+}
+
+function newLazyObject() {
+  if (!(extern are_lzs_on()))
+    return NewECMAScriptObject();
+  realm := { globalEnv : |global| };
+  lazyObject := newFunctionObject("lazyConstructor", realm);
+  lazyObject.Get := "lazyGet";
+  lazyObject.History := [];
+
+  toPrim := newFunctionObject("lazyToPrimitive", realm);
+  toPrimDesc := newDataPropertyDescriptorFull(toPrim, false, false, true);
+  toPrimProp := getToPrimitivePropertyName();
+  setJSProperty(lazyObject, toPrimProp, toPrimDesc);
+
+  format := newFunctionObject("__concatStringList", realm);
+  createBuiltInProperty(lazyObject, "format", format);
+
+  ph := newFunctionObject("lazyPrintHistory", realm);
+  createBuiltInProperty(lazyObject, "printHistory", ph);
+
+  return lazyObject;
+}
+
+function lazyPrintHistory(globalObject, this, NewTarget, strict, params) {
+  print this.History;
+  return "";
+}
+
+function lazyConstructor(globalObject, this, NewTarget, strict, params) {
+  F := topExecStack().Function;
+  newObj := newLazyObject();
+  newObj.History := l_prepend(["call", params], F.History);
+  return newObj;
+}
+
+function lazyGet(O, P, Receiver) {
+  desc := getJSProperty(O, P);
+  if (desc != 'undefined) {
+    return desc.Value;
+  }
+  newObj := newLazyObject();
+  newObj.History := l_prepend(P, O.History);
+  newObjDesc := newDataPropertyDescriptorFull(newObj, true, true, true);
+  setJSProperty(O, P, newObjDesc);
+  return newObj;
+}
+
+
+function lazyToPrimitive(globalObject, this, NewTarget, strict, params) {
+  hint := hd params;
+  if (hint == "string") {
+    return extern str_symbol("");
+  } else if (hint == "number") {
+    return extern flt_symbol("");
+  } else {
+    return extern lift_symbols(
+      [ extern str_symbol("")
+      , extern flt_symbol("")
+      , extern bool_symbol("")
+      ]
+    );
+  }
+}

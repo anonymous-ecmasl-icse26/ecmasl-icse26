@@ -1,0 +1,21 @@
+opam-version: "2.0"
+added: [
+  "doc/gmap" {"D"}
+  "doc/gmap/CHANGES.md" {"F:S1229T1752667624.11"}
+  "doc/gmap/LICENSE.md" {"F:S802T1752667624.11"}
+  "doc/gmap/README.md" {"F:S1997T1752667624.11"}
+  "lib/gmap" {"D"}
+  "lib/gmap/META" {"F:S160T1752667624.11"}
+  "lib/gmap/dune-package" {"F:S655T1752667624.11"}
+  "lib/gmap/gmap.a" {"F:S30518T1752667624.11"}
+  "lib/gmap/gmap.cma" {"F:S19873T1752667624.11"}
+  "lib/gmap/gmap.cmi" {"F:S3264T1752667624.11"}
+  "lib/gmap/gmap.cmt" {"F:S40596T1752667624.11"}
+  "lib/gmap/gmap.cmti" {"F:S19643T1752667624.11"}
+  "lib/gmap/gmap.cmx" {"F:S2098T1752667624.11"}
+  "lib/gmap/gmap.cmxa" {"F:S406T1752667624.11"}
+  "lib/gmap/gmap.cmxs" {"F:S40208T1752667624.11"}
+  "lib/gmap/gmap.ml" {"F:S5669T1752667624.11"}
+  "lib/gmap/gmap.mli" {"F:S8247T1752667624.11"}
+  "lib/gmap/opam" {"F:S998T1752667624.11"}
+]

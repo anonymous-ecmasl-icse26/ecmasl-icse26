@@ -1,0 +1,36 @@
+(lang dune 3.19)
+(name rusage)
+(version 1.0.0)
+(sections (lib .) (libexec .) (doc ../../doc/rusage) (stublibs ../stublibs))
+(files
+ (lib
+  (META
+   dune-package
+   librusage_stubs.a
+   opam
+   rusage.a
+   rusage.cma
+   rusage.cmi
+   rusage.cmt
+   rusage.cmx
+   rusage.cmxa
+   rusage.ml))
+ (libexec (rusage.cmxs))
+ (doc (CHANGES.md LICENSE README.md))
+ (stublibs (dllrusage_stubs.so)))
+(library
+ (name rusage)
+ (kind normal)
+ (archives (byte rusage.cma) (native rusage.cmxa))
+ (plugins (byte rusage.cma) (native rusage.cmxs))
+ (foreign_objects rusage_stubs.o)
+ (foreign_archives (archives (for all) (files librusage_stubs.a)))
+ (foreign_dll_files ../stublibs/dllrusage_stubs.so)
+ (native_archives rusage.a)
+ (main_module_name Rusage)
+ (modes byte native)
+ (modules
+  (singleton
+   (obj_name rusage)
+   (visibility public)
+   (source (path Rusage) (impl (path rusage.ml))))))

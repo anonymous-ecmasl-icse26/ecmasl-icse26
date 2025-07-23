@@ -1,0 +1,21 @@
+opam-version: "2.0"
+lib: [
+  "_build/install/default/lib/rusage/META"
+  "_build/install/default/lib/rusage/dune-package"
+  "_build/install/default/lib/rusage/librusage_stubs.a"
+  "_build/install/default/lib/rusage/opam"
+  "_build/install/default/lib/rusage/rusage.a"
+  "_build/install/default/lib/rusage/rusage.cma"
+  "_build/install/default/lib/rusage/rusage.cmi"
+  "_build/install/default/lib/rusage/rusage.cmt"
+  "_build/install/default/lib/rusage/rusage.cmx"
+  "_build/install/default/lib/rusage/rusage.cmxa"
+  "_build/install/default/lib/rusage/rusage.ml"
+]
+stublibs: "_build/install/default/lib/stublibs/dllrusage_stubs.so"
+doc: [
+  "_build/install/default/doc/rusage/CHANGES.md"
+  "_build/install/default/doc/rusage/LICENSE"
+  "_build/install/default/doc/rusage/README.md"
+]
+libexec: "_build/install/default/lib/rusage/rusage.cmxs"

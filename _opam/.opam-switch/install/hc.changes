@@ -1,0 +1,21 @@
+opam-version: "2.0"
+added: [
+  "doc/hc" {"D"}
+  "doc/hc/CHANGES.md" {"F:S357T1752667624.14"}
+  "doc/hc/LICENSE.md" {"F:S775T1752667624.14"}
+  "doc/hc/README.md" {"F:S327T1752667624.14"}
+  "lib/hc" {"D"}
+  "lib/hc/META" {"F:S141T1752667624.14"}
+  "lib/hc/dune-package" {"F:S613T1752667624.14"}
+  "lib/hc/hc.a" {"F:S19732T1752667624.14"}
+  "lib/hc/hc.cma" {"F:S9746T1752667624.14"}
+  "lib/hc/hc.cmi" {"F:S1923T1752667624.14"}
+  "lib/hc/hc.cmt" {"F:S24348T1752667624.14"}
+  "lib/hc/hc.cmti" {"F:S11330T1752667624.14"}
+  "lib/hc/hc.cmx" {"F:S1660T1752667624.14"}
+  "lib/hc/hc.cmxa" {"F:S490T1752667624.14"}
+  "lib/hc/hc.cmxs" {"F:S27816T1752667624.14"}
+  "lib/hc/hc.ml" {"F:S3019T1752667624.14"}
+  "lib/hc/hc.mli" {"F:S3787T1752667624.14"}
+  "lib/hc/opam" {"F:S855T1752667624.14"}
+]

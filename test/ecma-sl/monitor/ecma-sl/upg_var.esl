@@ -1,0 +1,7 @@
+function main() {
+    y := 1;
+    print "Variable y has level " + get_var_level("y");
+    upg_var("y", "H");
+    print "Variable y has level " + get_var_level("y");
+    return 0;
+}

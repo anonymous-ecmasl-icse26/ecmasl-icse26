@@ -1,0 +1,19 @@
+version = "2.0.1"
+description = ""
+requires =
+"digestif
+ domain-name
+ fmt
+ ipaddr
+ kdf.hkdf
+ logs
+ mirage-crypto
+ mirage-crypto-ec
+ mirage-crypto-pk
+ mirage-crypto-rng
+ ohex
+ x509"
+archive(byte) = "tls.cma"
+archive(native) = "tls.cmxa"
+plugin(byte) = "tls.cma"
+plugin(native) = "tls.cmxs"

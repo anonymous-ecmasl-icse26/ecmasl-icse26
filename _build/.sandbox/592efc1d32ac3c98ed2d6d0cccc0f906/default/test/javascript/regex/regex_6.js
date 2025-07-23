@@ -1,0 +1,1 @@
+../../../../../../default/test/javascript/regex/regex_6.js

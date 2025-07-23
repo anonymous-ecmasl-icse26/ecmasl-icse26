@@ -1,0 +1,29 @@
+(lang dune 3.19)
+(name prelude)
+(sections (lib .) (libexec .) (doc ../../doc/prelude))
+(files
+ (lib
+  (META
+   dune-package
+   opam
+   prelude.a
+   prelude.cma
+   prelude.cmi
+   prelude.cmt
+   prelude.cmx
+   prelude.cmxa
+   prelude.ml))
+ (libexec (prelude.cmxs))
+ (doc (CHANGES.md LICENSE.md README.md)))
+(library
+ (name prelude)
+ (kind normal)
+ (archives (byte prelude.cma) (native prelude.cmxa))
+ (plugins (byte prelude.cma) (native prelude.cmxs))
+ (native_archives prelude.a)
+ (modes byte native)
+ (modules
+  (singleton
+   (obj_name prelude)
+   (visibility public)
+   (source (path Prelude) (impl (path prelude.ml))))))

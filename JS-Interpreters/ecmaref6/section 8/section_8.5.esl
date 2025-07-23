@@ -1,0 +1,116 @@
+/* Copyright (C) 2022-2025 formalsec programmers
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+/* aux functions to handle execution stack */
+
+function pushExecStack(newExecCtx) {
+  stack_push(|ctxStack|, newExecCtx);
+  return;
+}
+
+function popExecStack() {
+  stack_pop(|ctxStack|);
+  return;
+}
+
+function topExecStack() {
+  return stack_top(|ctxStack|);
+}
+
+function execStackIsEmpty() {
+  return stack_is_empty(|ctxStack|);
+}
+
+function initGlobalVars() {
+    initJobQueue();
+    |ctxStack| := stack_make();
+    |__CUR__SYMB__| := 0;
+    |GlobalSymbolRegistry| := {};
+    return;
+}
+
+/* 8.5 ECMAScript Initialization(sourceText)
+
+An ECMAScript implementation performs the following steps prior to the execution of any Jobs or
+the evaluation of any ECMAScript code: */
+function ECMAScriptInitialization(sourceText) {
+    /* Let realm be CreateRealm(). */
+    realm := CreateRealm();
+    |realm| := realm;
+    /* Let newContext be a new execution context. */
+    newContext := createExecutionContext();
+    /* Set the Function of newContext to null. */
+    newContext.Function := 'null;
+    /* Set the Realm of newContext to realm. */
+    newContext.Realm := realm;
+    /* Push newContext onto the execution context stack; newContext is now the running execution context. */
+    pushExecStack(newContext);
+    /* Let status be InitializeHostDefinedRealm(realm). */
+    status := InitializeHostDefinedRealm(realm);
+    /* If _status_ is an abrupt completion, then */
+    if (isAnAbruptCompletion(status)) {
+      /* Assert: The first realm could not be created. */
+      assert (realm == null);
+      /* Terminate ECMAScript execution. */
+      /* FIXME: should have the same return type as below */
+      return;
+    }
+    /* In an implementation dependent manner, obtain the ECMAScript source texts (see clause 10) for zero or more ECMAScript scripts and/or ECMAScript modules. For each such sourceText do, */
+    /* If sourceText is the source code of a script, then */
+    /* Perform EnqueueJob("ScriptJobs", ScriptEvaluationJob, « sourceText »). */
+    EnqueueJob("ScriptJobs", "ScriptEvaluationJob", [sourceText]);
+    /* Else sourceText is the source code of a module, */
+    /* Perform EnqueueJob("ScriptJobs", TopLevelModuleEvaluationJob, « sourceText »). */
+    /* NextJob NormalCompletion(undefined). */
+    return NextJob(NormalCompletion('undefined));
+}
+
+/* ECMAScriptPartialInitialization (sourceText)
+
+This function consists of a simplified version of the ECMAScriptInitialization function.
+For details check its implementation. */
+function ECMAScriptPartialInitialization(sourceText) {
+    newContext := createExecutionContext();
+    newContext.Function := 'null;
+    newContext.Realm := |realm|;
+    pushExecStack(newContext);
+    /* TODO: Don't we need to remake the global object? */
+    /* We should preserve intrinsics, but doesn't each module have its own globlaObj? */
+    EnqueueJob("ScriptJobs", "ScriptEvaluationJob", [sourceText]);
+    return NextJob(NormalCompletion('undefined));
+}
+
+/* 8.5.1 InitializeHostDefinedRealm ( realm )
+
+The abstract operation InitializeHostDefinedRealm with parameter realm performs the following
+steps: */
+function InitializeHostDefinedRealm(realm) {
+    /* If this implementation requires use of an exotic object to serve as realm’s global object, let
+    global be such an object created in an implementation defined manner. Otherwise, let global
+    be undefined indicating that an ordinary object should be created as the global object. */
+    global := 'undefined;
+    /* Perform SetRealmGlobalObject(realm, global). */
+    SetRealmGlobalObject(realm, global);
+    /* Let globalObj be SetDefaultGlobalBindings(realm). */
+    globalObj := SetDefaultGlobalBindings(realm);
+    /* ReturnIfAbrupt(globalObj). */
+    @ReturnIfAbrupt(globalObj);
+
+    /* Create any implementation defined global object properties on globalObj. */
+
+    /* Return NormalCompletion(undefined). */
+    return NormalCompletion('undefined);
+}

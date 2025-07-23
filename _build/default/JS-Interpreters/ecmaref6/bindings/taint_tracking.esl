@@ -1,0 +1,102 @@
+function initTaintObject(globalObject, objectPrototype, strict) {
+  taint := NewECMAScriptObject();
+  setAllInternalMethodsOfOrdinaryObject(taint);
+  setInternalProperty(taint, "Prototype", objectPrototype);
+
+  upg_var := CreateBuiltInFunctionObject([], "__esl_taint_upg_var", globalObject, strict, null);
+  createBuiltInProperty(upg_var, "prototype", objectPrototype);
+  createBuiltInProperty(taint, "upg_var", upg_var);
+
+  upg_prop := CreateBuiltInFunctionObject([], "__esl_taint_upg_prop", globalObject, strict, null);
+  createBuiltInProperty(upg_prop, "prototype", objectPrototype);
+  createBuiltInProperty(taint, "upg_prop", upg_prop);
+
+  get_var_level := CreateBuiltInFunctionObject([], "__esl_taint_get_var_level", globalObject, strict, null);
+  createBuiltInProperty(get_var_level, "prototype", objectPrototype);
+  createBuiltInProperty(taint, "get_var_level", get_var_level);
+
+  get_prop_level := CreateBuiltInFunctionObject([], "__esl_taint_get_prop_level", globalObject, strict, null);
+  createBuiltInProperty(get_prop_level, "prototype", objectPrototype);
+  createBuiltInProperty(taint, "get_prop_level", get_prop_level);
+
+  set_sink := CreateBuiltInFunctionObject([], "__esl_taint_set_sink", globalObject, strict, null);
+  createBuiltInProperty(set_sink, "prototype", objectPrototype);
+  createBuiltInProperty(taint, "set_sink", set_sink);
+
+  return taint;
+}
+
+function __esl_taint_upg_var(scope, var, level) {
+  print "upg_var"; 
+  print var;
+  print level;
+
+  o := scope.LexicalEnvironment.EnvRec.ObjectRecord.bindingObject;
+  desc := o.JSProperties[var];
+  upg_prop(desc, "Value", level);
+
+  return 'null;
+}
+
+function __esl_taint_upg_prop(globalObject, this, NewTarget, strict, params) {
+  o := l_nth(params, 0);
+  prop := l_nth(params, 1);
+  level := l_nth(params, 2);
+  print "upg_prop"; 
+  print level;
+
+  desc := o.JSProperties[prop];
+  upg_prop(desc, "Value", level);
+
+  return 'null;
+}
+
+function __esl_taint_get_var_level(scope, var) {
+  print "get_var_level";
+
+  if ("ObjectRecord" in_obj scope.LexicalEnvironment.EnvRec) {
+    o := scope.LexicalEnvironment.EnvRec.ObjectRecord.bindingObject;
+    desc := o.JSProperties[var];
+    print "Variable " + var + " has level " + get_prop_level(desc, "Value");
+  } else {
+    o := scope.VariableEnvironment.EnvRec;
+    print "Variable " + var + " has level " + get_prop_level(o[var], "value");
+  }
+
+  return 'null;
+}
+
+function __esl_taint_get_prop_level(globalObject, this, NewTarget, strict, params) {
+  o := l_nth(params, 0);
+  prop := l_nth(params, 1);
+
+  desc := o.JSProperties[prop];
+  print "get_prop_level"; 
+
+  print "Property " + prop + " has level " + get_prop_level(desc, "Value");
+
+  return 'null;
+}
+
+function __esl_taint_set_sink(globalObject, this, NewTarget, strict, params) {
+  f := l_nth(params, 0);
+  
+  if ("__isNodeModule" in_obj f) {
+    f.__isDangerousNodeAPI := true;
+    return 'null;
+  }
+
+  print "set_sink";
+
+  f_name := f.ECMAScriptCode; 
+
+  if (f_name == "GlobalObjectEval") {
+    f_name := "PerformEval";
+  } else if (f_name == "__esl_node_child_process_spawn") {
+    f_name := "spawn";
+  }
+
+  set_sink(f_name);
+
+  return 'null;
+}

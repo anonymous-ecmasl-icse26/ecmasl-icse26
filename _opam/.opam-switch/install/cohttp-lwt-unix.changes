@@ -1,0 +1,56 @@
+opam-version: "2.0"
+added: [
+  "doc/cohttp-lwt-unix" {"D"}
+  "doc/cohttp-lwt-unix/CHANGES.md" {"F:S43020T1752667673.77"}
+  "doc/cohttp-lwt-unix/LICENSE.md" {"F:S832T1752667673.77"}
+  "doc/cohttp-lwt-unix/README.md" {"F:S18660T1752667673.77"}
+  "lib/cohttp-lwt-unix" {"D"}
+  "lib/cohttp-lwt-unix/META" {"F:S377T1752667673.76"}
+  "lib/cohttp-lwt-unix/cohttp_lwt_unix.a" {"F:S165106T1752667673.76"}
+  "lib/cohttp-lwt-unix/cohttp_lwt_unix.cma" {"F:S78091T1752667673.76"}
+  "lib/cohttp-lwt-unix/cohttp_lwt_unix.cmi" {"F:S11796T1752667673.76"}
+  "lib/cohttp-lwt-unix/cohttp_lwt_unix.cmt" {"F:S45902T1752667673.76"}
+  "lib/cohttp-lwt-unix/cohttp_lwt_unix.cmx" {"F:S11925T1752667673.76"}
+  "lib/cohttp-lwt-unix/cohttp_lwt_unix.cmxa" {"F:S22436T1752667673.76"}
+  "lib/cohttp-lwt-unix/cohttp_lwt_unix.cmxs" {"F:S153240T1752667673.76"}
+  "lib/cohttp-lwt-unix/cohttp_lwt_unix.ml" {"F:S2659T1752667673.76"}
+  "lib/cohttp-lwt-unix/cohttp_lwt_unix__.cmi" {"F:S604T1752667673.76"}
+  "lib/cohttp-lwt-unix/cohttp_lwt_unix__.cmt" {"F:S2937T1752667673.76"}
+  "lib/cohttp-lwt-unix/cohttp_lwt_unix__.cmx" {"F:S273T1752667673.76"}
+  "lib/cohttp-lwt-unix/cohttp_lwt_unix__.ml" {"F:S511T1752667673.76"}
+  "lib/cohttp-lwt-unix/cohttp_lwt_unix__Debug.cmi" {"F:S708T1752667673.76"}
+  "lib/cohttp-lwt-unix/cohttp_lwt_unix__Debug.cmt" {"F:S17616T1752667673.76"}
+  "lib/cohttp-lwt-unix/cohttp_lwt_unix__Debug.cmti" {"F:S4455T1752667673.76"}
+  "lib/cohttp-lwt-unix/cohttp_lwt_unix__Debug.cmx" {"F:S1891T1752667673.76"}
+  "lib/cohttp-lwt-unix/cohttp_lwt_unix__Input_channel.cmi"
+    {"F:S3469T1752667673.76"}
+  "lib/cohttp-lwt-unix/cohttp_lwt_unix__Input_channel.cmt"
+    {"F:S14920T1752667673.76"}
+  "lib/cohttp-lwt-unix/cohttp_lwt_unix__Input_channel.cmx"
+    {"F:S3677T1752667673.76"}
+  "lib/cohttp-lwt-unix/cohttp_lwt_unix__Io.cmi" {"F:S4918T1752667673.76"}
+  "lib/cohttp-lwt-unix/cohttp_lwt_unix__Io.cmt" {"F:S19467T1752667673.76"}
+  "lib/cohttp-lwt-unix/cohttp_lwt_unix__Io.cmti" {"F:S12169T1752667673.76"}
+  "lib/cohttp-lwt-unix/cohttp_lwt_unix__Io.cmx" {"F:S6650T1752667673.76"}
+  "lib/cohttp-lwt-unix/cohttp_lwt_unix__Net.cmi" {"F:S5569T1752667673.76"}
+  "lib/cohttp-lwt-unix/cohttp_lwt_unix__Net.cmt" {"F:S19504T1752667673.76"}
+  "lib/cohttp-lwt-unix/cohttp_lwt_unix__Net.cmti" {"F:S14998T1752667673.76"}
+  "lib/cohttp-lwt-unix/cohttp_lwt_unix__Net.cmx" {"F:S8681T1752667673.76"}
+  "lib/cohttp-lwt-unix/cohttp_lwt_unix__Server.cmi" {"F:S6766T1752667673.76"}
+  "lib/cohttp-lwt-unix/cohttp_lwt_unix__Server.cmt"
+    {"F:S28576T1752667673.76"}
+  "lib/cohttp-lwt-unix/cohttp_lwt_unix__Server.cmti"
+    {"F:S18448T1752667673.76"}
+  "lib/cohttp-lwt-unix/cohttp_lwt_unix__Server.cmx" {"F:S7485T1752667673.76"}
+  "lib/cohttp-lwt-unix/debug.ml" {"F:S2788T1752667673.76"}
+  "lib/cohttp-lwt-unix/debug.mli" {"F:S2071T1752667673.76"}
+  "lib/cohttp-lwt-unix/dune-package" {"F:S2852T1752667673.76"}
+  "lib/cohttp-lwt-unix/input_channel.ml" {"F:S897T1752667673.76"}
+  "lib/cohttp-lwt-unix/io.ml" {"F:S2678T1752667673.76"}
+  "lib/cohttp-lwt-unix/io.mli" {"F:S1178T1752667673.76"}
+  "lib/cohttp-lwt-unix/net.ml" {"F:S2467T1752667673.76"}
+  "lib/cohttp-lwt-unix/net.mli" {"F:S1638T1752667673.76"}
+  "lib/cohttp-lwt-unix/opam" {"F:S1612T1752667673.76"}
+  "lib/cohttp-lwt-unix/server.ml" {"F:S2576T1752667673.76"}
+  "lib/cohttp-lwt-unix/server.mli" {"F:S1549T1752667673.76"}
+]

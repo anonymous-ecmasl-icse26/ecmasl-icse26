@@ -1,0 +1,1310 @@
+(lang dune 3.19)
+(name ecma-sl)
+(version v1.2.0-192-ge4e068b)
+(sections
+ (lib /home/arckenimuz/dev/ECMA-SL/_opam/lib/ecma-sl)
+ (libexec /home/arckenimuz/dev/ECMA-SL/_opam/lib/ecma-sl)
+ (bin /home/arckenimuz/dev/ECMA-SL/_opam/bin)
+ (share /home/arckenimuz/dev/ECMA-SL/_opam/share/ecma-sl)
+ (share_root /home/arckenimuz/dev/ECMA-SL/_opam/share)
+ (doc /home/arckenimuz/dev/ECMA-SL/_opam/doc/ecma-sl))
+(sites (interpreters share) (stdlib share))
+(files
+ (lib
+  (META
+   Site.ml
+   base/base.ml
+   base/cont.ml
+   base/eslBase.a
+   base/eslBase.cma
+   base/eslBase.cmi
+   base/eslBase.cmt
+   base/eslBase.cmx
+   base/eslBase.cmxa
+   base/eslBase.ml
+   base/eslBase__Base.cmi
+   base/eslBase__Base.cmt
+   base/eslBase__Base.cmx
+   base/eslBase__Cont.cmi
+   base/eslBase__Cont.cmt
+   base/eslBase__Cont.cmx
+   base/eslBase__Font.cmi
+   base/eslBase__Font.cmt
+   base/eslBase__Font.cmx
+   base/eslBase__Io.cmi
+   base/eslBase__Io.cmt
+   base/eslBase__Io.cmx
+   base/eslBase__Log.cmi
+   base/eslBase__Log.cmt
+   base/eslBase__Log.cmx
+   base/eslBase__String.cmi
+   base/eslBase__String.cmt
+   base/eslBase__String.cmx
+   base/eslBase__Terminal.cmi
+   base/eslBase__Terminal.cmt
+   base/eslBase__Terminal.cmx
+   base/font.ml
+   base/io.ml
+   base/log.ml
+   base/string.ml
+   base/terminal.ml
+   dune-package
+   ecma_sl.a
+   ecma_sl.cma
+   ecma_sl.cmi
+   ecma_sl.cmt
+   ecma_sl.cmx
+   ecma_sl.cmxa
+   ecma_sl.ml
+   js2ecmasl/api.ml
+   js2ecmasl/eslJSParser.a
+   js2ecmasl/eslJSParser.cma
+   js2ecmasl/eslJSParser.cmi
+   js2ecmasl/eslJSParser.cmt
+   js2ecmasl/eslJSParser.cmx
+   js2ecmasl/eslJSParser.cmxa
+   js2ecmasl/eslJSParser.ml
+   js2ecmasl/eslJSParser__Api.cmi
+   js2ecmasl/eslJSParser__Api.cmt
+   js2ecmasl/eslJSParser__Api.cmx
+   opam
+   semantics/core/concrete/domains/call_stack.ml
+   semantics/core/concrete/domains/heap.ml
+   semantics/core/concrete/domains/store.ml
+   semantics/core/concrete/eval_op.ml
+   semantics/core/concrete/external.ml
+   semantics/core/concrete/instrumentors/debugger.ml
+   semantics/core/concrete/instrumentors/debugger/debugger_cmd.ml
+   semantics/core/concrete/instrumentors/debugger/debugger_tui.ml
+   semantics/core/concrete/instrumentors/debugger/debugger_tui_code.ml
+   semantics/core/concrete/instrumentors/debugger/debugger_tui_execution.ml
+   semantics/core/concrete/instrumentors/debugger/debugger_tui_helper.ml
+   semantics/core/concrete/instrumentors/debugger/debugger_tui_terminal.ml
+   semantics/core/concrete/instrumentors/debugger/debugger_tui_view.ml
+   semantics/core/concrete/instrumentors/debugger/debugger_types.ml
+   semantics/core/concrete/instrumentors/monitor.ml
+   semantics/core/concrete/instrumentors/monitor_intf.ml
+   semantics/core/concrete/instrumentors/monitor_type.ml
+   semantics/core/concrete/instrumentors/monitors/domains/SCallStack.ml
+   semantics/core/concrete/instrumentors/monitors/domains/SException.ml
+   semantics/core/concrete/instrumentors/monitors/domains/SHeap.ml
+   semantics/core/concrete/instrumentors/monitors/domains/SObject.ml
+   semantics/core/concrete/instrumentors/monitors/domains/SStore.ml
+   semantics/core/concrete/instrumentors/monitors/levels/MultiLevel.ml
+   semantics/core/concrete/instrumentors/monitors/levels/SLevel.ml
+   semantics/core/concrete/instrumentors/monitors/levels/SLevel2.ml
+   semantics/core/concrete/instrumentors/monitors/levels/level_intf.ml
+   semantics/core/concrete/instrumentors/profiler.ml
+   semantics/core/concrete/instrumentors/tracer.ml
+   semantics/core/concrete/interpreter.ml
+   semantics/core/concrete/interpreter_base.ml
+   semantics/core/concrete/interpreter_tooling.ml
+   semantics/core/functorial/choice_monad_intf.ml
+   semantics/core/functorial/extern_func.ml
+   semantics/core/functorial/interpreter_functor.ml
+   semantics/core/functorial/interpreter_functor_intf.ml
+   semantics/core/functorial/link_env.ml
+   semantics/core/functorial/value_intf.ml
+   semantics/core/parser/lexer.ml
+   semantics/core/parser/parser.ml
+   semantics/core/parser/parser.mli
+   semantics/core/parser/parsing.ml
+   semantics/core/parser/parsing_helper.ml
+   semantics/error/compile_error.ml
+   semantics/error/error_source.ml
+   semantics/error/error_trace.ml
+   semantics/error/error_type.ml
+   semantics/error/runtime_error.ml
+   semantics/error/typing_error.ml
+   semantics/eslSemantics.a
+   semantics/eslSemantics.cma
+   semantics/eslSemantics.cmi
+   semantics/eslSemantics.cmt
+   semantics/eslSemantics.cmx
+   semantics/eslSemantics.cmxa
+   semantics/eslSemantics.ml
+   semantics/eslSemantics__Arith_utils.cmi
+   semantics/eslSemantics__Arith_utils.cmt
+   semantics/eslSemantics__Arith_utils.cmx
+   semantics/eslSemantics__Byte_utils.cmi
+   semantics/eslSemantics__Byte_utils.cmt
+   semantics/eslSemantics__Byte_utils.cmx
+   semantics/eslSemantics__Call_stack.cmi
+   semantics/eslSemantics__Call_stack.cmt
+   semantics/eslSemantics__Call_stack.cmx
+   semantics/eslSemantics__Channel_utils.cmi
+   semantics/eslSemantics__Channel_utils.cmt
+   semantics/eslSemantics__Channel_utils.cmx
+   semantics/eslSemantics__Choice_monad_intf.cmi
+   semantics/eslSemantics__Choice_monad_intf.cmt
+   semantics/eslSemantics__Choice_monad_intf.cmx
+   semantics/eslSemantics__Code_utils.cmi
+   semantics/eslSemantics__Code_utils.cmt
+   semantics/eslSemantics__Code_utils.cmx
+   semantics/eslSemantics__Compile_error.cmi
+   semantics/eslSemantics__Compile_error.cmt
+   semantics/eslSemantics__Compile_error.cmx
+   semantics/eslSemantics__Compiler.cmi
+   semantics/eslSemantics__Compiler.cmt
+   semantics/eslSemantics__Compiler.cmx
+   semantics/eslSemantics__Date_utils.cmi
+   semantics/eslSemantics__Date_utils.cmt
+   semantics/eslSemantics__Date_utils.cmx
+   semantics/eslSemantics__Debugger.cmi
+   semantics/eslSemantics__Debugger.cmt
+   semantics/eslSemantics__Debugger.cmx
+   semantics/eslSemantics__Debugger_cmd.cmi
+   semantics/eslSemantics__Debugger_cmd.cmt
+   semantics/eslSemantics__Debugger_cmd.cmx
+   semantics/eslSemantics__Debugger_tui.cmi
+   semantics/eslSemantics__Debugger_tui.cmt
+   semantics/eslSemantics__Debugger_tui.cmx
+   semantics/eslSemantics__Debugger_tui_code.cmi
+   semantics/eslSemantics__Debugger_tui_code.cmt
+   semantics/eslSemantics__Debugger_tui_code.cmx
+   semantics/eslSemantics__Debugger_tui_execution.cmi
+   semantics/eslSemantics__Debugger_tui_execution.cmt
+   semantics/eslSemantics__Debugger_tui_execution.cmx
+   semantics/eslSemantics__Debugger_tui_helper.cmi
+   semantics/eslSemantics__Debugger_tui_helper.cmt
+   semantics/eslSemantics__Debugger_tui_helper.cmx
+   semantics/eslSemantics__Debugger_tui_terminal.cmi
+   semantics/eslSemantics__Debugger_tui_terminal.cmt
+   semantics/eslSemantics__Debugger_tui_terminal.cmx
+   semantics/eslSemantics__Debugger_tui_view.cmi
+   semantics/eslSemantics__Debugger_tui_view.cmt
+   semantics/eslSemantics__Debugger_tui_view.cmx
+   semantics/eslSemantics__Debugger_types.cmi
+   semantics/eslSemantics__Debugger_types.cmt
+   semantics/eslSemantics__Debugger_types.cmx
+   semantics/eslSemantics__ELexer.cmi
+   semantics/eslSemantics__ELexer.cmt
+   semantics/eslSemantics__ELexer.cmx
+   semantics/eslSemantics__EParser.cmi
+   semantics/eslSemantics__EParser.cmt
+   semantics/eslSemantics__EParser.cmti
+   semantics/eslSemantics__EParser.cmx
+   semantics/eslSemantics__EParsing.cmi
+   semantics/eslSemantics__EParsing.cmt
+   semantics/eslSemantics__EParsing.cmx
+   semantics/eslSemantics__EParsing_helper.cmi
+   semantics/eslSemantics__EParsing_helper.cmt
+   semantics/eslSemantics__EParsing_helper.cmx
+   semantics/eslSemantics__Error_source.cmi
+   semantics/eslSemantics__Error_source.cmt
+   semantics/eslSemantics__Error_source.cmx
+   semantics/eslSemantics__Error_trace.cmi
+   semantics/eslSemantics__Error_trace.cmt
+   semantics/eslSemantics__Error_trace.cmx
+   semantics/eslSemantics__Error_type.cmi
+   semantics/eslSemantics__Error_type.cmt
+   semantics/eslSemantics__Error_type.cmx
+   semantics/eslSemantics__Eval_op.cmi
+   semantics/eslSemantics__Eval_op.cmt
+   semantics/eslSemantics__Eval_op.cmx
+   semantics/eslSemantics__Extern_func.cmi
+   semantics/eslSemantics__Extern_func.cmt
+   semantics/eslSemantics__Extern_func.cmx
+   semantics/eslSemantics__External.cmi
+   semantics/eslSemantics__External.cmt
+   semantics/eslSemantics__External.cmx
+   semantics/eslSemantics__Heap.cmi
+   semantics/eslSemantics__Heap.cmt
+   semantics/eslSemantics__Heap.cmx
+   semantics/eslSemantics__Interpreter.cmi
+   semantics/eslSemantics__Interpreter.cmt
+   semantics/eslSemantics__Interpreter.cmx
+   semantics/eslSemantics__Interpreter_base.cmi
+   semantics/eslSemantics__Interpreter_base.cmt
+   semantics/eslSemantics__Interpreter_base.cmx
+   semantics/eslSemantics__Interpreter_functor.cmi
+   semantics/eslSemantics__Interpreter_functor.cmt
+   semantics/eslSemantics__Interpreter_functor.cmx
+   semantics/eslSemantics__Interpreter_functor_intf.cmi
+   semantics/eslSemantics__Interpreter_functor_intf.cmt
+   semantics/eslSemantics__Interpreter_functor_intf.cmx
+   semantics/eslSemantics__Interpreter_tooling.cmi
+   semantics/eslSemantics__Interpreter_tooling.cmt
+   semantics/eslSemantics__Interpreter_tooling.cmx
+   semantics/eslSemantics__Level_intf.cmi
+   semantics/eslSemantics__Level_intf.cmt
+   semantics/eslSemantics__Level_intf.cmx
+   semantics/eslSemantics__Lexer.cmi
+   semantics/eslSemantics__Lexer.cmt
+   semantics/eslSemantics__Lexer.cmx
+   semantics/eslSemantics__Link_env.cmi
+   semantics/eslSemantics__Link_env.cmt
+   semantics/eslSemantics__Link_env.cmx
+   semantics/eslSemantics__Monitor.cmi
+   semantics/eslSemantics__Monitor.cmt
+   semantics/eslSemantics__Monitor.cmx
+   semantics/eslSemantics__Monitor_intf.cmi
+   semantics/eslSemantics__Monitor_intf.cmt
+   semantics/eslSemantics__Monitor_intf.cmx
+   semantics/eslSemantics__Monitor_type.cmi
+   semantics/eslSemantics__Monitor_type.cmt
+   semantics/eslSemantics__Monitor_type.cmx
+   semantics/eslSemantics__MultiLevel.cmi
+   semantics/eslSemantics__MultiLevel.cmt
+   semantics/eslSemantics__MultiLevel.cmx
+   semantics/eslSemantics__Parser.cmi
+   semantics/eslSemantics__Parser.cmt
+   semantics/eslSemantics__Parser.cmti
+   semantics/eslSemantics__Parser.cmx
+   semantics/eslSemantics__Parsing.cmi
+   semantics/eslSemantics__Parsing.cmt
+   semantics/eslSemantics__Parsing.cmx
+   semantics/eslSemantics__Parsing_helper.cmi
+   semantics/eslSemantics__Parsing_helper.cmt
+   semantics/eslSemantics__Parsing_helper.cmx
+   semantics/eslSemantics__Parsing_utils.cmi
+   semantics/eslSemantics__Parsing_utils.cmt
+   semantics/eslSemantics__Parsing_utils.cmx
+   semantics/eslSemantics__Preprocessor.cmi
+   semantics/eslSemantics__Preprocessor.cmt
+   semantics/eslSemantics__Preprocessor.cmx
+   semantics/eslSemantics__Profiler.cmi
+   semantics/eslSemantics__Profiler.cmt
+   semantics/eslSemantics__Profiler.cmx
+   semantics/eslSemantics__Re.cmi
+   semantics/eslSemantics__Re.cmt
+   semantics/eslSemantics__Re.cmx
+   semantics/eslSemantics__Runtime_error.cmi
+   semantics/eslSemantics__Runtime_error.cmt
+   semantics/eslSemantics__Runtime_error.cmx
+   semantics/eslSemantics__SCallStack.cmi
+   semantics/eslSemantics__SCallStack.cmt
+   semantics/eslSemantics__SCallStack.cmx
+   semantics/eslSemantics__SException.cmi
+   semantics/eslSemantics__SException.cmt
+   semantics/eslSemantics__SException.cmx
+   semantics/eslSemantics__SHeap.cmi
+   semantics/eslSemantics__SHeap.cmt
+   semantics/eslSemantics__SHeap.cmx
+   semantics/eslSemantics__SLevel.cmi
+   semantics/eslSemantics__SLevel.cmt
+   semantics/eslSemantics__SLevel.cmx
+   semantics/eslSemantics__SLevel2.cmi
+   semantics/eslSemantics__SLevel2.cmt
+   semantics/eslSemantics__SLevel2.cmx
+   semantics/eslSemantics__SObject.cmi
+   semantics/eslSemantics__SObject.cmt
+   semantics/eslSemantics__SObject.cmx
+   semantics/eslSemantics__SStore.cmi
+   semantics/eslSemantics__SStore.cmt
+   semantics/eslSemantics__SStore.cmx
+   semantics/eslSemantics__Store.cmi
+   semantics/eslSemantics__Store.cmt
+   semantics/eslSemantics__Store.cmx
+   semantics/eslSemantics__String_utils.cmi
+   semantics/eslSemantics__String_utils.cmt
+   semantics/eslSemantics__String_utils.cmx
+   semantics/eslSemantics__TChecker.cmi
+   semantics/eslSemantics__TChecker.cmt
+   semantics/eslSemantics__TChecker.cmx
+   semantics/eslSemantics__TCtx.cmi
+   semantics/eslSemantics__TCtx.cmt
+   semantics/eslSemantics__TCtx.cmx
+   semantics/eslSemantics__TExpr.cmi
+   semantics/eslSemantics__TExpr.cmt
+   semantics/eslSemantics__TExpr.cmx
+   semantics/eslSemantics__TOperator.cmi
+   semantics/eslSemantics__TOperator.cmt
+   semantics/eslSemantics__TOperator.cmx
+   semantics/eslSemantics__TStmt.cmi
+   semantics/eslSemantics__TStmt.cmt
+   semantics/eslSemantics__TStmt.cmx
+   semantics/eslSemantics__TSubtyping.cmi
+   semantics/eslSemantics__TSubtyping.cmt
+   semantics/eslSemantics__TSubtyping.cmx
+   semantics/eslSemantics__Tracer.cmi
+   semantics/eslSemantics__Tracer.cmt
+   semantics/eslSemantics__Tracer.cmx
+   semantics/eslSemantics__Typing_error.cmi
+   semantics/eslSemantics__Typing_error.cmt
+   semantics/eslSemantics__Typing_error.cmx
+   semantics/eslSemantics__Value_intf.cmi
+   semantics/eslSemantics__Value_intf.cmt
+   semantics/eslSemantics__Value_intf.cmx
+   semantics/extended/compiler/compiler.ml
+   semantics/extended/compiler/preprocessor.ml
+   semantics/extended/parser/eLexer.ml
+   semantics/extended/parser/eParser.ml
+   semantics/extended/parser/eParser.mli
+   semantics/extended/parser/eParsing.ml
+   semantics/extended/parser/eParsing_helper.ml
+   semantics/extended/typing/tChecker.ml
+   semantics/extended/typing/tCtx.ml
+   semantics/extended/typing/tExpr.ml
+   semantics/extended/typing/tOperator.ml
+   semantics/extended/typing/tStmt.ml
+   semantics/extended/typing/tSubtyping.ml
+   semantics/re.ml
+   semantics/utils/arith_utils.ml
+   semantics/utils/byte_utils.ml
+   semantics/utils/channel_utils.ml
+   semantics/utils/code_utils.ml
+   semantics/utils/date_utils.ml
+   semantics/utils/parsing_utils.ml
+   semantics/utils/string_utils.ml
+   share.cmi
+   share.cmt
+   share.cmx
+   share.ml
+   site.cmi
+   site.cmt
+   site.cmx
+   symbolic/ecma_sl_symbolic.a
+   symbolic/ecma_sl_symbolic.cma
+   symbolic/ecma_sl_symbolic.cmi
+   symbolic/ecma_sl_symbolic.cmt
+   symbolic/ecma_sl_symbolic.cmx
+   symbolic/ecma_sl_symbolic.cmxa
+   symbolic/ecma_sl_symbolic.ml
+   symbolic/ecma_sl_symbolic__Choice_monad.cmi
+   symbolic/ecma_sl_symbolic__Choice_monad.cmt
+   symbolic/ecma_sl_symbolic__Choice_monad.cmx
+   symbolic/ecma_sl_symbolic__Memory_intf.cmi
+   symbolic/ecma_sl_symbolic__Memory_intf.cmt
+   symbolic/ecma_sl_symbolic__Memory_intf.cmx
+   symbolic/ecma_sl_symbolic__Object_intf.cmi
+   symbolic/ecma_sl_symbolic__Object_intf.cmt
+   symbolic/ecma_sl_symbolic__Object_intf.cmx
+   symbolic/ecma_sl_symbolic__Optimizer.cmi
+   symbolic/ecma_sl_symbolic__Optimizer.cmt
+   symbolic/ecma_sl_symbolic__Optimizer.cmx
+   symbolic/ecma_sl_symbolic__Solver.cmi
+   symbolic/ecma_sl_symbolic__Solver.cmt
+   symbolic/ecma_sl_symbolic__Solver.cmx
+   symbolic/ecma_sl_symbolic__Symbolic.cmi
+   symbolic/ecma_sl_symbolic__Symbolic.cmt
+   symbolic/ecma_sl_symbolic__Symbolic.cmx
+   symbolic/ecma_sl_symbolic__Symbolic_engine.cmi
+   symbolic/ecma_sl_symbolic__Symbolic_engine.cmt
+   symbolic/ecma_sl_symbolic__Symbolic_engine.cmx
+   symbolic/ecma_sl_symbolic__Symbolic_error.cmi
+   symbolic/ecma_sl_symbolic__Symbolic_error.cmt
+   symbolic/ecma_sl_symbolic__Symbolic_error.cmx
+   symbolic/ecma_sl_symbolic__Symbolic_esl_ffi.cmi
+   symbolic/ecma_sl_symbolic__Symbolic_esl_ffi.cmt
+   symbolic/ecma_sl_symbolic__Symbolic_esl_ffi.cmx
+   symbolic/ecma_sl_symbolic__Symbolic_memory.cmi
+   symbolic/ecma_sl_symbolic__Symbolic_memory.cmt
+   symbolic/ecma_sl_symbolic__Symbolic_memory.cmx
+   symbolic/ecma_sl_symbolic__Symbolic_object_default.cmi
+   symbolic/ecma_sl_symbolic__Symbolic_object_default.cmt
+   symbolic/ecma_sl_symbolic__Symbolic_object_default.cmti
+   symbolic/ecma_sl_symbolic__Symbolic_object_default.cmx
+   symbolic/ecma_sl_symbolic__Symbolic_object_lifting.cmi
+   symbolic/ecma_sl_symbolic__Symbolic_object_lifting.cmt
+   symbolic/ecma_sl_symbolic__Symbolic_object_lifting.cmti
+   symbolic/ecma_sl_symbolic__Symbolic_object_lifting.cmx
+   symbolic/ecma_sl_symbolic__Symbolic_object_logging.cmi
+   symbolic/ecma_sl_symbolic__Symbolic_object_logging.cmt
+   symbolic/ecma_sl_symbolic__Symbolic_object_logging.cmti
+   symbolic/ecma_sl_symbolic__Symbolic_object_logging.cmx
+   symbolic/ecma_sl_symbolic__Symbolic_object_loglift.cmi
+   symbolic/ecma_sl_symbolic__Symbolic_object_loglift.cmt
+   symbolic/ecma_sl_symbolic__Symbolic_object_loglift.cmti
+   symbolic/ecma_sl_symbolic__Symbolic_object_loglift.cmx
+   symbolic/ecma_sl_symbolic__Symbolic_report.cmi
+   symbolic/ecma_sl_symbolic__Symbolic_report.cmt
+   symbolic/ecma_sl_symbolic__Symbolic_report.cmx
+   symbolic/ecma_sl_symbolic__Symbolic_utils.cmi
+   symbolic/ecma_sl_symbolic__Symbolic_utils.cmt
+   symbolic/ecma_sl_symbolic__Symbolic_utils.cmx
+   symbolic/ecma_sl_symbolic__Symbolic_value.cmi
+   symbolic/ecma_sl_symbolic__Symbolic_value.cmt
+   symbolic/ecma_sl_symbolic__Symbolic_value.cmti
+   symbolic/ecma_sl_symbolic__Symbolic_value.cmx
+   symbolic/symbolic/choice_monad.ml
+   symbolic/symbolic/memory_intf.ml
+   symbolic/symbolic/object_intf.ml
+   symbolic/symbolic/optimizer.ml
+   symbolic/symbolic/solver.ml
+   symbolic/symbolic/symbolic.ml
+   symbolic/symbolic/symbolic_engine.ml
+   symbolic/symbolic/symbolic_error.ml
+   symbolic/symbolic/symbolic_esl_ffi.ml
+   symbolic/symbolic/symbolic_memory.ml
+   symbolic/symbolic/symbolic_object_default.ml
+   symbolic/symbolic/symbolic_object_default.mli
+   symbolic/symbolic/symbolic_object_lifting.ml
+   symbolic/symbolic/symbolic_object_lifting.mli
+   symbolic/symbolic/symbolic_object_logging.ml
+   symbolic/symbolic/symbolic_object_logging.mli
+   symbolic/symbolic/symbolic_object_loglift.ml
+   symbolic/symbolic/symbolic_object_loglift.mli
+   symbolic/symbolic/symbolic_report.ml
+   symbolic/symbolic/symbolic_utils.ml
+   symbolic/symbolic/symbolic_value.ml
+   symbolic/symbolic/symbolic_value.mli
+   syntax/core/expr.ml
+   syntax/core/func.ml
+   syntax/core/prog.ml
+   syntax/core/stmt.ml
+   syntax/eslSyntax.a
+   syntax/eslSyntax.cma
+   syntax/eslSyntax.cmi
+   syntax/eslSyntax.cmt
+   syntax/eslSyntax.cmx
+   syntax/eslSyntax.cmxa
+   syntax/eslSyntax.ml
+   syntax/eslSyntax__EAdvice.cmi
+   syntax/eslSyntax__EAdvice.cmt
+   syntax/eslSyntax__EAdvice.cmx
+   syntax/eslSyntax__EExpr.cmi
+   syntax/eslSyntax__EExpr.cmt
+   syntax/eslSyntax__EExpr.cmx
+   syntax/eslSyntax__EFunc.cmi
+   syntax/eslSyntax__EFunc.cmt
+   syntax/eslSyntax__EFunc.cmx
+   syntax/eslSyntax__EImport.cmi
+   syntax/eslSyntax__EImport.cmt
+   syntax/eslSyntax__EImport.cmx
+   syntax/eslSyntax__EMacro.cmi
+   syntax/eslSyntax__EMacro.cmt
+   syntax/eslSyntax__EMacro.cmx
+   syntax/eslSyntax__EPat.cmi
+   syntax/eslSyntax__EPat.cmt
+   syntax/eslSyntax__EPat.cmx
+   syntax/eslSyntax__EProg.cmi
+   syntax/eslSyntax__EProg.cmt
+   syntax/eslSyntax__EProg.cmx
+   syntax/eslSyntax__EStmt.cmi
+   syntax/eslSyntax__EStmt.cmt
+   syntax/eslSyntax__EStmt.cmx
+   syntax/eslSyntax__EType.cmi
+   syntax/eslSyntax__EType.cmt
+   syntax/eslSyntax__EType.cmx
+   syntax/eslSyntax__Expr.cmi
+   syntax/eslSyntax__Expr.cmt
+   syntax/eslSyntax__Expr.cmx
+   syntax/eslSyntax__Func.cmi
+   syntax/eslSyntax__Func.cmt
+   syntax/eslSyntax__Func.cmx
+   syntax/eslSyntax__Id.cmi
+   syntax/eslSyntax__Id.cmt
+   syntax/eslSyntax__Id.cmx
+   syntax/eslSyntax__Loc.cmi
+   syntax/eslSyntax__Loc.cmt
+   syntax/eslSyntax__Loc.cmx
+   syntax/eslSyntax__Object.cmi
+   syntax/eslSyntax__Object.cmt
+   syntax/eslSyntax__Object.cmx
+   syntax/eslSyntax__Operator.cmi
+   syntax/eslSyntax__Operator.cmt
+   syntax/eslSyntax__Operator.cmx
+   syntax/eslSyntax__Prog.cmi
+   syntax/eslSyntax__Prog.cmt
+   syntax/eslSyntax__Prog.cmx
+   syntax/eslSyntax__Source.cmi
+   syntax/eslSyntax__Source.cmt
+   syntax/eslSyntax__Source.cmx
+   syntax/eslSyntax__Stmt.cmi
+   syntax/eslSyntax__Stmt.cmt
+   syntax/eslSyntax__Stmt.cmx
+   syntax/eslSyntax__Value.cmi
+   syntax/eslSyntax__Value.cmt
+   syntax/eslSyntax__Value.cmx
+   syntax/extended/eAdvice.ml
+   syntax/extended/eExpr.ml
+   syntax/extended/eFunc.ml
+   syntax/extended/eImport.ml
+   syntax/extended/eMacro.ml
+   syntax/extended/ePat.ml
+   syntax/extended/eProg.ml
+   syntax/extended/eStmt.ml
+   syntax/extended/eType.ml
+   syntax/share/id.ml
+   syntax/share/loc.ml
+   syntax/share/object.ml
+   syntax/share/operator.ml
+   syntax/share/source.ml
+   syntax/share/value.ml))
+ (libexec
+  (base/eslBase.cmxs
+   ecma_sl.cmxs
+   js2ecmasl/eslJSParser.cmxs
+   semantics/eslSemantics.cmxs
+   symbolic/ecma_sl_symbolic.cmxs
+   syntax/eslSyntax.cmxs))
+ (bin (ecma-sl js2ecma-sl))
+ (share_root
+  (ecma-sl/interpreters/es5.include
+   ecma-sl/interpreters/es6-sym.cesl
+   ecma-sl/interpreters/es6-sym.include
+   ecma-sl/interpreters/es6.include
+   ecma-sl/stdlib/fpath.esl
+   ecma-sl/stdlib/os.esl
+   ecma-sl/stdlib/queue.esl
+   ecma-sl/stdlib/stack.esl
+   ecma-sl/stdlib/stdlib.esl))
+ (doc (CHANGES.md LICENSE README.md)))
+(library
+ (name ecma-sl)
+ (kind normal)
+ (archives (byte ecma_sl.cma) (native ecma_sl.cmxa))
+ (plugins (byte ecma_sl.cma) (native ecma_sl.cmxs))
+ (native_archives ecma_sl.a)
+ (requires
+  ecma-sl.base
+  ecma-sl.syntax
+  ecma-sl.semantics
+  ecma-sl.js2ecmasl
+  dune-private-libs.dune-section
+  dune-site
+  smtml)
+ (modes byte native)
+ (modules
+  (unwrapped
+   (module
+    (obj_name ecma_sl)
+    (visibility public)
+    (source (path Ecma_sl) (impl (path ecma_sl.ml))))
+   (module
+    (obj_name share)
+    (visibility public)
+    (source (path Share) (impl (path share.ml))))
+   (module
+    (obj_name site)
+    (visibility public)
+    (source (path Site) (impl (path Site.ml)))))))
+(library
+ (name ecma-sl.base)
+ (kind normal)
+ (archives (byte base/eslBase.cma) (native base/eslBase.cmxa))
+ (plugins (byte base/eslBase.cma) (native base/eslBase.cmxs))
+ (native_archives base/eslBase.a)
+ (requires fmt prelude unix)
+ (main_module_name EslBase)
+ (modes byte native)
+ (modules
+  (wrapped
+   (group
+    (alias
+     (obj_name eslBase)
+     (visibility public)
+     (kind alias)
+     (source (path EslBase) (impl (path base/eslBase.ml-gen))))
+    (name EslBase)
+    (modules
+     (module
+      (obj_name eslBase__Base)
+      (visibility public)
+      (source (path Base) (impl (path base/base.ml))))
+     (module
+      (obj_name eslBase__Cont)
+      (visibility public)
+      (source (path Cont) (impl (path base/cont.ml))))
+     (module
+      (obj_name eslBase__Font)
+      (visibility public)
+      (source (path Font) (impl (path base/font.ml))))
+     (module
+      (obj_name eslBase__Io)
+      (visibility public)
+      (source (path Io) (impl (path base/io.ml))))
+     (module
+      (obj_name eslBase__Log)
+      (visibility public)
+      (source (path Log) (impl (path base/log.ml))))
+     (module
+      (obj_name eslBase__String)
+      (visibility public)
+      (source (path String) (impl (path base/string.ml))))
+     (module
+      (obj_name eslBase__Terminal)
+      (visibility public)
+      (source (path Terminal) (impl (path base/terminal.ml))))))
+   (wrapped true))))
+(library
+ (name ecma-sl.js2ecmasl)
+ (kind normal)
+ (archives
+  (byte js2ecmasl/eslJSParser.cma)
+  (native js2ecmasl/eslJSParser.cmxa))
+ (plugins
+  (byte js2ecmasl/eslJSParser.cma)
+  (native js2ecmasl/eslJSParser.cmxs))
+ (native_archives js2ecmasl/eslJSParser.a)
+ (requires bos prelude)
+ (main_module_name EslJSParser)
+ (modes byte native)
+ (modules
+  (wrapped
+   (group
+    (alias
+     (obj_name eslJSParser)
+     (visibility public)
+     (kind alias)
+     (source (path EslJSParser) (impl (path js2ecmasl/eslJSParser.ml-gen))))
+    (name EslJSParser)
+    (modules
+     (module
+      (obj_name eslJSParser__Api)
+      (visibility public)
+      (source (path Api) (impl (path js2ecmasl/api.ml))))))
+   (wrapped true))))
+(library
+ (name ecma-sl.semantics)
+ (kind normal)
+ (archives
+  (byte semantics/eslSemantics.cma)
+  (native semantics/eslSemantics.cmxa))
+ (plugins
+  (byte semantics/eslSemantics.cma)
+  (native semantics/eslSemantics.cmxs))
+ (native_archives semantics/eslSemantics.a)
+ (requires
+  ecma-sl.base
+  ecma-sl.syntax
+  ecma-sl.js2ecmasl
+  menhirLib
+  yojson
+  curses
+  prelude
+  str
+  ppx_deriving.runtime)
+ (main_module_name EslSemantics)
+ (modes byte native)
+ (modules
+  (wrapped
+   (group
+    (alias
+     (obj_name eslSemantics)
+     (visibility public)
+     (kind alias)
+     (source (path EslSemantics) (impl (path semantics/eslSemantics.ml-gen))))
+    (name EslSemantics)
+    (modules
+     (module
+      (obj_name eslSemantics__Arith_utils)
+      (visibility public)
+      (source (path Arith_utils) (impl (path semantics/utils/arith_utils.ml))))
+     (module
+      (obj_name eslSemantics__Byte_utils)
+      (visibility public)
+      (source (path Byte_utils) (impl (path semantics/utils/byte_utils.ml))))
+     (module
+      (obj_name eslSemantics__Call_stack)
+      (visibility public)
+      (source
+       (path Call_stack)
+       (impl (path semantics/core/concrete/domains/call_stack.ml))))
+     (module
+      (obj_name eslSemantics__Channel_utils)
+      (visibility public)
+      (source
+       (path Channel_utils)
+       (impl (path semantics/utils/channel_utils.ml))))
+     (module
+      (obj_name eslSemantics__Choice_monad_intf)
+      (visibility public)
+      (source
+       (path Choice_monad_intf)
+       (impl (path semantics/core/functorial/choice_monad_intf.ml))))
+     (module
+      (obj_name eslSemantics__Code_utils)
+      (visibility public)
+      (source (path Code_utils) (impl (path semantics/utils/code_utils.ml))))
+     (module
+      (obj_name eslSemantics__Compile_error)
+      (visibility public)
+      (source
+       (path Compile_error)
+       (impl (path semantics/error/compile_error.ml))))
+     (module
+      (obj_name eslSemantics__Compiler)
+      (visibility public)
+      (source
+       (path Compiler)
+       (impl (path semantics/extended/compiler/compiler.ml))))
+     (module
+      (obj_name eslSemantics__Date_utils)
+      (visibility public)
+      (source (path Date_utils) (impl (path semantics/utils/date_utils.ml))))
+     (module
+      (obj_name eslSemantics__Debugger)
+      (visibility public)
+      (source
+       (path Debugger)
+       (impl (path semantics/core/concrete/instrumentors/debugger.ml))))
+     (module
+      (obj_name eslSemantics__Debugger_cmd)
+      (visibility public)
+      (source
+       (path Debugger_cmd)
+       (impl
+        (path semantics/core/concrete/instrumentors/debugger/debugger_cmd.ml))))
+     (module
+      (obj_name eslSemantics__Debugger_tui)
+      (visibility public)
+      (source
+       (path Debugger_tui)
+       (impl
+        (path semantics/core/concrete/instrumentors/debugger/debugger_tui.ml))))
+     (module
+      (obj_name eslSemantics__Debugger_tui_code)
+      (visibility public)
+      (source
+       (path Debugger_tui_code)
+       (impl
+        (path
+         semantics/core/concrete/instrumentors/debugger/debugger_tui_code.ml))))
+     (module
+      (obj_name eslSemantics__Debugger_tui_execution)
+      (visibility public)
+      (source
+       (path Debugger_tui_execution)
+       (impl
+        (path
+         semantics/core/concrete/instrumentors/debugger/debugger_tui_execution.ml))))
+     (module
+      (obj_name eslSemantics__Debugger_tui_helper)
+      (visibility public)
+      (source
+       (path Debugger_tui_helper)
+       (impl
+        (path
+         semantics/core/concrete/instrumentors/debugger/debugger_tui_helper.ml))))
+     (module
+      (obj_name eslSemantics__Debugger_tui_terminal)
+      (visibility public)
+      (source
+       (path Debugger_tui_terminal)
+       (impl
+        (path
+         semantics/core/concrete/instrumentors/debugger/debugger_tui_terminal.ml))))
+     (module
+      (obj_name eslSemantics__Debugger_tui_view)
+      (visibility public)
+      (source
+       (path Debugger_tui_view)
+       (impl
+        (path
+         semantics/core/concrete/instrumentors/debugger/debugger_tui_view.ml))))
+     (module
+      (obj_name eslSemantics__Debugger_types)
+      (visibility public)
+      (source
+       (path Debugger_types)
+       (impl
+        (path
+         semantics/core/concrete/instrumentors/debugger/debugger_types.ml))))
+     (module
+      (obj_name eslSemantics__ELexer)
+      (visibility public)
+      (source (path ELexer) (impl (path semantics/extended/parser/eLexer.ml))))
+     (module
+      (obj_name eslSemantics__EParser)
+      (visibility public)
+      (source
+       (path EParser)
+       (intf (path semantics/extended/parser/eParser.mli))
+       (impl (path semantics/extended/parser/eParser.ml))))
+     (module
+      (obj_name eslSemantics__EParsing)
+      (visibility public)
+      (source
+       (path EParsing)
+       (impl (path semantics/extended/parser/eParsing.ml))))
+     (module
+      (obj_name eslSemantics__EParsing_helper)
+      (visibility public)
+      (source
+       (path EParsing_helper)
+       (impl (path semantics/extended/parser/eParsing_helper.ml))))
+     (module
+      (obj_name eslSemantics__Error_source)
+      (visibility public)
+      (source
+       (path Error_source)
+       (impl (path semantics/error/error_source.ml))))
+     (module
+      (obj_name eslSemantics__Error_trace)
+      (visibility public)
+      (source (path Error_trace) (impl (path semantics/error/error_trace.ml))))
+     (module
+      (obj_name eslSemantics__Error_type)
+      (visibility public)
+      (source (path Error_type) (impl (path semantics/error/error_type.ml))))
+     (module
+      (obj_name eslSemantics__Eval_op)
+      (visibility public)
+      (source (path Eval_op) (impl (path semantics/core/concrete/eval_op.ml))))
+     (module
+      (obj_name eslSemantics__Extern_func)
+      (visibility public)
+      (source
+       (path Extern_func)
+       (impl (path semantics/core/functorial/extern_func.ml))))
+     (module
+      (obj_name eslSemantics__External)
+      (visibility public)
+      (source
+       (path External)
+       (impl (path semantics/core/concrete/external.ml))))
+     (module
+      (obj_name eslSemantics__Heap)
+      (visibility public)
+      (source
+       (path Heap)
+       (impl (path semantics/core/concrete/domains/heap.ml))))
+     (module
+      (obj_name eslSemantics__Interpreter)
+      (visibility public)
+      (source
+       (path Interpreter)
+       (impl (path semantics/core/concrete/interpreter.ml))))
+     (module
+      (obj_name eslSemantics__Interpreter_base)
+      (visibility public)
+      (source
+       (path Interpreter_base)
+       (impl (path semantics/core/concrete/interpreter_base.ml))))
+     (module
+      (obj_name eslSemantics__Interpreter_functor)
+      (visibility public)
+      (source
+       (path Interpreter_functor)
+       (impl (path semantics/core/functorial/interpreter_functor.ml))))
+     (module
+      (obj_name eslSemantics__Interpreter_functor_intf)
+      (visibility public)
+      (source
+       (path Interpreter_functor_intf)
+       (impl (path semantics/core/functorial/interpreter_functor_intf.ml))))
+     (module
+      (obj_name eslSemantics__Interpreter_tooling)
+      (visibility public)
+      (source
+       (path Interpreter_tooling)
+       (impl (path semantics/core/concrete/interpreter_tooling.ml))))
+     (module
+      (obj_name eslSemantics__Level_intf)
+      (visibility public)
+      (source
+       (path Level_intf)
+       (impl
+        (path
+         semantics/core/concrete/instrumentors/monitors/levels/level_intf.ml))))
+     (module
+      (obj_name eslSemantics__Lexer)
+      (visibility public)
+      (source (path Lexer) (impl (path semantics/core/parser/lexer.ml))))
+     (module
+      (obj_name eslSemantics__Link_env)
+      (visibility public)
+      (source
+       (path Link_env)
+       (impl (path semantics/core/functorial/link_env.ml))))
+     (module
+      (obj_name eslSemantics__Monitor)
+      (visibility public)
+      (source
+       (path Monitor)
+       (impl (path semantics/core/concrete/instrumentors/monitor.ml))))
+     (module
+      (obj_name eslSemantics__Monitor_intf)
+      (visibility public)
+      (source
+       (path Monitor_intf)
+       (impl (path semantics/core/concrete/instrumentors/monitor_intf.ml))))
+     (module
+      (obj_name eslSemantics__Monitor_type)
+      (visibility public)
+      (source
+       (path Monitor_type)
+       (impl (path semantics/core/concrete/instrumentors/monitor_type.ml))))
+     (module
+      (obj_name eslSemantics__MultiLevel)
+      (visibility public)
+      (source
+       (path MultiLevel)
+       (impl
+        (path
+         semantics/core/concrete/instrumentors/monitors/levels/MultiLevel.ml))))
+     (module
+      (obj_name eslSemantics__Parser)
+      (visibility public)
+      (source
+       (path Parser)
+       (intf (path semantics/core/parser/parser.mli))
+       (impl (path semantics/core/parser/parser.ml))))
+     (module
+      (obj_name eslSemantics__Parsing)
+      (visibility public)
+      (source (path Parsing) (impl (path semantics/core/parser/parsing.ml))))
+     (module
+      (obj_name eslSemantics__Parsing_helper)
+      (visibility public)
+      (source
+       (path Parsing_helper)
+       (impl (path semantics/core/parser/parsing_helper.ml))))
+     (module
+      (obj_name eslSemantics__Parsing_utils)
+      (visibility public)
+      (source
+       (path Parsing_utils)
+       (impl (path semantics/utils/parsing_utils.ml))))
+     (module
+      (obj_name eslSemantics__Preprocessor)
+      (visibility public)
+      (source
+       (path Preprocessor)
+       (impl (path semantics/extended/compiler/preprocessor.ml))))
+     (module
+      (obj_name eslSemantics__Profiler)
+      (visibility public)
+      (source
+       (path Profiler)
+       (impl (path semantics/core/concrete/instrumentors/profiler.ml))))
+     (module
+      (obj_name eslSemantics__Re)
+      (visibility public)
+      (source (path Re) (impl (path semantics/re.ml))))
+     (module
+      (obj_name eslSemantics__Runtime_error)
+      (visibility public)
+      (source
+       (path Runtime_error)
+       (impl (path semantics/error/runtime_error.ml))))
+     (module
+      (obj_name eslSemantics__SCallStack)
+      (visibility public)
+      (source
+       (path SCallStack)
+       (impl
+        (path
+         semantics/core/concrete/instrumentors/monitors/domains/SCallStack.ml))))
+     (module
+      (obj_name eslSemantics__SException)
+      (visibility public)
+      (source
+       (path SException)
+       (impl
+        (path
+         semantics/core/concrete/instrumentors/monitors/domains/SException.ml))))
+     (module
+      (obj_name eslSemantics__SHeap)
+      (visibility public)
+      (source
+       (path SHeap)
+       (impl
+        (path semantics/core/concrete/instrumentors/monitors/domains/SHeap.ml))))
+     (module
+      (obj_name eslSemantics__SLevel)
+      (visibility public)
+      (source
+       (path SLevel)
+       (impl
+        (path semantics/core/concrete/instrumentors/monitors/levels/SLevel.ml))))
+     (module
+      (obj_name eslSemantics__SLevel2)
+      (visibility public)
+      (source
+       (path SLevel2)
+       (impl
+        (path
+         semantics/core/concrete/instrumentors/monitors/levels/SLevel2.ml))))
+     (module
+      (obj_name eslSemantics__SObject)
+      (visibility public)
+      (source
+       (path SObject)
+       (impl
+        (path
+         semantics/core/concrete/instrumentors/monitors/domains/SObject.ml))))
+     (module
+      (obj_name eslSemantics__SStore)
+      (visibility public)
+      (source
+       (path SStore)
+       (impl
+        (path
+         semantics/core/concrete/instrumentors/monitors/domains/SStore.ml))))
+     (module
+      (obj_name eslSemantics__Store)
+      (visibility public)
+      (source
+       (path Store)
+       (impl (path semantics/core/concrete/domains/store.ml))))
+     (module
+      (obj_name eslSemantics__String_utils)
+      (visibility public)
+      (source
+       (path String_utils)
+       (impl (path semantics/utils/string_utils.ml))))
+     (module
+      (obj_name eslSemantics__TChecker)
+      (visibility public)
+      (source
+       (path TChecker)
+       (impl (path semantics/extended/typing/tChecker.ml))))
+     (module
+      (obj_name eslSemantics__TCtx)
+      (visibility public)
+      (source (path TCtx) (impl (path semantics/extended/typing/tCtx.ml))))
+     (module
+      (obj_name eslSemantics__TExpr)
+      (visibility public)
+      (source (path TExpr) (impl (path semantics/extended/typing/tExpr.ml))))
+     (module
+      (obj_name eslSemantics__TOperator)
+      (visibility public)
+      (source
+       (path TOperator)
+       (impl (path semantics/extended/typing/tOperator.ml))))
+     (module
+      (obj_name eslSemantics__TStmt)
+      (visibility public)
+      (source (path TStmt) (impl (path semantics/extended/typing/tStmt.ml))))
+     (module
+      (obj_name eslSemantics__TSubtyping)
+      (visibility public)
+      (source
+       (path TSubtyping)
+       (impl (path semantics/extended/typing/tSubtyping.ml))))
+     (module
+      (obj_name eslSemantics__Tracer)
+      (visibility public)
+      (source
+       (path Tracer)
+       (impl (path semantics/core/concrete/instrumentors/tracer.ml))))
+     (module
+      (obj_name eslSemantics__Typing_error)
+      (visibility public)
+      (source
+       (path Typing_error)
+       (impl (path semantics/error/typing_error.ml))))
+     (module
+      (obj_name eslSemantics__Value_intf)
+      (visibility public)
+      (source
+       (path Value_intf)
+       (impl (path semantics/core/functorial/value_intf.ml))))))
+   (wrapped true))))
+(library
+ (name ecma-sl.symbolic)
+ (kind normal)
+ (archives
+  (byte symbolic/ecma_sl_symbolic.cma)
+  (native symbolic/ecma_sl_symbolic.cmxa))
+ (plugins
+  (byte symbolic/ecma_sl_symbolic.cma)
+  (native symbolic/ecma_sl_symbolic.cmxs))
+ (native_archives symbolic/ecma_sl_symbolic.a)
+ (requires ecma-sl)
+ (main_module_name Ecma_sl_symbolic)
+ (modes byte native)
+ (modules
+  (wrapped
+   (group
+    (alias
+     (obj_name ecma_sl_symbolic)
+     (visibility public)
+     (kind alias)
+     (source
+      (path Ecma_sl_symbolic)
+      (impl (path symbolic/ecma_sl_symbolic.ml-gen))))
+    (name Ecma_sl_symbolic)
+    (modules
+     (module
+      (obj_name ecma_sl_symbolic__Choice_monad)
+      (visibility public)
+      (source
+       (path Choice_monad)
+       (impl (path symbolic/symbolic/choice_monad.ml))))
+     (module
+      (obj_name ecma_sl_symbolic__Memory_intf)
+      (visibility public)
+      (source
+       (path Memory_intf)
+       (impl (path symbolic/symbolic/memory_intf.ml))))
+     (module
+      (obj_name ecma_sl_symbolic__Object_intf)
+      (visibility public)
+      (source
+       (path Object_intf)
+       (impl (path symbolic/symbolic/object_intf.ml))))
+     (module
+      (obj_name ecma_sl_symbolic__Optimizer)
+      (visibility public)
+      (source (path Optimizer) (impl (path symbolic/symbolic/optimizer.ml))))
+     (module
+      (obj_name ecma_sl_symbolic__Solver)
+      (visibility public)
+      (source (path Solver) (impl (path symbolic/symbolic/solver.ml))))
+     (module
+      (obj_name ecma_sl_symbolic__Symbolic)
+      (visibility public)
+      (source (path Symbolic) (impl (path symbolic/symbolic/symbolic.ml))))
+     (module
+      (obj_name ecma_sl_symbolic__Symbolic_engine)
+      (visibility public)
+      (source
+       (path Symbolic_engine)
+       (impl (path symbolic/symbolic/symbolic_engine.ml))))
+     (module
+      (obj_name ecma_sl_symbolic__Symbolic_error)
+      (visibility public)
+      (source
+       (path Symbolic_error)
+       (impl (path symbolic/symbolic/symbolic_error.ml))))
+     (module
+      (obj_name ecma_sl_symbolic__Symbolic_esl_ffi)
+      (visibility public)
+      (source
+       (path Symbolic_esl_ffi)
+       (impl (path symbolic/symbolic/symbolic_esl_ffi.ml))))
+     (module
+      (obj_name ecma_sl_symbolic__Symbolic_memory)
+      (visibility public)
+      (source
+       (path Symbolic_memory)
+       (impl (path symbolic/symbolic/symbolic_memory.ml))))
+     (module
+      (obj_name ecma_sl_symbolic__Symbolic_object_default)
+      (visibility public)
+      (source
+       (path Symbolic_object_default)
+       (intf (path symbolic/symbolic/symbolic_object_default.mli))
+       (impl (path symbolic/symbolic/symbolic_object_default.ml))))
+     (module
+      (obj_name ecma_sl_symbolic__Symbolic_object_lifting)
+      (visibility public)
+      (source
+       (path Symbolic_object_lifting)
+       (intf (path symbolic/symbolic/symbolic_object_lifting.mli))
+       (impl (path symbolic/symbolic/symbolic_object_lifting.ml))))
+     (module
+      (obj_name ecma_sl_symbolic__Symbolic_object_logging)
+      (visibility public)
+      (source
+       (path Symbolic_object_logging)
+       (intf (path symbolic/symbolic/symbolic_object_logging.mli))
+       (impl (path symbolic/symbolic/symbolic_object_logging.ml))))
+     (module
+      (obj_name ecma_sl_symbolic__Symbolic_object_loglift)
+      (visibility public)
+      (source
+       (path Symbolic_object_loglift)
+       (intf (path symbolic/symbolic/symbolic_object_loglift.mli))
+       (impl (path symbolic/symbolic/symbolic_object_loglift.ml))))
+     (module
+      (obj_name ecma_sl_symbolic__Symbolic_report)
+      (visibility public)
+      (source
+       (path Symbolic_report)
+       (impl (path symbolic/symbolic/symbolic_report.ml))))
+     (module
+      (obj_name ecma_sl_symbolic__Symbolic_utils)
+      (visibility public)
+      (source
+       (path Symbolic_utils)
+       (impl (path symbolic/symbolic/symbolic_utils.ml))))
+     (module
+      (obj_name ecma_sl_symbolic__Symbolic_value)
+      (visibility public)
+      (source
+       (path Symbolic_value)
+       (intf (path symbolic/symbolic/symbolic_value.mli))
+       (impl (path symbolic/symbolic/symbolic_value.ml))))))
+   (wrapped true))))
+(library
+ (name ecma-sl.syntax)
+ (kind normal)
+ (archives (byte syntax/eslSyntax.cma) (native syntax/eslSyntax.cmxa))
+ (plugins (byte syntax/eslSyntax.cma) (native syntax/eslSyntax.cmxs))
+ (native_archives syntax/eslSyntax.a)
+ (requires ecma-sl.base fmt smtml)
+ (main_module_name EslSyntax)
+ (modes byte native)
+ (modules
+  (wrapped
+   (group
+    (alias
+     (obj_name eslSyntax)
+     (visibility public)
+     (kind alias)
+     (source (path EslSyntax) (impl (path syntax/eslSyntax.ml-gen))))
+    (name EslSyntax)
+    (modules
+     (module
+      (obj_name eslSyntax__EAdvice)
+      (visibility public)
+      (source (path EAdvice) (impl (path syntax/extended/eAdvice.ml))))
+     (module
+      (obj_name eslSyntax__EExpr)
+      (visibility public)
+      (source (path EExpr) (impl (path syntax/extended/eExpr.ml))))
+     (module
+      (obj_name eslSyntax__EFunc)
+      (visibility public)
+      (source (path EFunc) (impl (path syntax/extended/eFunc.ml))))
+     (module
+      (obj_name eslSyntax__EImport)
+      (visibility public)
+      (source (path EImport) (impl (path syntax/extended/eImport.ml))))
+     (module
+      (obj_name eslSyntax__EMacro)
+      (visibility public)
+      (source (path EMacro) (impl (path syntax/extended/eMacro.ml))))
+     (module
+      (obj_name eslSyntax__EPat)
+      (visibility public)
+      (source (path EPat) (impl (path syntax/extended/ePat.ml))))
+     (module
+      (obj_name eslSyntax__EProg)
+      (visibility public)
+      (source (path EProg) (impl (path syntax/extended/eProg.ml))))
+     (module
+      (obj_name eslSyntax__EStmt)
+      (visibility public)
+      (source (path EStmt) (impl (path syntax/extended/eStmt.ml))))
+     (module
+      (obj_name eslSyntax__EType)
+      (visibility public)
+      (source (path EType) (impl (path syntax/extended/eType.ml))))
+     (module
+      (obj_name eslSyntax__Expr)
+      (visibility public)
+      (source (path Expr) (impl (path syntax/core/expr.ml))))
+     (module
+      (obj_name eslSyntax__Func)
+      (visibility public)
+      (source (path Func) (impl (path syntax/core/func.ml))))
+     (module
+      (obj_name eslSyntax__Id)
+      (visibility public)
+      (source (path Id) (impl (path syntax/share/id.ml))))
+     (module
+      (obj_name eslSyntax__Loc)
+      (visibility public)
+      (source (path Loc) (impl (path syntax/share/loc.ml))))
+     (module
+      (obj_name eslSyntax__Object)
+      (visibility public)
+      (source (path Object) (impl (path syntax/share/object.ml))))
+     (module
+      (obj_name eslSyntax__Operator)
+      (visibility public)
+      (source (path Operator) (impl (path syntax/share/operator.ml))))
+     (module
+      (obj_name eslSyntax__Prog)
+      (visibility public)
+      (source (path Prog) (impl (path syntax/core/prog.ml))))
+     (module
+      (obj_name eslSyntax__Source)
+      (visibility public)
+      (source (path Source) (impl (path syntax/share/source.ml))))
+     (module
+      (obj_name eslSyntax__Stmt)
+      (visibility public)
+      (source (path Stmt) (impl (path syntax/core/stmt.ml))))
+     (module
+      (obj_name eslSyntax__Value)
+      (visibility public)
+      (source (path Value) (impl (path syntax/share/value.ml))))))
+   (wrapped true))))

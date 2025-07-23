@@ -1,0 +1,58 @@
+/* Copyright (C) 2022-2025 formalsec programmers
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+function __esl_node_process_cwd(globalObject, this, newTarget, strict, params) {
+  return extern process_cwd_external();
+}
+
+function make_process_object(globalObject, objectPrototype, strict) {
+  let realm = { globalEnv : globalObject };
+  let newTarget = |Intrinsics|["Array"];
+  let process = newLazyObject();
+  /* setAllInternalMethodsOfOrdinaryObject(process); */
+  setInternalProperty(process, "prototype", objectPrototype);
+
+  /* Properties: */
+  let arch = extern str_symbol("require('process').arch");
+  createBuiltInProperty(process, "arch", arch);
+  createBuiltInProperty(process, "execPath", "node");
+
+  let platform = extern str_symbol("require('process').platform");
+  createBuiltInProperty(process, "platform", platform);
+
+  /* Should be a symbolic lazy object, but now it just keeps env empty */
+  let env = newLazyObject();
+  /* setAllInternalMethodsOfOrdinaryObject(env); */
+  setInternalProperty(env, "prototype", objectPrototype);
+  createBuiltInProperty(process, "env", env);
+
+  let items =
+    [ extern str_symbol("argv0")
+    , extern str_symbol("argv1")
+    , extern str_symbol("argv2")
+    , extern str_symbol("argv3")
+    , extern str_symbol("argv4")
+    ];
+  let argv = ArrayConstructor('null, 'undefined, newTarget, strict, items, newTarget);
+  createBuiltInProperty(process, "argv", argv);
+
+  /* Functions: */
+  let cwd = CreateBuiltInFunctionObject([], "__esl_node_process_cwd", realm, strict, null);
+  createBuiltInProperty(cwd, "prototype", objectPrototype);
+  createBuiltInProperty(process, "cwd", cwd);
+
+  return process;
+}

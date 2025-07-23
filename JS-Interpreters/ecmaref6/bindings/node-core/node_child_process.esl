@@ -1,0 +1,63 @@
+/* Copyright (C) 2022-2025 formalsec programmers
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+function __esl_node_child_process_exec(globalObject, this, newTarget, strict, params) {
+  return extern exec(hd params);
+}
+
+function __esl_node_child_process_execSync(globalObject, this, newTarget, strict, params) {
+  return extern exec(hd params);
+}
+
+function __esl_node_child_process_execFile(globalObject, this, newTarget, strict, params) {
+  n_params := [];
+  foreach (param : params) {
+    n_param := ToPrimitive(param, 'String);
+    n_params := l_prepend(n_param, n_params);
+  }
+  n_params := l_reverse(n_params);
+  return extern exec(s_concat(n_params));
+}
+
+function __esl_node_child_process_spawn(globalObject, this, newTarget, strict, params) {
+  return extern exec(hd params);
+}
+
+function make_child_process_object(globalObject, objectPrototype, strict) {
+  let realm = { globalEnv : globalObject };
+  let child_process = NewECMAScriptObject();
+  setAllInternalMethodsOfOrdinaryObject(child_process);
+  setInternalProperty(child_process, "Prototype", objectPrototype);
+
+  /* Functions: */
+  let exec = CreateBuiltInFunctionObject([], "__esl_node_child_process_exec", realm, strict, null);
+  createBuiltInProperty(exec, "prototype", objectPrototype);
+  createBuiltInProperty(child_process, "exec", exec);
+
+  let execSync = CreateBuiltInFunctionObject([], "__esl_node_child_process_execSync", realm, strict, null);
+  createBuiltInProperty(execSync, "prototype", objectPrototype);
+  createBuiltInProperty(child_process, "execSync", execSync);
+
+  let execFile = CreateBuiltInFunctionObject([], "__esl_node_child_process_execFile", realm, strict, null);
+  createBuiltInProperty(execFile, "prototype", objectPrototype);
+  createBuiltInProperty(child_process, "execFile", execFile);
+
+  let spawn = CreateBuiltInFunctionObject([], "__esl_node_child_process_spawn", realm, strict, null);
+  createBuiltInProperty(spawn, "prototype", objectPrototype);
+  createBuiltInProperty(child_process, "spawn", spawn);
+
+  return child_process;
+}

@@ -1,0 +1,191 @@
+(lang dune 3.19)
+(name dolmen_model)
+(version 0.10)
+(sections (lib .) (libexec .) (doc ../../doc/dolmen_model))
+(files
+ (lib
+  (META
+   adt.ml
+   array.ml
+   bitv.ml
+   bitv.mli
+   bool.ml
+   bool.mli
+   coercion.ml
+   core.ml
+   dolmen_model.a
+   dolmen_model.cma
+   dolmen_model.cmi
+   dolmen_model.cmt
+   dolmen_model.cmx
+   dolmen_model.cmxa
+   dolmen_model.ml
+   dolmen_model__Adt.cmi
+   dolmen_model__Adt.cmt
+   dolmen_model__Adt.cmx
+   dolmen_model__Array.cmi
+   dolmen_model__Array.cmt
+   dolmen_model__Array.cmx
+   dolmen_model__Bitv.cmi
+   dolmen_model__Bitv.cmt
+   dolmen_model__Bitv.cmti
+   dolmen_model__Bitv.cmx
+   dolmen_model__Bool.cmi
+   dolmen_model__Bool.cmt
+   dolmen_model__Bool.cmti
+   dolmen_model__Bool.cmx
+   dolmen_model__Coercion.cmi
+   dolmen_model__Coercion.cmt
+   dolmen_model__Coercion.cmx
+   dolmen_model__Core.cmi
+   dolmen_model__Core.cmt
+   dolmen_model__Core.cmx
+   dolmen_model__Env.cmi
+   dolmen_model__Env.cmt
+   dolmen_model__Env.cmti
+   dolmen_model__Env.cmx
+   dolmen_model__Eval.cmi
+   dolmen_model__Eval.cmt
+   dolmen_model__Eval.cmx
+   dolmen_model__Fp.cmi
+   dolmen_model__Fp.cmt
+   dolmen_model__Fp.cmti
+   dolmen_model__Fp.cmx
+   dolmen_model__Fun.cmi
+   dolmen_model__Fun.cmt
+   dolmen_model__Fun.cmx
+   dolmen_model__Int.cmi
+   dolmen_model__Int.cmt
+   dolmen_model__Int.cmti
+   dolmen_model__Int.cmx
+   dolmen_model__Loop.cmi
+   dolmen_model__Loop.cmt
+   dolmen_model__Loop.cmx
+   dolmen_model__Model.cmi
+   dolmen_model__Model.cmt
+   dolmen_model__Model.cmti
+   dolmen_model__Model.cmx
+   dolmen_model__Rat.cmi
+   dolmen_model__Rat.cmt
+   dolmen_model__Rat.cmti
+   dolmen_model__Rat.cmx
+   dolmen_model__Real.cmi
+   dolmen_model__Real.cmt
+   dolmen_model__Real.cmti
+   dolmen_model__Real.cmx
+   dolmen_model__Value.cmi
+   dolmen_model__Value.cmt
+   dolmen_model__Value.cmti
+   dolmen_model__Value.cmx
+   dune-package
+   env.ml
+   env.mli
+   eval.ml
+   fp.ml
+   fp.mli
+   fun.ml
+   int.ml
+   int.mli
+   loop.ml
+   model.ml
+   model.mli
+   opam
+   rat.ml
+   rat.mli
+   real.ml
+   real.mli
+   value.ml
+   value.mli))
+ (libexec (dolmen_model.cmxs))
+ (doc (CHANGES.md LICENSE README.md)))
+(library
+ (name dolmen_model)
+ (kind normal)
+ (archives (byte dolmen_model.cma) (native dolmen_model.cmxa))
+ (plugins (byte dolmen_model.cma) (native dolmen_model.cmxs))
+ (native_archives dolmen_model.a)
+ (requires
+  dolmen
+  dolmen.std
+  dolmen.intf
+  dolmen_loop
+  zarith
+  farith
+  ppx_deriving.runtime)
+ (main_module_name Dolmen_model)
+ (modes byte native)
+ (modules
+  (wrapped
+   (group
+    (alias
+     (obj_name dolmen_model)
+     (visibility public)
+     (kind alias)
+     (source (path Dolmen_model) (impl (path dolmen_model.ml-gen))))
+    (name Dolmen_model)
+    (modules
+     (module
+      (obj_name dolmen_model__Adt)
+      (visibility public)
+      (source (path Adt) (impl (path adt.ml))))
+     (module
+      (obj_name dolmen_model__Array)
+      (visibility public)
+      (source (path Array) (impl (path array.ml))))
+     (module
+      (obj_name dolmen_model__Bitv)
+      (visibility public)
+      (source (path Bitv) (intf (path bitv.mli)) (impl (path bitv.ml))))
+     (module
+      (obj_name dolmen_model__Bool)
+      (visibility public)
+      (source (path Bool) (intf (path bool.mli)) (impl (path bool.ml))))
+     (module
+      (obj_name dolmen_model__Coercion)
+      (visibility public)
+      (source (path Coercion) (impl (path coercion.ml))))
+     (module
+      (obj_name dolmen_model__Core)
+      (visibility public)
+      (source (path Core) (impl (path core.ml))))
+     (module
+      (obj_name dolmen_model__Env)
+      (visibility public)
+      (source (path Env) (intf (path env.mli)) (impl (path env.ml))))
+     (module
+      (obj_name dolmen_model__Eval)
+      (visibility public)
+      (source (path Eval) (impl (path eval.ml))))
+     (module
+      (obj_name dolmen_model__Fp)
+      (visibility public)
+      (source (path Fp) (intf (path fp.mli)) (impl (path fp.ml))))
+     (module
+      (obj_name dolmen_model__Fun)
+      (visibility public)
+      (source (path Fun) (impl (path fun.ml))))
+     (module
+      (obj_name dolmen_model__Int)
+      (visibility public)
+      (source (path Int) (intf (path int.mli)) (impl (path int.ml))))
+     (module
+      (obj_name dolmen_model__Loop)
+      (visibility public)
+      (source (path Loop) (impl (path loop.ml))))
+     (module
+      (obj_name dolmen_model__Model)
+      (visibility public)
+      (source (path Model) (intf (path model.mli)) (impl (path model.ml))))
+     (module
+      (obj_name dolmen_model__Rat)
+      (visibility public)
+      (source (path Rat) (intf (path rat.mli)) (impl (path rat.ml))))
+     (module
+      (obj_name dolmen_model__Real)
+      (visibility public)
+      (source (path Real) (intf (path real.mli)) (impl (path real.ml))))
+     (module
+      (obj_name dolmen_model__Value)
+      (visibility public)
+      (source (path Value) (intf (path value.mli)) (impl (path value.ml))))))
+   (wrapped true))))

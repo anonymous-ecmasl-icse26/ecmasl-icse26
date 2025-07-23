@@ -1,0 +1,15 @@
+(library
+ (foreign_stubs
+  (language c)
+  (names test_stubs))
+ (name ocaml_intrinsics_test)
+ (preprocessor_deps config.h)
+ (libraries ocaml_intrinsics core expect_test_helpers_core)
+ (preprocess
+  (pps ppx_jane ppx_optcomp)))
+
+(rule
+ (targets config.h)
+ (deps)
+ (action
+  (bash "cp %{lib:jst-config:config.h} .")))

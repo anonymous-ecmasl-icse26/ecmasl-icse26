@@ -1,0 +1,6 @@
+(executable
+ (name fuzz)
+ (modules fuzz gen)
+ (flags
+  (:standard -open Prelude))
+ (libraries crowbar fmt prelude scfg))

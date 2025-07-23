@@ -1,0 +1,344 @@
+(lang dune 3.19)
+(name farith)
+(version 0.1)
+(sections (lib .) (libexec .) (doc ../../doc/farith))
+(files
+ (lib
+  (Assert.ml
+   Assert.mli
+   BinInt.ml
+   BinInt.mli
+   BinNums.ml
+   BinNums.mli
+   BinPos.ml
+   BinPos.mli
+   BinPosDef.ml
+   BinPosDef.mli
+   Binary.ml
+   Binary.mli
+   BinarySingleNaN.ml
+   BinarySingleNaN.mli
+   Bits.ml
+   Bits.mli
+   Bool.ml
+   Bool.mli
+   Datatypes.ml
+   Datatypes.mli
+   Defs.ml
+   Defs.mli
+   FloatClass.ml
+   FloatClass.mli
+   GenericFloat.ml
+   GenericFloat.mli
+   Interval.ml
+   Interval.mli
+   META
+   Op.ml
+   Op.mli
+   Operations.ml
+   Operations.mli
+   Qextended.ml
+   Qextended.mli
+   Round.ml
+   Round.mli
+   SpecFloat.ml
+   SpecFloat.mli
+   Specif.ml
+   Specif.mli
+   Utils.ml
+   Utils.mli
+   Version.ml
+   Version.mli
+   Zaux.ml
+   Zaux.mli
+   Zbool.ml
+   Zbool.mli
+   Zpower.ml
+   Zpower.mli
+   dune-package
+   farith.a
+   farith.cma
+   farith.cmi
+   farith.cmt
+   farith.cmti
+   farith.cmx
+   farith.cmxa
+   farith.ml
+   farith.mli
+   farith_Big.ml
+   farith__.cmi
+   farith__.cmt
+   farith__.cmx
+   farith__.ml
+   farith__Assert.cmi
+   farith__Assert.cmt
+   farith__Assert.cmti
+   farith__Assert.cmx
+   farith__BinInt.cmi
+   farith__BinInt.cmt
+   farith__BinInt.cmti
+   farith__BinInt.cmx
+   farith__BinNums.cmi
+   farith__BinNums.cmt
+   farith__BinNums.cmti
+   farith__BinNums.cmx
+   farith__BinPos.cmi
+   farith__BinPos.cmt
+   farith__BinPos.cmti
+   farith__BinPos.cmx
+   farith__BinPosDef.cmi
+   farith__BinPosDef.cmt
+   farith__BinPosDef.cmti
+   farith__BinPosDef.cmx
+   farith__Binary.cmi
+   farith__Binary.cmt
+   farith__Binary.cmti
+   farith__Binary.cmx
+   farith__BinarySingleNaN.cmi
+   farith__BinarySingleNaN.cmt
+   farith__BinarySingleNaN.cmti
+   farith__BinarySingleNaN.cmx
+   farith__Bits.cmi
+   farith__Bits.cmt
+   farith__Bits.cmti
+   farith__Bits.cmx
+   farith__Bool.cmi
+   farith__Bool.cmt
+   farith__Bool.cmti
+   farith__Bool.cmx
+   farith__Datatypes.cmi
+   farith__Datatypes.cmt
+   farith__Datatypes.cmti
+   farith__Datatypes.cmx
+   farith__Defs.cmi
+   farith__Defs.cmt
+   farith__Defs.cmti
+   farith__Defs.cmx
+   farith__Farith_Big.cmi
+   farith__Farith_Big.cmt
+   farith__Farith_Big.cmx
+   farith__FloatClass.cmi
+   farith__FloatClass.cmt
+   farith__FloatClass.cmti
+   farith__FloatClass.cmx
+   farith__GenericFloat.cmi
+   farith__GenericFloat.cmt
+   farith__GenericFloat.cmti
+   farith__GenericFloat.cmx
+   farith__Interval.cmi
+   farith__Interval.cmt
+   farith__Interval.cmti
+   farith__Interval.cmx
+   farith__Op.cmi
+   farith__Op.cmt
+   farith__Op.cmti
+   farith__Op.cmx
+   farith__Operations.cmi
+   farith__Operations.cmt
+   farith__Operations.cmti
+   farith__Operations.cmx
+   farith__Qextended.cmi
+   farith__Qextended.cmt
+   farith__Qextended.cmti
+   farith__Qextended.cmx
+   farith__Round.cmi
+   farith__Round.cmt
+   farith__Round.cmti
+   farith__Round.cmx
+   farith__SpecFloat.cmi
+   farith__SpecFloat.cmt
+   farith__SpecFloat.cmti
+   farith__SpecFloat.cmx
+   farith__Specif.cmi
+   farith__Specif.cmt
+   farith__Specif.cmti
+   farith__Specif.cmx
+   farith__Utils.cmi
+   farith__Utils.cmt
+   farith__Utils.cmti
+   farith__Utils.cmx
+   farith__Version.cmi
+   farith__Version.cmt
+   farith__Version.cmti
+   farith__Version.cmx
+   farith__Zaux.cmi
+   farith__Zaux.cmt
+   farith__Zaux.cmti
+   farith__Zaux.cmx
+   farith__Zbool.cmi
+   farith__Zbool.cmt
+   farith__Zbool.cmti
+   farith__Zbool.cmx
+   farith__Zpower.cmi
+   farith__Zpower.cmt
+   farith__Zpower.cmti
+   farith__Zpower.cmx
+   opam))
+ (libexec (farith.cmxs))
+ (doc (CHANGES LICENSE)))
+(library
+ (name farith)
+ (kind normal)
+ (archives (byte farith.cma) (native farith.cmxa))
+ (plugins (byte farith.cma) (native farith.cmxs))
+ (native_archives farith.a)
+ (requires
+  zarith
+  base
+  ppx_compare.runtime-lib
+  ppx_hash.runtime-lib
+  ppx_deriving.runtime)
+ (main_module_name Farith)
+ (modes byte native)
+ (modules
+  (wrapped
+   (group
+    (alias
+     (obj_name farith__)
+     (visibility public)
+     (kind alias)
+     (source (path Farith__) (impl (path farith__.ml-gen))))
+    (name Farith)
+    (modules
+     (module
+      (obj_name farith__Assert)
+      (visibility public)
+      (source (path Assert) (intf (path Assert.mli)) (impl (path Assert.ml))))
+     (module
+      (obj_name farith__BinInt)
+      (visibility public)
+      (source (path BinInt) (intf (path BinInt.mli)) (impl (path BinInt.ml))))
+     (module
+      (obj_name farith__BinNums)
+      (visibility public)
+      (source
+       (path BinNums)
+       (intf (path BinNums.mli))
+       (impl (path BinNums.ml))))
+     (module
+      (obj_name farith__BinPos)
+      (visibility public)
+      (source (path BinPos) (intf (path BinPos.mli)) (impl (path BinPos.ml))))
+     (module
+      (obj_name farith__BinPosDef)
+      (visibility public)
+      (source
+       (path BinPosDef)
+       (intf (path BinPosDef.mli))
+       (impl (path BinPosDef.ml))))
+     (module
+      (obj_name farith__Binary)
+      (visibility public)
+      (source (path Binary) (intf (path Binary.mli)) (impl (path Binary.ml))))
+     (module
+      (obj_name farith__BinarySingleNaN)
+      (visibility public)
+      (source
+       (path BinarySingleNaN)
+       (intf (path BinarySingleNaN.mli))
+       (impl (path BinarySingleNaN.ml))))
+     (module
+      (obj_name farith__Bits)
+      (visibility public)
+      (source (path Bits) (intf (path Bits.mli)) (impl (path Bits.ml))))
+     (module
+      (obj_name farith__Bool)
+      (visibility public)
+      (source (path Bool) (intf (path Bool.mli)) (impl (path Bool.ml))))
+     (module
+      (obj_name farith__Datatypes)
+      (visibility public)
+      (source
+       (path Datatypes)
+       (intf (path Datatypes.mli))
+       (impl (path Datatypes.ml))))
+     (module
+      (obj_name farith__Defs)
+      (visibility public)
+      (source (path Defs) (intf (path Defs.mli)) (impl (path Defs.ml))))
+     (module
+      (obj_name farith)
+      (visibility public)
+      (source (path Farith) (intf (path farith.mli)) (impl (path farith.ml))))
+     (module
+      (obj_name farith__Farith_Big)
+      (visibility public)
+      (source (path Farith_Big) (impl (path farith_Big.ml))))
+     (module
+      (obj_name farith__FloatClass)
+      (visibility public)
+      (source
+       (path FloatClass)
+       (intf (path FloatClass.mli))
+       (impl (path FloatClass.ml))))
+     (module
+      (obj_name farith__GenericFloat)
+      (visibility public)
+      (source
+       (path GenericFloat)
+       (intf (path GenericFloat.mli))
+       (impl (path GenericFloat.ml))))
+     (module
+      (obj_name farith__Interval)
+      (visibility public)
+      (source
+       (path Interval)
+       (intf (path Interval.mli))
+       (impl (path Interval.ml))))
+     (module
+      (obj_name farith__Op)
+      (visibility public)
+      (source (path Op) (intf (path Op.mli)) (impl (path Op.ml))))
+     (module
+      (obj_name farith__Operations)
+      (visibility public)
+      (source
+       (path Operations)
+       (intf (path Operations.mli))
+       (impl (path Operations.ml))))
+     (module
+      (obj_name farith__Qextended)
+      (visibility public)
+      (source
+       (path Qextended)
+       (intf (path Qextended.mli))
+       (impl (path Qextended.ml))))
+     (module
+      (obj_name farith__Round)
+      (visibility public)
+      (source (path Round) (intf (path Round.mli)) (impl (path Round.ml))))
+     (module
+      (obj_name farith__SpecFloat)
+      (visibility public)
+      (source
+       (path SpecFloat)
+       (intf (path SpecFloat.mli))
+       (impl (path SpecFloat.ml))))
+     (module
+      (obj_name farith__Specif)
+      (visibility public)
+      (source (path Specif) (intf (path Specif.mli)) (impl (path Specif.ml))))
+     (module
+      (obj_name farith__Utils)
+      (visibility public)
+      (source (path Utils) (intf (path Utils.mli)) (impl (path Utils.ml))))
+     (module
+      (obj_name farith__Version)
+      (visibility public)
+      (source
+       (path Version)
+       (intf (path Version.mli))
+       (impl (path Version.ml))))
+     (module
+      (obj_name farith__Zaux)
+      (visibility public)
+      (source (path Zaux) (intf (path Zaux.mli)) (impl (path Zaux.ml))))
+     (module
+      (obj_name farith__Zbool)
+      (visibility public)
+      (source (path Zbool) (intf (path Zbool.mli)) (impl (path Zbool.ml))))
+     (module
+      (obj_name farith__Zpower)
+      (visibility public)
+      (source (path Zpower) (intf (path Zpower.mli)) (impl (path Zpower.ml))))))
+   (wrapped true))))

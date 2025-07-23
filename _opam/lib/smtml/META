@@ -1,0 +1,28 @@
+description = ""
+requires =
+"bos
+ cmdliner
+ dolmen
+ dolmen_type
+ fpath
+ hc
+ menhirLib
+ ocaml_intrinsics
+ patricia-tree
+ scfg
+ smtml.prelude
+ yojson
+ zarith"
+archive(byte) = "smtml.cma"
+archive(native) = "smtml.cmxa"
+plugin(byte) = "smtml.cma"
+plugin(native) = "smtml.cmxs"
+package "prelude" (
+  directory = "prelude"
+  description = ""
+  requires = "prelude"
+  archive(byte) = "smtml_prelude.cma"
+  archive(native) = "smtml_prelude.cmxa"
+  plugin(byte) = "smtml_prelude.cma"
+  plugin(native) = "smtml_prelude.cmxs"
+)

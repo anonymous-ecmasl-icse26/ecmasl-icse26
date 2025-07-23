@@ -1,0 +1,317 @@
+/* Copyright (C) 2022-2025 formalsec programmers
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+import "./node-core/node_child_process.esl";
+import "./node-core/node_fs.esl";
+import "./node-core/node_http.esl";
+import "./node-core/node_os.esl";
+import "./node-core/node_path.esl";
+import "./node-core/node_process.esl";
+import "./node-core/node_vm.esl";
+import "./node_cross-spawn.esl";
+import "./node_execa.esl";
+import "./node_im-metadata.esl";
+import "./node_shelljs.esl";
+
+function push_globals() {
+  let saved_globals = {
+    global: |global|,
+    ctxStack : |ctxStack|,
+    ScriptJobQueue : |ScriptJobQueue|,
+    PromiseJobQueue : |PromiseJobQueue|,
+    __dirname : |__dirname|,
+    __filename : |__filename|
+  };
+  |global| := 'undefined;
+  |realm|["globalThis"] := 'undefined;
+  |ctxStack| := stack_make();
+  |ScriptJobQueue| := queue_make();
+  |PromiseJobQueue| := queue_make();
+  stack_push(|globals_stack|,  saved_globals);
+  return;
+}
+
+function pop_globals() {
+  let saved_globals = stack_pop(|globals_stack|);
+  |global| := saved_globals.global;
+  |realm|["globalThis"] := saved_globals.global;
+  |ctxStack| := saved_globals.ctxStack;
+  |ScriptJobQueue| := saved_globals.ScriptJobQueue;
+  |PromiseJobQueue| := saved_globals.PromiseJobQueue;
+  |__dirname| := saved_globals.__dirname;
+  |__filename| := saved_globals.__filename;
+  return;
+}
+
+/* Node.js require algorithm: https://nodejs.org/api/modules.html#all-together */
+
+function load_core_module(globalObject, objectPrototype, strict, name) {
+  /* API documentation: https://nodejs.org/docs/latest/api/documentation.html */
+  /* Note: core modules without implementation are commented to be executed with
+     using lazy objets. */
+  switch (name) {
+    /* case "assert": */
+    /*   throw "TODO" */
+    /* case "buffer": */
+    /*   throw "TODO" */
+    case "child_process":
+      return make_child_process_object(globalObject, objectPrototype, strict);
+    /* case "cluster": */
+    /*   throw "TODO" */
+    /* case "crypto": */
+    /*   throw "TODO" */
+    /* case "diagnostics_channel": */
+    /*   throw "TODO" */
+    /* case "dns": */
+    /*   throw "TODO" */
+    /* case "events": */
+    /*   throw "TODO" */
+    case "fs":
+      return make_fs_object(globalObject, objectPrototype, strict);
+    /* case "fs/promises": */
+    /*   throw "TODO" */
+    case "http":
+      return make_http_object(globalObject, objectPrototype, strict);
+    /* case "http2": */
+    /*   throw "TODO" */
+    /* case "https": */
+    /*   throw "TODO" */
+    case "os":
+      return make_os_object(globalObject, objectPrototype, strict);
+    case "path":
+      return make_path_object(globalObject, objectPrototype, strict);
+    case "process":
+      return make_process_object(globalObject, objectPrototype, strict);
+    /* case "querystring": */
+    /*   throw "TODO" */
+    /* case "readline": */
+    /*   throw "TODO" */
+    /* case "repl": */
+    /*   throw "TODO" */
+    /* case "stream": */
+    /*   throw "TODO" */
+    /* case "string_decoder": */
+    /*   throw "TODO" */
+    /* case "test": */
+    /*   throw "TODO" */
+    /* case "timers": */
+    /*   throw "TODO" */
+    /* case "tls": */
+    /*   throw "TODO" */
+    /* case "tty": */
+    /*   throw "TODO" */
+    /* case "dgram": */
+    /*   throw "TODO" */
+    /* case "url": */
+    /*   throw "TODO" */
+    /* case "util": */
+    /*   throw "TODO" */
+    case "vm":
+      return make_vm_object(globalObject, objectPrototype, strict);
+    /* case "worker_threads": */
+    /*   throw "TODO" */
+    /* case "zlib": */
+    /*   throw "TODO" */
+    default:
+      return 'undefined;
+  }
+}
+
+function load_js_module(fpath) {
+  let file_content = with_open_in(fpath, "input_all");
+  let file_content_gen = extern parseJS(file_content);
+  let file_content_ast = {file_content_gen}();
+  push_globals();
+  /* Set the new `__filename` and `__dirname` as the required file */
+  |__dirname| := fpath_to_string(dirname(fpath));
+  |__filename| := fpath_to_string(fpath);
+  let result = NodeJSInitialization(file_content_ast, true);
+  /* TODO: handle `result` error  */
+  let global = |realm|["globalThis"];
+  let module = GetValue(newPropertyReference(global, "module", false));
+  let exports = OrdinaryGetOwnProperty(module, "exports");
+  pop_globals();
+  return exports.Value;
+}
+
+function load_as_file(fpath) {
+  /* 1. If X is a file, load X as its file extension format. STOP */
+  if (file_exists(fpath)) {
+    if (has_ext(fpath, ".js"))
+      return load_js_module(fpath);
+    throw "TODO: load '" + fpath_to_string(fpath) + "' as its file extension";
+  }
+
+  /* 2. If X.js is a file, */
+  let fpath' = set_ext(fpath, ".js");
+  if (file_exists(fpath')) {
+    return load_js_module(fpath');
+  }
+
+  /* 3. If X.json is a file, load X.json to a JavaScript Object. STOP */
+  let fpath' = set_ext(fpath, ".json");
+  if (file_exists(fpath')) {
+    /* throw "TODO: '" + fpath_to_string(fpath') + "' to a JavaScript Object"; */
+    return newLazyObject();
+  }
+
+  /* 4. If X.node is a file, load X.node as binary addon. STOP */
+  /* throw "TODO: load X.node as binary addon."; */
+  return newLazyObject();
+}
+
+function load_node_module(globalObject, objectPrototype, strict, x) {
+  /* function to load summaries */
+  switch (x) {
+    case "mz/child_process":
+      return make_child_process_object(globalObject, objectPrototype, strict);
+    case "cross-spawn":
+      return make_cross_spawn_object(globalObject, objectPrototype, strict);
+    case "esl_symbolic":
+      return make_esl_symbolic_object(globalObject, objectPrototype, strict);
+    case "execa":
+      return make_execa_object(globalObject, objectPrototype, strict);
+    case "shelljs":
+      return make_shelljs_object(globalObject, objectPrototype, strict);
+    case "im-metadata":
+      return make_im_metadata_object(globalObject, objectPrototype, strict);
+    case "gray-matter":
+      return make_cross_spawn_object(globalObject, objectPrototype, strict);
+    default:
+      return newLazyObject();
+  }
+}
+
+function __esl_node_require(globalObject, this, NewTarget, strict, params) {
+  let x = hd params;
+  let objectPrototype = |Intrinsics|["ObjectPrototype"];
+
+  /* 1. If X is a core module, */
+  /*   a. return the core module */
+  /*   b. STOP */
+  let obj = load_core_module(globalObject, objectPrototype, strict, x);
+  if (obj != 'undefined) {
+    return obj;
+  }
+
+  /* 2. If X begins with '/' */
+  /*    a. set Y to be the file system root */
+
+  /* 3. If X begins with './' or '/' or '../' */
+  if (s_is_prefix("/", x) || s_is_prefix("./", x) || s_is_prefix("../", x)) {
+    let y = fpath_of_string(|__dirname|);
+    let x = fpath_of_string(x);
+    let full_path = fpath_append(y, x);
+    /*    a. LOAD_AS_FILE(Y + X) */
+    return load_as_file(full_path);
+    /*    b. LOAD_AS_DIRECTORY(Y + X) */
+    /*    c. THROW "not found" */
+  }
+
+  /* 4. If X begins with '#' */
+  /*   a. LOAD_PACKAGE_IMPORTS(X, dirname(Y)) */
+
+  /* 5. LOAD_PACKAGE_SELF(X, dirname(Y)) */
+  /* 6. LOAD_NODE_MODULES(X, dirname(Y)) */
+  return load_node_module(globalObject, objectPrototype, strict, x);
+
+  /* 7. THROW "not found" */
+  throw ("package: '" + x + "' not found");
+}
+
+function makeNodeObject(global, realm, strict) {
+  let objProto = realm.intrinsics.ObjectPrototype;
+  createBuiltInProperty(global, "__dirname", |__dirname|);
+  createBuiltInProperty(global, "__filename", |__filename|);
+
+  let require = CreateBuiltInFunctionObject(["path"], "__esl_node_require", realm, strict, null);
+  createBuiltInProperty(global, "require", require);
+  createBuiltInProperty(require, "prototype", objProto);
+
+  let module = NewECMAScriptObject();
+  setAllInternalMethodsOfOrdinaryObject(module);
+  setInternalProperty(module, "Prototype", objProto);
+  createBuiltInProperty(global, "module", module);
+
+  let exports = NewECMAScriptObject();
+  setAllInternalMethodsOfOrdinaryObject(exports);
+  setInternalProperty(module, "Prototype", objProto);
+  createBuiltInProperty(module, "exports", exports);
+  createBuiltInProperty(global, "exports", exports);
+
+  let process = make_process_object(global, objProto, strict);
+  createBuiltInProperty(global, "process", process);
+
+  createBuiltInProperty(global, "global", global);
+  return;
+}
+
+function initNodeRealm(realm) {
+  /* If this implementation requires use of an exotic object to serve as realm’s global object, let global be such an object created in an implementation defined manner. Otherwise, let global be undefined indicating that an ordinary object should be created as the global object. */
+  let global = 'undefined;
+  /* Perform SetRealmGlobalObject(realm, global). */
+  SetRealmGlobalObject(realm, global);
+  /* Let globalObj be SetDefaultGlobalBindings(realm). */
+  let globalObj = SetDefaultGlobalBindings(realm);
+  /* ReturnIfAbrupt(globalObj). */
+  @ReturnIfAbrupt(globalObj);
+  /* Create any implementation defined global object properties on globalObj. */
+  makeNodeObject(globalObj, realm, false);
+  /* Return NormalCompletion(undefined). */
+  return NormalCompletion('undefined);
+}
+
+function nodeInitAndRun(sourceText, partial) {
+  /* Let realm be CreateRealm(). */
+  realm := 'undefined;
+  /* If partial execution is not enabled, create instrinsics */
+  if (!partial) {
+    realm := CreateRealm();
+    |realm| := realm;
+  /* Otherwise, reuse exisiting global instrinsics */
+  } else {
+    realm := |realm|;
+  }
+  /* Let newContext be a new execution context. */
+  let newContext = createExecutionContext();
+  /* Set the Function of newContext to null. */
+  newContext.Function := 'null;
+  /* Set the Realm of newContext to realm. */
+  newContext.Realm := realm;
+  /* Push newContext onto the execution context stack; newContext is now the running execution context. */
+  pushExecStack(newContext);
+  /* Let status be initNodeRealm(realm). */
+  let status = initNodeRealm(realm);
+  /* If _status_ is an abrupt completion, then */
+  if (isAnAbruptCompletion(status)) {
+    /* Assert: The first realm could not be created. */
+    assert (realm == null);
+    /* Terminate ECMAScript execution. */
+    /* FIXME: should have the same return type as below */
+    return;
+  }
+  /* In an implementation dependent manner, obtain the ECMAScript source texts (see clause 10) for zero or more ECMAScript scripts and/or ECMAScript modules. For each such sourceText do, */
+  /* If sourceText is the source code of a script, then */
+  /* Perform EnqueueJob("ScriptJobs", ScriptEvaluationJob, « sourceText »). */
+  /* EnqueueJob("ScriptJobs", "ScriptEvaluationJob", [ sourceText ]); */
+  /* Else sourceText is the source code of a module, */
+  /* Perform EnqueueJob("ScriptJobs", TopLevelModuleEvaluationJob, « sourceText »). */
+  /* TODO: */
+  EnqueueJob("ScriptJobs", "TopLevelModuleEvaluationJob", [ sourceText ]);
+  /* NextJob NormalCompletion(undefined). */
+  let result = NextJob(NormalCompletion('undefined));
+  return result;
+}

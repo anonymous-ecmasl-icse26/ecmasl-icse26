@@ -1,0 +1,19 @@
+opam-version: "2.0"
+lib: [
+  "_build/install/default/lib/prelude/META"
+  "_build/install/default/lib/prelude/dune-package"
+  "_build/install/default/lib/prelude/opam"
+  "_build/install/default/lib/prelude/prelude.a"
+  "_build/install/default/lib/prelude/prelude.cma"
+  "_build/install/default/lib/prelude/prelude.cmi"
+  "_build/install/default/lib/prelude/prelude.cmt"
+  "_build/install/default/lib/prelude/prelude.cmx"
+  "_build/install/default/lib/prelude/prelude.cmxa"
+  "_build/install/default/lib/prelude/prelude.ml"
+]
+doc: [
+  "_build/install/default/doc/prelude/CHANGES.md"
+  "_build/install/default/doc/prelude/LICENSE.md"
+  "_build/install/default/doc/prelude/README.md"
+]
+libexec: "_build/install/default/lib/prelude/prelude.cmxs"

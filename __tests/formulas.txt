@@ -1,0 +1,7 @@
+(real.eq (real.sub x1 0.) 0.) ==>> (real.eq 0.)
+(real.ne (real.sub x1 0.) 0.) ==>> (real.ne 0.)
+(real.ne (real.sub x2 x1) 0.) ==>> (real.ne x2 x1)
+
+
+(bool.and blah true)  ==> blah
+(bool.or  blah false) ==> blah

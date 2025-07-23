@@ -1,0 +1,22 @@
+train "Shinkansen" {
+	model "E5" {
+		max-speed 320km/h
+		weight 453.5t
+
+		lines-served "Tōhoku" "Hokkaido"
+	}
+
+	model "E7" {
+		max-speed 275km/h
+		weight 540t
+
+		lines-served "Hokuriku" "Jōetsu"
+	}
+
+	escapetests "A random line" abracket\{line anotherbracket\}line aquote\"line anesc\\line asq\'line adq\"line 'asinglequote"{} \line' 'asinglequote"justewithadq' "dq\"and'sq"
+	emptytests "" ''
+	"an escaped name" a b c
+	namewithoutparam
+	p unesc\nnewline unesc\rcr unesc\ttab
+	q "new line \n" "cr \r" "tab \t"
+}

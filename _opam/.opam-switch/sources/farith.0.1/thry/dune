@@ -1,0 +1,5 @@
+(coq.theory
+ (name Farith)
+ (synopsis "Manipulation of float with arbitrary precision extracted from the Flocq library")
+; (theories Flocq)
+)

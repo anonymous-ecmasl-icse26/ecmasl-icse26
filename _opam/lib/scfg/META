@@ -1,0 +1,7 @@
+description = ""
+requires = "bos fmt fpath menhirLib prelude sedlex"
+archive(byte) = "scfg.cma"
+archive(native) = "scfg.cmxa"
+plugin(byte) = "scfg.cma"
+plugin(native) = "scfg.cmxs"
+version = "v1.3.0-115-g1a0e6f4"

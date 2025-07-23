@@ -1,0 +1,237 @@
+/* Copyright (C) 2022-2025 formalsec programmers
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+import "lazy_object.esl";
+import "polluted_object.esl";
+
+/* function __esl_symbolic_index(globalObject, this, NewTarget, strict, params) {
+  return float_to_int(extern flt_symbol(hd params));
+} */
+
+function __esl_symbolic_index(globalObject, this, NewTarget, strict, params) {
+  idx := extern flt_symbol(hd params);
+  return extern idx_symbol(idx);
+}
+
+function __esl_symbolic_number(globalObject, this, NewTarget, strict, params) {
+  return extern flt_symbol(hd params);
+}
+
+function __esl_symbolic_boolean(globalObject, this, NewTarget, strict, params) {
+  return extern bool_symbol(hd params);
+}
+
+function __esl_symbolic_string(globalObject, this, NewTarget, strict, params) {
+  let symb_string = extern str_symbol(hd params);
+  /* Bound string to help Z3 */
+  /* extern assume(s_len(symb_string) < 65536); */
+  return symb_string;
+}
+
+function __esl_symbolic_assume(globalObject, this, NewTarget, strict, params) {
+  extern assume(hd params);
+  return 0;
+}
+
+function __esl_symbolic_assert(globalObject, this, NewTarget, strict, params) {
+  assert (hd params);
+  return 0;
+}
+
+function __esl_symbolic_is_symbolic(globalObject, this, NewTarget, strict, params) {
+  return extern is_symbolic(hd params);
+}
+
+function __esl_symbolic_lazy_object(globalObject, this, NewTarget, strict, params) {
+  return newLazyObject();
+}
+
+function __esl_symbolic_polluted_object(globalObject, this, NewTarget, strict, params) {
+  depth := 0;
+  if (l_len(params) > 0)
+    depth := hd params;
+  return newPollutedObject(depth);
+}
+
+function __esl_symbolic_all_diff(globalObject, this, NewTarget, strict, params) {
+  len := l_len(params);
+  expr := true;
+  i := 0;
+  while(i < len) {
+    v := l_nth(params, i);
+    v := unwrap_idx(v);
+    j := i + 1;
+    while(j < len) {
+      k := l_nth(params, j);
+      k := unwrap_idx(k);
+      expr := expr && (v != k);
+      j := j + 1;
+    }
+    i := i + 1; 
+  }
+  return expr;
+}
+
+function unwrap_idx(v){
+  if (extern is_idx_symbol(v)){
+    return extern  get_idx(v);
+  }
+  return v;
+}
+
+function __esl_symbolic_eq(globalObject, this, NewTarget, strict, params) {
+  return unwrap_idx(l_nth(params, 0)) == unwrap_idx(l_nth(params, 1));
+}
+
+function __esl_symbolic_neq(globalObject, this, NewTarget, strict, params) {
+  return unwrap_idx(l_nth(params, 0)) != unwrap_idx(l_nth(params, 1));
+}
+
+function __esl_symbolic_gt(globalObject, this, NewTarget, strict, params) {
+  return unwrap_idx(l_nth(params, 0)) > unwrap_idx(l_nth(params, 1));
+}
+
+function __esl_symbolic_ge(globalObject, this, NewTarget, strict, params) {
+  return unwrap_idx(l_nth(params, 0)) >= unwrap_idx(l_nth(params, 1));
+}
+
+function __esl_symbolic_lt(globalObject, this, NewTarget, strict, params) {
+  return unwrap_idx(l_nth(params, 0)) < unwrap_idx(l_nth(params, 1));
+}
+
+function __esl_symbolic_le(globalObject, this, NewTarget, strict, params) {
+  return unwrap_idx(l_nth(params, 0)) <= unwrap_idx(l_nth(params, 1));
+}
+
+function __esl_symbolic_and(globalObject, this, NewTarget, strict, params) {
+  return l_nth(params, 0) && l_nth(params, 1);
+}
+
+function __esl_symbolic_or(globalObject, this, NewTarget, strict, params) {
+  return l_nth(params, 0) || l_nth(params, 1);
+}
+
+function __esl_symbolic_not(globalObject, this, NewTarget, strict, params) {
+  return !(l_nth(params, 0));
+}
+
+function __esl_symbolic_plus(globalObject, this, NewTarget, strict, params) {
+  return unwrap_idx(l_nth(params, 0)) + unwrap_idx(l_nth(params, 1));
+}
+
+function __esl_symbolic_sub(globalObject, this, NewTarget, strict, params) {
+  return unwrap_idx(l_nth(params, 0)) - unwrap_idx(l_nth(params, 1));
+}
+
+
+function make_esl_symbolic_object(globalObject, objectPrototype, strict) {
+  let realm = { globalEnv : globalObject };
+  let esl_symbolic = NewECMAScriptObject();
+  setAllInternalMethodsOfOrdinaryObject(esl_symbolic);
+  setInternalProperty(esl_symbolic, "Prototype", objectPrototype);
+
+  let apiSymbolicIndex = CreateBuiltInFunctionObject([], "__esl_symbolic_index", realm, strict, null);
+  createBuiltInProperty(apiSymbolicIndex, "prototype", objectPrototype);
+  createBuiltInProperty(esl_symbolic, "index", apiSymbolicIndex);
+
+  let apiSymbolicNumber = CreateBuiltInFunctionObject([], "__esl_symbolic_number", realm, strict, null);
+  createBuiltInProperty(apiSymbolicNumber, "prototype", objectPrototype);
+  createBuiltInProperty(esl_symbolic, "number", apiSymbolicNumber);
+
+  let apiSymbolicString = CreateBuiltInFunctionObject([], "__esl_symbolic_string", realm, strict, null);
+  createBuiltInProperty(apiSymbolicString, "prototype", objectPrototype);
+  createBuiltInProperty(esl_symbolic, "string", apiSymbolicString);
+  createBuiltInProperty(esl_symbolic, "any", apiSymbolicString);
+
+  let apiSymbolicBoolean = CreateBuiltInFunctionObject([], "__esl_symbolic_boolean", realm, strict, null);
+  createBuiltInProperty(apiSymbolicBoolean, "prototype", objectPrototype);
+  createBuiltInProperty(esl_symbolic, "boolean", apiSymbolicBoolean);
+
+  let apiSymbolicAssume = CreateBuiltInFunctionObject([], "__esl_symbolic_assume", realm, strict, null);
+  createBuiltInProperty(apiSymbolicAssume, "prototype", objectPrototype);
+  createBuiltInProperty(esl_symbolic, "assume", apiSymbolicAssume);
+
+  let apiSymbolicAssert = CreateBuiltInFunctionObject([], "__esl_symbolic_assert", realm, strict, null);
+  createBuiltInProperty(apiSymbolicAssert, "prototype", objectPrototype);
+  createBuiltInProperty(esl_symbolic, "assert", apiSymbolicAssert);
+
+  let apiIsSymbolic = CreateBuiltInFunctionObject([], "__esl_symbolic_is_symbolic", realm, strict, null);
+  createBuiltInProperty(apiIsSymbolic, "prototype", objectPrototype);
+  createBuiltInProperty(esl_symbolic, "is_symbolic", apiIsSymbolic);
+
+  let apiLazyObject = CreateBuiltInFunctionObject([], "__esl_symbolic_lazy_object", realm, strict, null);
+  createBuiltInProperty(apiLazyObject, "prototype", objectPrototype);
+  createBuiltInProperty(esl_symbolic, "lazy_object", apiLazyObject);
+  createBuiltInProperty(esl_symbolic, "function", apiLazyObject);
+
+  let apiPollutedObject = CreateBuiltInFunctionObject([], "__esl_symbolic_polluted_object", realm, strict, null);
+  createBuiltInProperty(apiPollutedObject, "pototoype", objectPrototype);
+  createBuiltInProperty(esl_symbolic, "polluted_object", apiPollutedObject);
+
+  let apiSealProp = CreateBuiltInFunctionObject([], "__esl_symbolic_seal_properties", realm, strict, null);
+  createBuiltInProperty(apiSealProp, "prototype", objectPrototype);
+  createBuiltInProperty(esl_symbolic, "sealProperties", apiSealProp);
+  
+  let allDiff = CreateBuiltInFunctionObject([], "__esl_symbolic_all_diff", realm, strict, null);
+  createBuiltInProperty(allDiff, "prototype", objectPrototype);
+  createBuiltInProperty(esl_symbolic, "all_diff", allDiff);
+
+  let apiEq = CreateBuiltInFunctionObject([], "__esl_symbolic_eq", realm, strict, null);
+  createBuiltInProperty(apiEq, "prototype", objectPrototype);
+  createBuiltInProperty(esl_symbolic, "eq", apiEq);
+
+  let apiNeq = CreateBuiltInFunctionObject([], "__esl_symbolic_neq", realm, strict, null);
+  createBuiltInProperty(apiNeq, "prototype", objectPrototype);
+  createBuiltInProperty(esl_symbolic, "neq", apiNeq);
+
+  let apiGt = CreateBuiltInFunctionObject([], "__esl_symbolic_gt", realm, strict, null);
+  createBuiltInProperty(apiGt, "prototype", objectPrototype);
+  createBuiltInProperty(esl_symbolic, "gt", apiGt);
+
+  let apiGe = CreateBuiltInFunctionObject([], "__esl_symbolic_ge", realm, strict, null);
+  createBuiltInProperty(apiGe, "prototype", objectPrototype);
+  createBuiltInProperty(esl_symbolic, "ge", apiGe);
+
+  let apiLt = CreateBuiltInFunctionObject([], "__esl_symbolic_lt", realm, strict, null);
+  createBuiltInProperty(apiLt, "prototype", objectPrototype);
+  createBuiltInProperty(esl_symbolic, "lt", apiLt);
+
+  let apiLe = CreateBuiltInFunctionObject([], "__esl_symbolic_le", realm, strict, null);
+  createBuiltInProperty(apiLe, "prototype", objectPrototype);
+  createBuiltInProperty(esl_symbolic, "le", apiLe);
+
+  let apiAnd = CreateBuiltInFunctionObject([], "__esl_symbolic_and", realm, strict, null);
+  createBuiltInProperty(apiAnd, "prototype", objectPrototype);
+  createBuiltInProperty(esl_symbolic, "and", apiAnd);
+
+  let apiOr = CreateBuiltInFunctionObject([], "__esl_symbolic_or", realm, strict, null);
+  createBuiltInProperty(apiOr, "prototype", objectPrototype);
+  createBuiltInProperty(esl_symbolic, "or", apiOr);
+
+  let apiNot = CreateBuiltInFunctionObject([], "__esl_symbolic_not", realm, strict, null);
+  createBuiltInProperty(apiNot, "prototype", objectPrototype);
+  createBuiltInProperty(esl_symbolic, "not", apiNot);
+
+  let apiPlus = CreateBuiltInFunctionObject([], "__esl_symbolic_plus", realm, strict, null);
+  createBuiltInProperty(apiPlus, "prototype", objectPrototype);
+  createBuiltInProperty(esl_symbolic, "plus", apiPlus);
+
+  let apiSub = CreateBuiltInFunctionObject([], "__esl_symbolic_sub", realm, strict, null);
+  createBuiltInProperty(apiSub, "prototype", objectPrototype);
+  createBuiltInProperty(esl_symbolic, "sub", apiSub);
+
+  return esl_symbolic;
+}

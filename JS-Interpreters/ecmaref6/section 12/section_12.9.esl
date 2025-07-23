@@ -1,0 +1,51 @@
+/* Copyright (C) 2022-2025 formalsec programmers
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+/**
+ * 12.9.4 Runtime Semantics: InstanceofOperator (O, C)
+ *
+ * The abstract operation InstanceofOperator(O, C) implements the generic
+ * algorithm for determining if an object O inherits from the inheritance path
+ * defined by constructor C. This abstract operation performs the following
+ * steps:
+ */
+function InstanceofOperator(O, C) {
+  /* 1. If Type(C) is not Object, */
+  if (Type(C) != "Object")
+    /* throw a TypeError exception */
+    throw TypeErrorConstructorInternal();
+  /* 2. Let instOfHandler be GetMethod(C,@@hasInstance). */
+  instOfHandler := GetMethod(C, getHasInstancePropertyName());
+  /* 3. ReturnIfAbrupt(instOfHandler). */
+  @ReturnIfAbrupt(instOfHandler);
+  /* 4. If instOfHandler is not undefined, then */
+  if (instOfHandler != 'undefined) {
+    /* a. Return ToBoolean(Call(instOfHandler, C, «O»)). */
+    return ToBoolean(Call(null, null, instOfHandler, C, [O]));
+  }
+  /* 5. If IsCallable(C) is false, */
+  if (IsCallable(C) == false)
+    /* throw a TypeError exception */
+    throw TypeErrorConstructorInternal();
+  /* 6. Return OrdinaryHasInstance(C, O). */
+  return OrdinaryHasInstance(C, O);
+}
+/**
+ * NOTE Steps 5 and 6 provide compatibility with previous editions of ECMAScript
+ * that did not use a @@hasInstance method to define the instanceof operator
+ * semantics. If a function object does not define or inherit @@hasInstance it
+ * uses the default instanceof semantics.
+ */

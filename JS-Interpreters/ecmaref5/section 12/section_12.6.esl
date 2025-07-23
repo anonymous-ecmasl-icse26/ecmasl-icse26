@@ -1,0 +1,64 @@
+/* Copyright (C) 2022-2025 formalsec programmers
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+/* Auxiliary functions used to deal with enumerable properties of an ES5 object */
+/* Used in the implementation of the for..in statement */
+
+/* Enumerating the properties of an object includes enumerating properties of its prototype, and the prototype of
+   the prototype, and so on, recursively; but a property of a prototype is not enumerated if it is "shadowed"
+   because some previous object in the prototype chain has a property with the same name. The values of
+   [[Enumerable]] attributes are not considered when determining if a property of a prototype object is shadowed
+   by a previous object on the prototype chain. */
+function getEnumerableProperties(object) {
+  props := getEnumerablePropertiesRecursive(object, [], []);
+  return hd props;
+}
+
+function getEnumerablePropertiesRecursive(object, enumProps, checkedProps) {
+  if (object == 'null)
+    return [enumProps, checkedProps];
+
+  if ("JSProperties" in_obj object) {
+    namedPropertiesObj := object.JSProperties;
+    list := l_sort (obj_fields namedPropertiesObj);
+    llist := l_len(list);
+    i := 0;
+    while (llist > i) {
+      p_name := l_nth(list, i);
+      p_value := namedPropertiesObj[p_name];
+      if (isPropertyDescriptor(p_value)) {
+        if ((p_value.Enumerable == true) &&& !(in_list(p_name,checkedProps)))
+          enumProps := l_add(enumProps, p_name);
+        checkedProps := l_add(checkedProps, p_name);
+      }
+      i := i + 1;
+    }
+  }
+  if ("Prototype" in_obj object) {
+    props := getEnumerablePropertiesRecursive(object.Prototype, enumProps, checkedProps);
+    enumProps := hd props;
+    checkedProps := l_nth(props, 1);
+  }
+
+  return [enumProps, checkedProps];
+}
+
+function getNextPropertyName(props, idx) {
+  if ((l_len(props)) <= idx)
+    return "None";
+
+  return l_nth(props, idx);
+}

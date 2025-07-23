@@ -1,0 +1,22 @@
+opam-version: "2.0"
+added: [
+  "doc/curses" {"D"}
+  "doc/curses/CHANGES.md" {"F:S1957T1752667639.15"}
+  "doc/curses/README.md" {"F:S1300T1752667639.15"}
+  "lib/curses" {"D"}
+  "lib/curses/META" {"F:S181T1752667639.14"}
+  "lib/curses/curses.a" {"F:S210260T1752667639.15"}
+  "lib/curses/curses.cma" {"F:S49344T1752667639.15"}
+  "lib/curses/curses.cmi" {"F:S16285T1752667639.15"}
+  "lib/curses/curses.cmt" {"F:S83161T1752667639.15"}
+  "lib/curses/curses.cmti" {"F:S90260T1752667639.15"}
+  "lib/curses/curses.cmx" {"F:S29650T1752667639.15"}
+  "lib/curses/curses.cmxa" {"F:S559T1752667639.15"}
+  "lib/curses/curses.cmxs" {"F:S483896T1752667639.15"}
+  "lib/curses/curses.ml" {"F:S35856T1752667639.15"}
+  "lib/curses/curses.mli" {"F:S21846T1752667639.15"}
+  "lib/curses/dune-package" {"F:S933T1752667639.15"}
+  "lib/curses/libcurses_stubs.a" {"F:S511030T1752667639.15"}
+  "lib/curses/opam" {"F:S788T1752667639.15"}
+  "lib/stublibs/dllcurses_stubs.so" {"F:S312232T1752667639.15"}
+]

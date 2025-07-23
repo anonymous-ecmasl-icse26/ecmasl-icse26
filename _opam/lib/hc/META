@@ -1,0 +1,6 @@
+description = ""
+requires = "threads"
+archive(byte) = "hc.cma"
+archive(native) = "hc.cmxa"
+plugin(byte) = "hc.cma"
+plugin(native) = "hc.cmxs"

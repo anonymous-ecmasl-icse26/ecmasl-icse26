@@ -1,0 +1,33 @@
+(lang dune 3.19)
+(name hc)
+(sections (lib .) (libexec .) (doc ../../doc/hc))
+(files
+ (lib
+  (META
+   dune-package
+   hc.a
+   hc.cma
+   hc.cmi
+   hc.cmt
+   hc.cmti
+   hc.cmx
+   hc.cmxa
+   hc.ml
+   hc.mli
+   opam))
+ (libexec (hc.cmxs))
+ (doc (CHANGES.md LICENSE.md README.md)))
+(library
+ (name hc)
+ (kind normal)
+ (archives (byte hc.cma) (native hc.cmxa))
+ (plugins (byte hc.cma) (native hc.cmxs))
+ (native_archives hc.a)
+ (requires threads)
+ (main_module_name Hc)
+ (modes byte native)
+ (modules
+  (singleton
+   (obj_name hc)
+   (visibility public)
+   (source (path Hc) (intf (path hc.mli)) (impl (path hc.ml))))))

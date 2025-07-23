@@ -1,0 +1,139 @@
+opam-version: "2.0"
+added: [
+  "doc/ppx_inline_test" {"D"}
+  "doc/ppx_inline_test/CHANGES.md" {"F:S2467T1752667674.54"}
+  "doc/ppx_inline_test/LICENSE.md" {"F:S1126T1752667674.54"}
+  "doc/ppx_inline_test/README.md" {"F:S7950T1752667674.54"}
+  "lib/ppx_inline_test" {"D"}
+  "lib/ppx_inline_test/META" {"F:S2993T1752667674.5"}
+  "lib/ppx_inline_test/config" {"D"}
+  "lib/ppx_inline_test/config/inline_test_config.a" {"F:S4214T1752667674.5"}
+  "lib/ppx_inline_test/config/inline_test_config.cma"
+    {"F:S1383T1752667674.5"}
+  "lib/ppx_inline_test/config/inline_test_config.cmi" {"F:S381T1752667674.5"}
+  "lib/ppx_inline_test/config/inline_test_config.cmt"
+    {"F:S1731T1752667674.5"}
+  "lib/ppx_inline_test/config/inline_test_config.cmti"
+    {"F:S2281T1752667674.5"}
+  "lib/ppx_inline_test/config/inline_test_config.cmx" {"F:S254T1752667674.5"}
+  "lib/ppx_inline_test/config/inline_test_config.cmxa"
+    {"F:S188T1752667674.5"}
+  "lib/ppx_inline_test/config/inline_test_config.cmxs"
+    {"F:S17376T1752667674.5"}
+  "lib/ppx_inline_test/config/inline_test_config.ml" {"F:S87T1752667674.5"}
+  "lib/ppx_inline_test/config/inline_test_config.mli" {"F:S416T1752667674.5"}
+  "lib/ppx_inline_test/drop" {"D"}
+  "lib/ppx_inline_test/drop/ppx.exe" {"F:S25989176T1752667674.52"}
+  "lib/ppx_inline_test/drop/ppx_inline_test_drop.a" {"F:S3802T1752667674.5"}
+  "lib/ppx_inline_test/drop/ppx_inline_test_drop.cma"
+    {"F:S4657T1752667674.5"}
+  "lib/ppx_inline_test/drop/ppx_inline_test_drop.cmi"
+    {"F:S3595T1752667674.5"}
+  "lib/ppx_inline_test/drop/ppx_inline_test_drop.cmt"
+    {"F:S7958T1752667674.5"}
+  "lib/ppx_inline_test/drop/ppx_inline_test_drop.cmx"
+    {"F:S3604T1752667674.5"}
+  "lib/ppx_inline_test/drop/ppx_inline_test_drop.cmxa"
+    {"F:S3610T1752667674.5"}
+  "lib/ppx_inline_test/drop/ppx_inline_test_drop.cmxs"
+    {"F:S20552T1752667674.52"}
+  "lib/ppx_inline_test/drop/ppx_inline_test_drop.ml" {"F:S53T1752667674.5"}
+  "lib/ppx_inline_test/dune-package" {"F:S7865T1752667674.5"}
+  "lib/ppx_inline_test/libname" {"D"}
+  "lib/ppx_inline_test/libname/ppx_inline_test_libname.a"
+    {"F:S8754T1752667674.5"}
+  "lib/ppx_inline_test/libname/ppx_inline_test_libname.cma"
+    {"F:S6647T1752667674.5"}
+  "lib/ppx_inline_test/libname/ppx_inline_test_libname.cmi"
+    {"F:S354T1752667674.5"}
+  "lib/ppx_inline_test/libname/ppx_inline_test_libname.cmt"
+    {"F:S8490T1752667674.5"}
+  "lib/ppx_inline_test/libname/ppx_inline_test_libname.cmti"
+    {"F:S2157T1752667674.5"}
+  "lib/ppx_inline_test/libname/ppx_inline_test_libname.cmx"
+    {"F:S4080T1752667674.5"}
+  "lib/ppx_inline_test/libname/ppx_inline_test_libname.cmxa"
+    {"F:S3831T1752667674.5"}
+  "lib/ppx_inline_test/libname/ppx_inline_test_libname.cmxs"
+    {"F:S23424T1752667674.52"}
+  "lib/ppx_inline_test/libname/ppx_inline_test_libname.ml"
+    {"F:S838T1752667674.5"}
+  "lib/ppx_inline_test/libname/ppx_inline_test_libname.mli"
+    {"F:S205T1752667674.5"}
+  "lib/ppx_inline_test/opam" {"F:S807T1752667674.5"}
+  "lib/ppx_inline_test/ppx.exe" {"F:S25988120T1752667674.54"}
+  "lib/ppx_inline_test/ppx_inline_test.a" {"F:S57242T1752667674.5"}
+  "lib/ppx_inline_test/ppx_inline_test.cma" {"F:S32196T1752667674.5"}
+  "lib/ppx_inline_test/ppx_inline_test.cmi" {"F:S4082T1752667674.5"}
+  "lib/ppx_inline_test/ppx_inline_test.cmt" {"F:S58815T1752667674.5"}
+  "lib/ppx_inline_test/ppx_inline_test.cmti" {"F:S10051T1752667674.5"}
+  "lib/ppx_inline_test/ppx_inline_test.cmx" {"F:S10480T1752667674.5"}
+  "lib/ppx_inline_test/ppx_inline_test.cmxa" {"F:S8116T1752667674.5"}
+  "lib/ppx_inline_test/ppx_inline_test.cmxs" {"F:S81408T1752667674.54"}
+  "lib/ppx_inline_test/ppx_inline_test.ml" {"F:S9231T1752667674.5"}
+  "lib/ppx_inline_test/ppx_inline_test.mli" {"F:S648T1752667674.5"}
+  "lib/ppx_inline_test/runner" {"D"}
+  "lib/ppx_inline_test/runner/lib" {"D"}
+  "lib/ppx_inline_test/runner/lib/libppx_inline_test_runner_lib_stubs.a"
+    {"F:S3896T1752667674.5"}
+  "lib/ppx_inline_test/runner/lib/ppx_inline_test_runner_lib.a"
+    {"F:S2344T1752667674.5"}
+  "lib/ppx_inline_test/runner/lib/ppx_inline_test_runner_lib.cma"
+    {"F:S1164T1752667674.5"}
+  "lib/ppx_inline_test/runner/lib/ppx_inline_test_runner_lib.cmi"
+    {"F:S152T1752667674.5"}
+  "lib/ppx_inline_test/runner/lib/ppx_inline_test_runner_lib.cmt"
+    {"F:S1312T1752667674.5"}
+  "lib/ppx_inline_test/runner/lib/ppx_inline_test_runner_lib.cmx"
+    {"F:S118T1752667674.5"}
+  "lib/ppx_inline_test/runner/lib/ppx_inline_test_runner_lib.cmxa"
+    {"F:S161T1752667674.5"}
+  "lib/ppx_inline_test/runner/lib/ppx_inline_test_runner_lib.cmxs"
+    {"F:S16320T1752667674.54"}
+  "lib/ppx_inline_test/runner/lib/ppx_inline_test_runner_lib.ml"
+    {"F:S24T1752667674.5"}
+  "lib/ppx_inline_test/runner/lib/runtime.js" {"F:S77T1752667674.5"}
+  "lib/ppx_inline_test/runner/ppx_inline_test_runner.a"
+    {"F:S3996T1752667674.5"}
+  "lib/ppx_inline_test/runner/ppx_inline_test_runner.cma"
+    {"F:S1430T1752667674.5"}
+  "lib/ppx_inline_test/runner/ppx_inline_test_runner.cmi"
+    {"F:S216T1752667674.5"}
+  "lib/ppx_inline_test/runner/ppx_inline_test_runner.cmt"
+    {"F:S1823T1752667674.5"}
+  "lib/ppx_inline_test/runner/ppx_inline_test_runner.cmti"
+    {"F:S1687T1752667674.5"}
+  "lib/ppx_inline_test/runner/ppx_inline_test_runner.cmx"
+    {"F:S375T1752667674.5"}
+  "lib/ppx_inline_test/runner/ppx_inline_test_runner.cmxa"
+    {"F:S381T1752667674.5"}
+  "lib/ppx_inline_test/runner/ppx_inline_test_runner.cmxs"
+    {"F:S17568T1752667674.54"}
+  "lib/ppx_inline_test/runner/ppx_inline_test_runner.ml"
+    {"F:S37T1752667674.5"}
+  "lib/ppx_inline_test/runner/ppx_inline_test_runner.mli"
+    {"F:S45T1752667674.5"}
+  "lib/ppx_inline_test/runtime-lib" {"D"}
+  "lib/ppx_inline_test/runtime-lib/ppx_inline_test_lib.a"
+    {"F:S181452T1752667674.5"}
+  "lib/ppx_inline_test/runtime-lib/ppx_inline_test_lib.cma"
+    {"F:S59150T1752667674.5"}
+  "lib/ppx_inline_test/runtime-lib/ppx_inline_test_lib.cmi"
+    {"F:S1654T1752667674.5"}
+  "lib/ppx_inline_test/runtime-lib/ppx_inline_test_lib.cmt"
+    {"F:S111106T1752667674.5"}
+  "lib/ppx_inline_test/runtime-lib/ppx_inline_test_lib.cmti"
+    {"F:S8290T1752667674.5"}
+  "lib/ppx_inline_test/runtime-lib/ppx_inline_test_lib.cmx"
+    {"F:S11365T1752667674.5"}
+  "lib/ppx_inline_test/runtime-lib/ppx_inline_test_lib.cmxa"
+    {"F:S5635T1752667674.5"}
+  "lib/ppx_inline_test/runtime-lib/ppx_inline_test_lib.cmxs"
+    {"F:S158704T1752667674.54"}
+  "lib/ppx_inline_test/runtime-lib/ppx_inline_test_lib.ml"
+    {"F:S26717T1752667674.5"}
+  "lib/ppx_inline_test/runtime-lib/ppx_inline_test_lib.mli"
+    {"F:S2328T1752667674.5"}
+  "lib/stublibs/dllppx_inline_test_runner_lib_stubs.so"
+    {"F:S16352T1752667674.54"}
+]

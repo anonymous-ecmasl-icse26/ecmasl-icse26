@@ -1,0 +1,118 @@
+type token =
+    WHILE
+  | TYPEOF
+  | TIMES
+  | TILDE
+  | SYMBOL of string
+  | SWITCH
+  | STRING_TO_INT
+  | STRING_TO_FLOAT
+  | STRING of string
+  | SHIFT_RIGHT_LOGICAL
+  | SHIFT_RIGHT
+  | SHIFT_LEFT
+  | SEMICOLON
+  | RPAREN
+  | RETURN
+  | RBRACK
+  | RBRACE
+  | QUESTION
+  | PRINT
+  | POW
+  | PLUS
+  | PIPE
+  | OBJECT_TO_LIST
+  | OBJECT_MEM
+  | OBJECT_FIELDS
+  | NULL
+  | NE
+  | MODULO
+  | MINUS
+  | LT
+  | LPAREN
+  | LOR
+  | LIST_TAIL
+  | LIST_HEAD
+  | LE
+  | LBRACK
+  | LBRACE
+  | LAND
+  | INT_TO_STRING
+  | INT_TO_FLOAT
+  | INT of int
+  | IF
+  | ID of string
+  | HASH
+  | GT
+  | GE
+  | FUNCTION
+  | FLOAT_TO_STRING
+  | FLOAT_TO_INT
+  | FLOAT of float
+  | FAIL
+  | EXTERN
+  | EXCLAMATION
+  | EQ
+  | EOF
+  | ELSE
+  | DIVIDE
+  | DELETE
+  | DEFEQ
+  | DEFAULT
+  | COMMA
+  | COLON
+  | CASE
+  | CARET
+  | BOOLEAN of bool
+  | ATSIGN
+  | ASSERT
+  | AMPERSAND
+val menhir_begin_marker : int
+val xv_var_expr_target : EslSyntax.Expr.t
+val xv_val_target : EslSyntax.Value.t
+val xv_val_expr_target : EslSyntax.Expr.t
+val xv_update_stmt_target : EslSyntax.Stmt.t
+val xv_unopt_target : EslSyntax.Operator.unopt
+val xv_switch_dflt_target : EslSyntax.Stmt.t
+val xv_switch_case_target : EslSyntax.Expr.t * EslSyntax.Stmt.t
+val xv_stmt_target : EslSyntax.Stmt.t
+val xv_separated_nonempty_list_SEMICOLON_stmt_target_ : EslSyntax.Stmt.t list
+val xv_separated_nonempty_list_SEMICOLON_func_target_ : EslSyntax.Func.t list
+val xv_separated_nonempty_list_COMMA_id_target_ : EslSyntax.Id.t list
+val xv_separated_nonempty_list_COMMA_expr_target_ : EslSyntax.Expr.t list
+val xv_separated_list_SEMICOLON_stmt_target_ : EslSyntax.Stmt.t list
+val xv_separated_list_SEMICOLON_func_target_ : EslSyntax.Func.t list
+val xv_separated_list_COMMA_id_target_ : EslSyntax.Id.t list
+val xv_separated_list_COMMA_expr_target_ : EslSyntax.Expr.t list
+val xv_selection_stmt_target : EslSyntax.Stmt.t
+val xv_prog_target : EslSyntax.Prog.t
+val xv_option_switch_dflt_target_ : EslSyntax.Stmt.t option
+val xv_option_expr_target_ : EslSyntax.Expr.t option
+val xv_op_expr_target : EslSyntax.Expr.t
+val xv_loption_separated_nonempty_list_SEMICOLON_stmt_target__ :
+  EslSyntax.Stmt.t list
+val xv_loption_separated_nonempty_list_SEMICOLON_func_target__ :
+  EslSyntax.Func.t list
+val xv_loption_separated_nonempty_list_COMMA_id_target__ :
+  EslSyntax.Id.t list
+val xv_loption_separated_nonempty_list_COMMA_expr_target__ :
+  EslSyntax.Expr.t list
+val xv_lookup_target : EslSyntax.Expr.t
+val xv_list_switch_case_target_ : (EslSyntax.Expr.t * EslSyntax.Stmt.t) list
+val xv_iteration_stmt_target : EslSyntax.Stmt.t
+val xv_id_target : EslSyntax.Id.t
+val xv_guard_target : EslSyntax.Expr.t
+val xv_func_target : EslSyntax.Func.t
+val xv_func_param_target : EslSyntax.Id.t list
+val xv_expr_target : EslSyntax.Expr.t
+val xv_exec_stmt_target : EslSyntax.Stmt.t
+val xv_entry_stmt_target : EslSyntax.Stmt.t
+val xv_entry_prog_target : EslSyntax.Prog.t
+val xv_entry_func_target : EslSyntax.Func.t
+val xv_entry_expr_target : EslSyntax.Expr.t
+val xv_curry_expr_target : EslSyntax.Expr.t
+val xv_call_args_target : EslSyntax.Expr.t list
+val xv_block_stmt_target : EslSyntax.Stmt.t
+val xv_binopt_target : EslSyntax.Operator.binopt
+val xv_aux_stmt_target : EslSyntax.Stmt.t
+val menhir_end_marker : int

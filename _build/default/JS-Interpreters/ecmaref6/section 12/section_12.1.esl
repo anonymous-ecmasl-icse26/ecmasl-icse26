@@ -1,0 +1,37 @@
+/* Copyright (C) 2022-2025 formalsec programmers
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+/* 12.1.5.1 Runtime Semantics: InitializeBoundName(name, value, environment) */
+function InitializeBoundName(name, value, environment, scope) {
+  /* 1. Assert: Type(name) is String. */
+  assert (Type(name) == "String");
+  /* 2. If environment is not undefined, then */
+  if (environment != 'undefined) {
+    /* a. Let env be the EnvironmentRecord component of environment. */
+    env := getEnvironmentRecord(environment);
+    /* b. Perform env.InitializeBinding(name, value). */
+    {env.InitializeBinding}(env, name, value);
+    /* c. Return NormalCompletion(undefined). */
+    return NormalCompletion('undefined);
+  }
+  /* 3. Else */
+  else {
+    /* a. Let lhs be ResolveBinding(name). */
+    lhs := ResolveBinding(scope, name, null);
+    /* b. Return PutValue(lhs, value). */
+    return PutValue(lhs, value);
+  }
+}

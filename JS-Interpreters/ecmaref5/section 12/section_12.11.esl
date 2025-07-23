@@ -1,0 +1,47 @@
+/* Copyright (C) 2022-2025 formalsec programmers
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+/* Auxiliary functions used to deal with the switch statement and its case clauses */
+function getNextCaseClause(caseClauseItems, idx) {
+  if ((l_len(caseClauseItems)) <= idx)
+    return "None";
+
+  return l_nth(caseClauseItems, idx);
+}
+
+function hasStatementList(caseClause) {
+  if (caseClause == null)
+    return false;
+  
+  match caseClause with
+  /* | { type: "SwitchCase", consequent: [] } -> return false; */
+  | { type: "SwitchCase", consequent: StatementList } -> return (l_len(StatementList)) > 0;
+  | default -> throw SyntaxErrorConstructorInternal();
+}
+
+function getCaseClauseStatementList(caseClause) {
+  match caseClause with
+  | { type: "SwitchCase", consequent: StatementList } -> return StatementList;
+  | default -> throw SyntaxErrorConstructorInternal();
+}
+
+function equalToAsDefinedByStrictEqualityComparison(firstValue, secondValue) {
+  return StrictEqualityComparison(firstValue, secondValue);
+}
+
+function allElementsHaveNotBeenProcessed(clauses, idx) {
+  return l_len(clauses) > idx;
+}

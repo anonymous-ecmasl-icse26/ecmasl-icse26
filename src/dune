@@ -1,0 +1,43 @@
+(include_subdirs unqualified)
+
+(library
+ (public_name ecma-sl)
+ (name ecma_sl)
+ (modules ecma_sl site share)
+ (wrapped false)
+ (flags
+  (:standard -open Prelude))
+ (libraries eslBase eslSyntax eslSemantics eslJSParser dune-site smtml)
+ (instrumentation
+  (backend bisect_ppx)))
+
+(library
+ (public_name ecma-sl.symbolic)
+ (name ecma_sl_symbolic)
+ (modules
+  choice_monad
+  memory_intf
+  object_intf
+  optimizer
+  solver
+  symbolic
+  symbolic_error
+  symbolic_esl_ffi
+  symbolic_engine
+  symbolic_memory
+  symbolic_object_logging
+  symbolic_object_loglift
+  symbolic_object_lifting
+  symbolic_object_default
+  symbolic_report
+  symbolic_value
+  symbolic_utils)
+ (flags
+  (:standard -open Smtml_prelude))
+ (libraries ecma-sl)
+ (instrumentation
+  (backend bisect_ppx)))
+
+(generate_sites_module
+ (module site)
+ (sites ecma-sl))

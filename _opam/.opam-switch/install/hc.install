@@ -1,0 +1,21 @@
+opam-version: "2.0"
+lib: [
+  "_build/install/default/lib/hc/META"
+  "_build/install/default/lib/hc/dune-package"
+  "_build/install/default/lib/hc/hc.a"
+  "_build/install/default/lib/hc/hc.cma"
+  "_build/install/default/lib/hc/hc.cmi"
+  "_build/install/default/lib/hc/hc.cmt"
+  "_build/install/default/lib/hc/hc.cmti"
+  "_build/install/default/lib/hc/hc.cmx"
+  "_build/install/default/lib/hc/hc.cmxa"
+  "_build/install/default/lib/hc/hc.ml"
+  "_build/install/default/lib/hc/hc.mli"
+  "_build/install/default/lib/hc/opam"
+]
+doc: [
+  "_build/install/default/doc/hc/CHANGES.md"
+  "_build/install/default/doc/hc/LICENSE.md"
+  "_build/install/default/doc/hc/README.md"
+]
+libexec: "_build/install/default/lib/hc/hc.cmxs"
